@@ -1,0 +1,25 @@
+ERC report (2026-10-12T17:31:03, Encoding UTF8)
+Report includes: Errors, Warnings
+
+***** Sheet /
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(342.90 mm, 165.10 mm): Global Label 'PACK_POS'
+
+***** Sheet /01_Cell_Module_Row1/
+
+***** Sheet /02_Cell_Module_Row2/
+
+***** Sheet /03_BMS_Interface_and_Thermal/
+
+***** Sheet /04_Power_Path_and_Protection/
+
+***** Sheet /05_Mechanical_and_Hardware/
+
+ ** ERC messages: 1  Errors 0  Warnings 1
+
+ ** Ignored checks:
+    - Global label only appears once in the schematic
+    - Four connection points are joined together
+    - SPICE model issue
+    - Assigned footprint doesn't match footprint filters

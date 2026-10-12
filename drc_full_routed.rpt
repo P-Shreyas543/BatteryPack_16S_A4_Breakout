@@ -1,0 +1,2155 @@
+** Drc report for BatteryPack_16S_A4_Breakout.kicad_pcb **
+** Created on 2026-10-12T17:58:51 **
+** Report includes: Errors, Warnings **
+
+** Found 470 DRC violations **
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(16.0000 mm, 56.4000 mm): Track [CELL_1] on F.Cu, length 35.8102 mm
+    @(26.4375 mm, 56.4000 mm): Track [Net-(LED_REV_2-A)] on F.Cu, length 3.1101 mm
+[shorting_items]: Items shorting two nets (nets Net-(D_REV_1-A) and CELL_1)
+    Local override; error
+    @(26.5500 mm, 31.0500 mm): Pad 2 [Net-(D_REV_1-A)] of D_REV_1 on F.Cu
+    @(24.4500 mm, 31.0500 mm): Track [CELL_1] on F.Cu, length 5.0000 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(26.4375 mm, 33.5500 mm): Track [Net-(LED_REV_1-A)] on F.Cu, length 3.1101 mm
+    @(36.8900 mm, 33.5500 mm): Track [CELL_1] on F.Cu, length 20.8900 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(26.5500 mm, 31.0500 mm): Track [Net-(D_REV_1-A)] on F.Cu, length 3.1938 mm
+    @(36.8900 mm, 33.5500 mm): Track [CELL_1] on F.Cu, length 20.8900 mm
+[shorting_items]: Items shorting two nets (nets CELL_1 and Net-(D_REV_2-A))
+    Local override; error
+    @(16.0000 mm, 56.4000 mm): Track [CELL_1] on F.Cu, length 35.8102 mm
+    @(26.5500 mm, 53.9000 mm): Track [Net-(D_REV_2-A)] on F.Cu, length 3.1938 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(26.4375 mm, 79.2500 mm): Track [Net-(LED_REV_3-A)] on F.Cu, length 3.1101 mm
+    @(36.8900 mm, 79.2500 mm): Track [CELL_3] on F.Cu, length 20.8900 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(26.4375 mm, 102.1000 mm): Track [Net-(LED_REV_4-A)] on F.Cu, length 3.1101 mm
+    @(16.0000 mm, 102.1000 mm): Track [CELL_3] on F.Cu, length 35.8102 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(26.4375 mm, 147.8000 mm): Track [Net-(LED_REV_6-A)] on F.Cu, length 3.1101 mm
+    @(16.0000 mm, 147.8000 mm): Track [CELL_5] on F.Cu, length 35.8102 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(272.4375 mm, 170.6500 mm): Track [Net-(LED_REV_10-A)] on F.Cu, length 3.1101 mm
+    @(272.4125 mm, 173.1500 mm): Track [CELL_9] on F.Cu, length 5.0000 mm
+[shorting_items]: Items shorting two nets (nets Net-(LED_HV1-K) and Net-(LED_HV1-A))
+    Local override; error
+    @(119.4375 mm, 12.0000 mm): Pad 3 [Net-(LED_HV1-K)] of Q_HV1 on F.Cu
+    @(119.4375 mm, 7.5000 mm): Track [Net-(LED_HV1-A)] on F.Cu, length 4.5000 mm
+[shorting_items]: Items shorting two nets (nets CELL_12 and CELL_14)
+    Local override; error
+    @(140.5375 mm, 167.6000 mm): Pad 1 [CELL_12] of F_PTC13 on F.Cu
+    @(140.5375 mm, 162.8000 mm): Track [CELL_14] on F.Cu, length 14.4000 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(138.5375 mm, 124.9500 mm): Track [CELL_5] on B.Cu, length 9.0500 mm
+    @(138.5375 mm, 79.2500 mm): Track [CELL_14] on B.Cu, length 97.9500 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(24.4500 mm, 76.7500 mm): Track [CELL_3] on F.Cu, length 5.0000 mm
+    @(26.5500 mm, 76.7500 mm): Track [Net-(D_REV_3-A)] on F.Cu, length 3.1938 mm
+[shorting_items]: Items shorting two nets (nets CELL_9 and Net-(LED_REV_9-A))
+    Local override; error
+    @(260.1100 mm, 193.5000 mm): Track [CELL_9] on F.Cu, length 20.8900 mm
+    @(272.4375 mm, 193.5000 mm): Pad 2 [Net-(LED_REV_9-A)] of LED_REV_9 on F.Cu
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(138.5375 mm, 33.5500 mm): Track [GND] on B.Cu, length 76.4500 mm
+    @(36.8900 mm, 79.2500 mm): Track [CELL_3] on B.Cu, length 101.6475 mm
+[shorting_items]: Items shorting two nets (nets CELL_16_UNFUSED and GND)
+    Local override; error
+    @(183.7000 mm, 14.0000 mm): PTH pad 1 [CELL_16_UNFUSED] of F1
+    @(68.0500 mm, 13.5000 mm): Track [GND] on B.Cu, length 170.5500 mm
+[shorting_items]: Items shorting two nets (nets GND and PACK_POS)
+    Local override; error
+    @(238.6000 mm, 11.0000 mm): Pad 1 [GND] of D_TVS_MAIN1 on F.Cu
+    @(219.0500 mm, 13.5000 mm): Track [PACK_POS] on F.Cu, length 26.4683 mm
+[shorting_items]: Items shorting two nets (nets CELL_16_UNFUSED and /03_BMS_Interface_and_Thermal/BMS_V6)
+    Local override; error
+    @(172.0000 mm, 33.5500 mm): Track [CELL_16_UNFUSED] on B.Cu, length 33.4625 mm
+    @(148.5000 mm, 33.2400 mm): PTH pad 7 [/03_BMS_Interface_and_Thermal/BMS_V6] of J1
+[shorting_items]: Items shorting two nets (nets CELL_8 and CELL_16_UNFUSED)
+    Local override; error
+    @(138.5375 mm, 148.4000 mm): Via [CELL_8] on F.Cu - B.Cu
+    @(138.5375 mm, 33.5500 mm): Track [CELL_16_UNFUSED] on B.Cu, length 153.2500 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(138.5375 mm, 33.5500 mm): Track [GND] on B.Cu, length 76.4500 mm
+    @(138.5375 mm, 33.5500 mm): Track [CELL_16_UNFUSED] on B.Cu, length 153.2500 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(138.5375 mm, 33.5500 mm): Track [CELL_16_UNFUSED] on B.Cu, length 153.2500 mm
+    @(125.0000 mm, 33.5500 mm): Track [GND] on B.Cu, length 13.5375 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(219.0500 mm, 13.5000 mm): Track [PACK_POS] on B.Cu, length 26.4683 mm
+    @(238.6000 mm, 13.5000 mm): Track [GND] on B.Cu, length 2.5000 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(219.0500 mm, 13.5000 mm): Track [PACK_POS] on F.Cu, length 26.4683 mm
+    @(238.6000 mm, 13.5000 mm): Track [GND] on F.Cu, length 2.5000 mm
+[shorting_items]: Items shorting two nets (nets Net-(D_ZENER_HV1-K) and GND)
+    Local override; error
+    @(115.0000 mm, 12.9125 mm): Pad 1 [Net-(D_ZENER_HV1-K)] of R_HV_BASE1 on F.Cu
+    @(68.0500 mm, 13.5000 mm): Track [GND] on F.Cu, length 170.5500 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(138.5375 mm, 33.5500 mm): Track [CELL_16_UNFUSED] on B.Cu, length 153.2500 mm
+    @(138.5375 mm, 193.5000 mm): Track [CELL_8] on B.Cu, length 45.1000 mm
+[shorting_items]: Items shorting two nets (nets Net-(D_ZENER_HV1-K) and GND)
+    Local override; error
+    @(115.0000 mm, 12.9125 mm): Pad 1 [Net-(D_ZENER_HV1-K)] of R_HV_BASE1 on F.Cu
+    @(125.0000 mm, 13.5000 mm): Track [GND] on F.Cu, length 56.9500 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(138.5375 mm, 56.4000 mm): Track [CELL_15] on B.Cu, length 125.6000 mm
+    @(138.5375 mm, 33.5500 mm): Track [CELL_16_UNFUSED] on B.Cu, length 153.2500 mm
+[shorting_items]: Items shorting two nets (nets CELL_15 and /03_BMS_Interface_and_Thermal/BMS_V15)
+    Local override; error
+    @(260.1100 mm, 56.4000 mm): Track [CELL_15] on B.Cu, length 121.5725 mm
+    @(148.5000 mm, 56.1000 mm): PTH pad 16 [/03_BMS_Interface_and_Thermal/BMS_V15] of J1
+[shorting_items]: Items shorting two nets (nets Net-(D_REV_16-A) and CELL_15)
+    Local override; error
+    @(270.5625 mm, 33.5500 mm): Pad 1 [Net-(D_REV_16-A)] of LED_REV_16 on F.Cu
+    @(281.0000 mm, 33.5500 mm): Track [CELL_15] on F.Cu, length 35.8102 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(138.5375 mm, 33.5500 mm): Track [GND] on B.Cu, length 76.4500 mm
+    @(260.1100 mm, 102.1000 mm): Track [CELL_13] on B.Cu, length 121.5725 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(138.5375 mm, 33.5500 mm): Track [GND] on B.Cu, length 76.4500 mm
+    @(138.5375 mm, 102.1000 mm): Track [CELL_13] on B.Cu, length 70.3000 mm
+[shorting_items]: Items shorting two nets (nets Net-(LED_REV_15-A) and CELL_15)
+    Local override; error
+    @(272.4375 mm, 56.4000 mm): Pad 2 [Net-(LED_REV_15-A)] of LED_REV_15 on F.Cu
+    @(260.1100 mm, 56.4000 mm): Track [CELL_15] on F.Cu, length 20.8900 mm
+[shorting_items]: Items shorting two nets (nets CELL_13 and Net-(D_REV_13-A))
+    Local override; error
+    @(260.1100 mm, 102.1000 mm): Track [CELL_13] on F.Cu, length 20.8900 mm
+    @(270.5625 mm, 102.1000 mm): Pad 1 [Net-(D_REV_13-A)] of LED_REV_13 on F.Cu
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(138.5375 mm, 147.8000 mm): Track [CELL_11] on B.Cu, length 15.0000 mm
+    @(138.5375 mm, 33.5500 mm): Track [CELL_16_UNFUSED] on B.Cu, length 153.2500 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(260.1100 mm, 147.8000 mm): Track [CELL_11] on B.Cu, length 121.5725 mm
+    @(138.5375 mm, 33.5500 mm): Track [CELL_16_UNFUSED] on B.Cu, length 153.2500 mm
+[shorting_items]: Items shorting two nets (nets Net-(D_REV_14-A) and CELL_13)
+    Local override; error
+    @(270.5625 mm, 79.2500 mm): Pad 1 [Net-(D_REV_14-A)] of LED_REV_14 on F.Cu
+    @(281.0000 mm, 79.2500 mm): Track [CELL_13] on F.Cu, length 35.8102 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(138.5375 mm, 193.5000 mm): Track [CELL_9] on B.Cu, length 40.3000 mm
+    @(138.5375 mm, 33.5500 mm): Track [CELL_16_UNFUSED] on B.Cu, length 153.2500 mm
+[shorting_items]: Items shorting two nets (nets CELL_11 and Net-(D_REV_11-A))
+    Local override; error
+    @(260.1100 mm, 147.8000 mm): Track [CELL_11] on F.Cu, length 20.8900 mm
+    @(270.5625 mm, 147.8000 mm): Pad 1 [Net-(D_REV_11-A)] of LED_REV_11 on F.Cu
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(260.1100 mm, 193.5000 mm): Track [CELL_9] on B.Cu, length 121.5725 mm
+    @(172.0000 mm, 193.5000 mm): Track [CELL_8] on B.Cu, length 30.8248 mm
+[shorting_items]: Items shorting two nets (nets Net-(D_REV_12-A) and CELL_11)
+    Local override; error
+    @(270.5625 mm, 124.9500 mm): Pad 1 [Net-(D_REV_12-A)] of LED_REV_12 on F.Cu
+    @(281.0000 mm, 124.9500 mm): Track [CELL_11] on F.Cu, length 35.8102 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(138.5375 mm, 33.5500 mm): Track [GND] on B.Cu, length 76.4500 mm
+    @(138.5375 mm, 79.2500 mm): Track [CELL_14] on B.Cu, length 97.9500 mm
+[shorting_items]: Items shorting two nets (nets Net-(LED_REV_10-A) and CELL_9)
+    Local override; error
+    @(272.4375 mm, 170.6500 mm): Pad 2 [Net-(LED_REV_10-A)] of LED_REV_10 on F.Cu
+    @(281.0000 mm, 170.6500 mm): Track [CELL_9] on F.Cu, length 35.8102 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(187.8900 mm, 79.2500 mm): Track [CELL_14] on B.Cu, length 49.3525 mm
+    @(138.5375 mm, 33.5500 mm): Track [GND] on B.Cu, length 76.4500 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(260.1100 mm, 56.4000 mm): Track [CELL_15] on B.Cu, length 121.5725 mm
+    @(172.0000 mm, 56.4000 mm): Track [CELL_14] on B.Cu, length 30.8248 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(260.1100 mm, 56.4000 mm): Track [CELL_15] on B.Cu, length 121.5725 mm
+    @(172.0000 mm, 79.2500 mm): Track [CELL_14] on B.Cu, length 22.8500 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(138.5375 mm, 124.9500 mm): Track [CELL_12] on B.Cu, length 42.6500 mm
+    @(109.1100 mm, 147.8000 mm): Track [CELL_6] on B.Cu, length 29.4275 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(187.8900 mm, 124.9500 mm): Track [CELL_12] on B.Cu, length 49.3525 mm
+    @(138.5375 mm, 79.2500 mm): Track [CELL_14] on B.Cu, length 97.9500 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(260.1100 mm, 102.1000 mm): Track [CELL_13] on B.Cu, length 121.5725 mm
+    @(172.0000 mm, 102.1000 mm): Track [CELL_12] on B.Cu, length 30.8248 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(260.1100 mm, 102.1000 mm): Track [CELL_13] on B.Cu, length 121.5725 mm
+    @(172.0000 mm, 124.9500 mm): Track [CELL_12] on B.Cu, length 22.8500 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(138.5375 mm, 170.6500 mm): Track [CELL_10] on B.Cu, length 12.6500 mm
+    @(138.5375 mm, 33.5500 mm): Track [CELL_16_UNFUSED] on B.Cu, length 153.2500 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(187.8900 mm, 170.6500 mm): Track [CELL_10] on B.Cu, length 49.3525 mm
+    @(138.5375 mm, 33.5500 mm): Track [CELL_16_UNFUSED] on B.Cu, length 153.2500 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(260.1100 mm, 147.8000 mm): Track [CELL_11] on B.Cu, length 121.5725 mm
+    @(172.0000 mm, 147.8000 mm): Track [CELL_10] on B.Cu, length 30.8248 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(172.0000 mm, 170.6500 mm): Track [CELL_10] on B.Cu, length 22.8500 mm
+    @(260.1100 mm, 147.8000 mm): Track [CELL_11] on B.Cu, length 121.5725 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(138.5375 mm, 147.8000 mm): Track [CELL_6] on B.Cu, length 9.0000 mm
+    @(138.5375 mm, 33.5500 mm): Track [CELL_16_UNFUSED] on B.Cu, length 153.2500 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(138.5375 mm, 33.5500 mm): Track [CELL_16_UNFUSED] on B.Cu, length 153.2500 mm
+    @(109.1100 mm, 147.8000 mm): Track [CELL_6] on B.Cu, length 29.4275 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(36.8900 mm, 170.6500 mm): Track [CELL_7] on B.Cu, length 101.6475 mm
+    @(125.0000 mm, 147.8000 mm): Track [CELL_6] on B.Cu, length 22.8500 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(138.5375 mm, 33.5500 mm): Track [GND] on B.Cu, length 76.4500 mm
+    @(138.5375 mm, 102.1000 mm): Track [CELL_4] on B.Cu, length 27.1000 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(138.5375 mm, 33.5500 mm): Track [GND] on B.Cu, length 76.4500 mm
+    @(109.1100 mm, 102.1000 mm): Track [CELL_4] on B.Cu, length 29.4275 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(109.1100 mm, 102.1000 mm): Track [CELL_4] on B.Cu, length 29.4275 mm
+    @(138.5375 mm, 56.4000 mm): Track [CELL_2] on B.Cu, length 63.2000 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(138.5375 mm, 33.5500 mm): Track [GND] on B.Cu, length 76.4500 mm
+    @(109.1100 mm, 56.4000 mm): Track [CELL_2] on B.Cu, length 29.4275 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(138.5375 mm, 170.6500 mm): Track [CELL_7] on B.Cu, length 27.0500 mm
+    @(109.1100 mm, 147.8000 mm): Track [CELL_6] on B.Cu, length 29.4275 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(36.8900 mm, 170.6500 mm): Track [CELL_7] on B.Cu, length 101.6475 mm
+    @(138.5375 mm, 79.2500 mm): Track [CELL_14] on B.Cu, length 97.9500 mm
+[shorting_items]: Items shorting two nets (nets Net-(D_REV_7-A) and CELL_7)
+    Local override; error
+    @(24.5625 mm, 170.6500 mm): Pad 1 [Net-(D_REV_7-A)] of LED_REV_7 on F.Cu
+    @(36.8900 mm, 170.6500 mm): Track [CELL_7] on F.Cu, length 20.8900 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(138.5375 mm, 79.2500 mm): Track [CELL_14] on B.Cu, length 97.9500 mm
+    @(36.8900 mm, 124.9500 mm): Track [CELL_5] on B.Cu, length 101.6475 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(109.1100 mm, 102.1000 mm): Track [CELL_4] on B.Cu, length 29.4275 mm
+    @(138.5375 mm, 79.2500 mm): Track [CELL_3] on B.Cu, length 45.1500 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1671 mm)
+    Local override; error
+    @(24.5875 mm, 150.3000 mm): Pad 1 [Net-(LED_REV_6-A)] of R_REV_6 on F.Cu
+    @(16.0000 mm, 147.8000 mm): Track [CELL_5] on F.Cu, length 35.8102 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.0750 mm)
+    Local override; error
+    @(138.5375 mm, 124.4000 mm): Via [CELL_3] on F.Cu - B.Cu
+    @(36.8900 mm, 124.9500 mm): Track [CELL_5] on B.Cu, length 101.6475 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1671 mm)
+    Local override; error
+    @(16.0000 mm, 193.5000 mm): Track [CELL_7] on F.Cu, length 35.8102 mm
+    @(24.5875 mm, 196.0000 mm): Pad 1 [Net-(LED_REV_8-A)] of R_REV_8 on F.Cu
+[shorting_items]: Items shorting two nets (nets CELL_5 and Net-(LED_REV_5-A))
+    Local override; error
+    @(36.8900 mm, 124.9500 mm): Track [CELL_5] on F.Cu, length 20.8900 mm
+    @(26.4375 mm, 124.9500 mm): Pad 2 [Net-(LED_REV_5-A)] of LED_REV_5 on F.Cu
+[shorting_items]: Items shorting two nets (nets Net-(D_REV_4-A) and CELL_3)
+    Local override; error
+    @(24.5625 mm, 102.1000 mm): Pad 1 [Net-(D_REV_4-A)] of LED_REV_4 on F.Cu
+    @(16.0000 mm, 102.1000 mm): Track [CELL_3] on F.Cu, length 35.8102 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(138.5375 mm, 33.5500 mm): Track [CELL_1] on B.Cu, length 81.2500 mm
+    @(125.0000 mm, 33.5500 mm): Track [GND] on B.Cu, length 13.5375 mm
+[shorting_items]: Items shorting two nets (nets Net-(LED_REV_3-A) and CELL_3)
+    Local override; error
+    @(26.4375 mm, 79.2500 mm): Pad 2 [Net-(LED_REV_3-A)] of LED_REV_3 on F.Cu
+    @(36.8900 mm, 79.2500 mm): Track [CELL_3] on F.Cu, length 20.8900 mm
+[shorting_items]: Items shorting two nets (nets CELL_1 and GND)
+    Local override; error
+    @(36.8900 mm, 33.5500 mm): Track [CELL_1] on B.Cu, length 101.6475 mm
+    @(109.1100 mm, 33.5500 mm): PTH pad 2 [GND] of BT1
+[shorting_items]: Items shorting two nets (nets CELL_1 and CELL_14)
+    Local override; error
+    @(138.5375 mm, 114.8000 mm): Via [CELL_1] on F.Cu - B.Cu
+    @(138.5375 mm, 79.2500 mm): Track [CELL_14] on B.Cu, length 97.9500 mm
+[shorting_items]: Items shorting two nets (nets CELL_1 and Net-(LED_REV_2-A))
+    Local override; error
+    @(16.0000 mm, 56.4000 mm): Track [CELL_1] on F.Cu, length 35.8102 mm
+    @(26.4375 mm, 56.4000 mm): Pad 2 [Net-(LED_REV_2-A)] of LED_REV_2 on F.Cu
+[shorting_items]: Items shorting two nets (nets Net-(D_REV_1-A) and CELL_1)
+    Local override; error
+    @(24.5625 mm, 33.5500 mm): Pad 1 [Net-(D_REV_1-A)] of LED_REV_1 on F.Cu
+    @(36.8900 mm, 33.5500 mm): Track [CELL_1] on F.Cu, length 20.8900 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(138.5375 mm, 148.4000 mm): Track [CELL_8] on F.Cu, length 2.0000 mm
+    @(140.5375 mm, 143.6000 mm): Track [CELL_10] on F.Cu, length 14.4000 mm
+[shorting_items]: Items shorting two nets (nets CELL_14 and CELL_11)
+    Local override; error
+    @(148.5000 mm, 162.8000 mm): Track [CELL_14] on F.Cu, length 7.9625 mm
+    @(140.5375 mm, 162.8000 mm): Pad 1 [CELL_11] of F_PTC12 on F.Cu
+[shorting_items]: Items shorting two nets (nets CELL_7 and PACK_POS)
+    Local override; error
+    @(148.5000 mm, 124.4000 mm): PTH pad 1 [CELL_7] of TP_7S1
+    @(148.5000 mm, 189.2000 mm): Track [PACK_POS] on In2.Cu, length 169.2000 mm
+[shorting_items]: Items shorting two nets (nets PACK_POS and /03_BMS_Interface_and_Thermal/BMS_V1)
+    Local override; error
+    @(148.5000 mm, 20.0000 mm): Track [PACK_POS] on In2.Cu, length 57.8000 mm
+    @(148.5000 mm, 20.5400 mm): PTH pad 2 [/03_BMS_Interface_and_Thermal/BMS_V1] of J1
+[shorting_items]: Items shorting two nets (nets CELL_7 and CELL_10)
+    Local override; error
+    @(140.5375 mm, 143.6000 mm): Pad 1 [CELL_7] of F_PTC8 on F.Cu
+    @(148.5000 mm, 143.6000 mm): Track [CELL_10] on F.Cu, length 7.9625 mm
+[shorting_items]: Items shorting two nets (nets CELL_7 and CELL_3)
+    Local override; error
+    @(140.5375 mm, 124.4000 mm): Track [CELL_7] on F.Cu, length 19.2000 mm
+    @(140.5375 mm, 124.4000 mm): Pad 1 [CELL_3] of F_PTC4 on F.Cu
+[shorting_items]: Items shorting two nets (nets CELL_7 and CELL_3)
+    Local override; error
+    @(148.5000 mm, 124.4000 mm): Track [CELL_7] on F.Cu, length 7.9625 mm
+    @(140.5375 mm, 124.4000 mm): Pad 1 [CELL_3] of F_PTC4 on F.Cu
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(151.0800 mm, 58.6400 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V16] on In2.Cu, length 2.5800 mm
+    @(150.7000 mm, 182.0000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V15] on In2.Cu, length 125.9000 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(148.5000 mm, 189.2000 mm): Track [PACK_POS] on In2.Cu, length 169.2000 mm
+    @(144.6625 mm, 186.8000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V16] on In2.Cu, length 6.4175 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1300 mm)
+    Local override; error
+    @(151.0800 mm, 186.8000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V16] on In2.Cu, length 128.1600 mm
+    @(150.7000 mm, 182.0000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V15] on In2.Cu, length 125.9000 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(150.7000 mm, 56.1000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V15] on In2.Cu, length 2.2000 mm
+    @(150.3200 mm, 177.2000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V14] on In2.Cu, length 123.6400 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(149.9400 mm, 172.4000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V13] on In2.Cu, length 121.3800 mm
+    @(150.3200 mm, 53.5600 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V14] on In2.Cu, length 1.8200 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1300 mm)
+    Local override; error
+    @(151.0800 mm, 186.8000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V16] on In2.Cu, length 128.1600 mm
+    @(144.6625 mm, 182.0000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V15] on In2.Cu, length 6.0375 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1300 mm)
+    Local override; error
+    @(144.6625 mm, 177.2000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V14] on In2.Cu, length 5.6575 mm
+    @(150.7000 mm, 182.0000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V15] on In2.Cu, length 125.9000 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(149.9400 mm, 51.0200 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V13] on In2.Cu, length 1.4400 mm
+    @(148.5000 mm, 189.2000 mm): Track [PACK_POS] on In2.Cu, length 169.2000 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1300 mm)
+    Local override; error
+    @(150.3200 mm, 177.2000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V14] on In2.Cu, length 123.6400 mm
+    @(150.7000 mm, 182.0000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V15] on In2.Cu, length 125.9000 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(148.5000 mm, 189.2000 mm): Track [PACK_POS] on In2.Cu, length 169.2000 mm
+    @(149.5600 mm, 48.4800 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V12] on In2.Cu, length 1.0600 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(149.9400 mm, 172.4000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V13] on In2.Cu, length 121.3800 mm
+    @(150.7000 mm, 56.1000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V15] on In2.Cu, length 2.2000 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1300 mm)
+    Local override; error
+    @(150.3200 mm, 177.2000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V14] on In2.Cu, length 123.6400 mm
+    @(144.6625 mm, 172.4000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V13] on In2.Cu, length 5.2775 mm
+[shorting_items]: Items shorting two nets (nets CELL_7 and /03_BMS_Interface_and_Thermal/BMS_V12)
+    Local override; error
+    @(148.5000 mm, 124.4000 mm): PTH pad 1 [CELL_7] of TP_7S1
+    @(149.5600 mm, 167.6000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V12] on In2.Cu, length 119.1200 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1300 mm)
+    Local override; error
+    @(149.9400 mm, 172.4000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V13] on In2.Cu, length 121.3800 mm
+    @(144.6625 mm, 167.6000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V12] on In2.Cu, length 4.8975 mm
+[shorting_items]: Items shorting two nets (nets /03_BMS_Interface_and_Thermal/BMS_V11 and /03_BMS_Interface_and_Thermal/BMS_V9)
+    Local override; error
+    @(149.1800 mm, 45.9400 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V11] on In2.Cu, length 0.6800 mm
+    @(148.4200 mm, 153.2000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V9] on In2.Cu, length 112.3400 mm
+[shorting_items]: Items shorting two nets (nets CELL_7 and /03_BMS_Interface_and_Thermal/BMS_V11)
+    Local override; error
+    @(148.5000 mm, 124.4000 mm): PTH pad 1 [CELL_7] of TP_7S1
+    @(149.1800 mm, 162.8000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V11] on In2.Cu, length 116.8600 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1043 mm)
+    Local override; error
+    @(148.5000 mm, 162.8000 mm): PTH pad 1 [CELL_14] of TP_14S1
+    @(143.4625 mm, 162.8000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V11] on F.Cu, length 9.8348 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(143.4625 mm, 162.8000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V11] on F.Cu, length 1.2000 mm
+    @(148.5000 mm, 162.8000 mm): Track [CELL_14] on F.Cu, length 7.9625 mm
+[shorting_items]: Items shorting two nets (nets CELL_14 and /03_BMS_Interface_and_Thermal/BMS_V11)
+    Local override; error
+    @(148.5000 mm, 162.8000 mm): PTH pad 1 [CELL_14] of TP_14S1
+    @(144.6625 mm, 162.8000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V11] on In2.Cu, length 4.5175 mm
+[shorting_items]: Items shorting two nets (nets /03_BMS_Interface_and_Thermal/BMS_V10 and /03_BMS_Interface_and_Thermal/BMS_V9)
+    Local override; error
+    @(148.8000 mm, 43.4000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V10] on In2.Cu, length 0.3000 mm
+    @(148.4200 mm, 153.2000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V9] on In2.Cu, length 112.3400 mm
+[shorting_items]: Items shorting two nets (nets CELL_7 and /03_BMS_Interface_and_Thermal/BMS_V10)
+    Local override; error
+    @(148.5000 mm, 124.4000 mm): PTH pad 1 [CELL_7] of TP_7S1
+    @(148.8000 mm, 158.0000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V10] on In2.Cu, length 114.6000 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(144.6625 mm, 158.0000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V10] on In2.Cu, length 4.1375 mm
+    @(148.5000 mm, 189.2000 mm): Track [PACK_POS] on In2.Cu, length 169.2000 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(148.5000 mm, 189.2000 mm): Track [PACK_POS] on In2.Cu, length 169.2000 mm
+    @(148.4200 mm, 40.8600 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V9] on In2.Cu, length 0.0800 mm
+[shorting_items]: Items shorting two nets (nets CELL_7 and /03_BMS_Interface_and_Thermal/BMS_V9)
+    Local override; error
+    @(148.5000 mm, 124.4000 mm): PTH pad 1 [CELL_7] of TP_7S1
+    @(148.4200 mm, 153.2000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V9] on In2.Cu, length 112.3400 mm
+[shorting_items]: Items shorting two nets (nets PACK_POS and /03_BMS_Interface_and_Thermal/BMS_V9)
+    Local override; error
+    @(148.5000 mm, 189.2000 mm): Track [PACK_POS] on In2.Cu, length 169.2000 mm
+    @(144.6625 mm, 153.2000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V9] on In2.Cu, length 3.7575 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(148.0400 mm, 38.3200 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V8] on In2.Cu, length 0.4600 mm
+    @(148.5000 mm, 189.2000 mm): Track [PACK_POS] on In2.Cu, length 169.2000 mm
+[shorting_items]: Items shorting two nets (nets CELL_7 and /03_BMS_Interface_and_Thermal/BMS_V8)
+    Local override; error
+    @(148.5000 mm, 124.4000 mm): PTH pad 1 [CELL_7] of TP_7S1
+    @(148.0400 mm, 148.4000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V8] on In2.Cu, length 110.0800 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(147.6600 mm, 35.7800 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V7] on In2.Cu, length 0.8400 mm
+    @(148.5000 mm, 189.2000 mm): Track [PACK_POS] on In2.Cu, length 169.2000 mm
+[shorting_items]: Items shorting two nets (nets CELL_7 and /03_BMS_Interface_and_Thermal/BMS_V7)
+    Local override; error
+    @(148.5000 mm, 124.4000 mm): PTH pad 1 [CELL_7] of TP_7S1
+    @(147.6600 mm, 143.6000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V7] on In2.Cu, length 107.8200 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1300 mm)
+    Local override; error
+    @(148.4200 mm, 153.2000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V9] on In2.Cu, length 112.3400 mm
+    @(144.6625 mm, 148.4000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V8] on In2.Cu, length 3.3775 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(143.4625 mm, 143.6000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V7] on F.Cu, length 1.2000 mm
+    @(148.5000 mm, 143.6000 mm): Track [CELL_10] on F.Cu, length 7.9625 mm
+[shorting_items]: Items shorting two nets (nets /03_BMS_Interface_and_Thermal/BMS_V7 and CELL_10)
+    Local override; error
+    @(144.6625 mm, 143.6000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V7] on In2.Cu, length 2.9975 mm
+    @(148.5000 mm, 143.6000 mm): PTH pad 1 [CELL_10] of TP_10S1
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1043 mm)
+    Local override; error
+    @(143.4625 mm, 143.6000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V7] on F.Cu, length 9.8348 mm
+    @(148.5000 mm, 143.6000 mm): PTH pad 1 [CELL_10] of TP_10S1
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1250 mm)
+    Local override; error
+    @(144.6625 mm, 148.4000 mm): Via [/03_BMS_Interface_and_Thermal/BMS_V8] on F.Cu - B.Cu
+    @(260.1100 mm, 147.8000 mm): Track [CELL_11] on B.Cu, length 121.5725 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(148.5000 mm, 189.2000 mm): Track [PACK_POS] on In2.Cu, length 169.2000 mm
+    @(147.2800 mm, 33.2400 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V6] on In2.Cu, length 1.2200 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(148.5000 mm, 189.2000 mm): Track [PACK_POS] on In2.Cu, length 169.2000 mm
+    @(146.9000 mm, 30.7000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V5] on In2.Cu, length 1.6000 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1300 mm)
+    Local override; error
+    @(144.6625 mm, 134.0000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V5] on In2.Cu, length 2.2375 mm
+    @(147.2800 mm, 138.8000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V6] on In2.Cu, length 105.5600 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1300 mm)
+    Local override; error
+    @(144.6625 mm, 138.8000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V6] on In2.Cu, length 2.6175 mm
+    @(147.6600 mm, 143.6000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V7] on In2.Cu, length 107.8200 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(148.5000 mm, 189.2000 mm): Track [PACK_POS] on In2.Cu, length 169.2000 mm
+    @(146.5200 mm, 28.1600 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V4] on In2.Cu, length 1.9800 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1300 mm)
+    Local override; error
+    @(144.6625 mm, 129.2000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V4] on In2.Cu, length 1.8575 mm
+    @(146.9000 mm, 134.0000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V5] on In2.Cu, length 103.3000 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(146.1400 mm, 25.6200 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V3] on In2.Cu, length 2.3600 mm
+    @(148.5000 mm, 189.2000 mm): Track [PACK_POS] on In2.Cu, length 169.2000 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1043 mm)
+    Local override; error
+    @(148.5000 mm, 124.4000 mm): PTH pad 1 [CELL_7] of TP_7S1
+    @(143.4625 mm, 124.4000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V3] on F.Cu, length 9.8348 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1300 mm)
+    Local override; error
+    @(146.9000 mm, 30.7000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V5] on In2.Cu, length 1.6000 mm
+    @(146.5200 mm, 129.2000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V4] on In2.Cu, length 101.0400 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(143.4625 mm, 124.4000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V3] on F.Cu, length 1.2000 mm
+    @(148.5000 mm, 124.4000 mm): Track [CELL_7] on F.Cu, length 7.9625 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(148.5000 mm, 189.2000 mm): Track [PACK_POS] on In2.Cu, length 169.2000 mm
+    @(145.7600 mm, 23.0800 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V2] on In2.Cu, length 2.7400 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.0750 mm)
+    Local override; error
+    @(187.8900 mm, 124.9500 mm): Track [CELL_12] on B.Cu, length 49.3525 mm
+    @(144.6625 mm, 124.4000 mm): Via [/03_BMS_Interface_and_Thermal/BMS_V3] on F.Cu - B.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1300 mm)
+    Local override; error
+    @(146.1400 mm, 124.4000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V3] on In2.Cu, length 98.7800 mm
+    @(144.6625 mm, 119.6000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V2] on In2.Cu, length 1.0975 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1300 mm)
+    Local override; error
+    @(144.6625 mm, 124.4000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V3] on In2.Cu, length 1.4775 mm
+    @(146.5200 mm, 129.2000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V4] on In2.Cu, length 101.0400 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(145.3800 mm, 20.5400 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V1] on In2.Cu, length 3.1200 mm
+    @(148.5000 mm, 189.2000 mm): Track [PACK_POS] on In2.Cu, length 169.2000 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1300 mm)
+    Local override; error
+    @(145.7600 mm, 119.6000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V2] on In2.Cu, length 96.5200 mm
+    @(144.6625 mm, 114.8000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V1] on In2.Cu, length 0.7175 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1300 mm)
+    Local override; error
+    @(145.7600 mm, 119.6000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V2] on In2.Cu, length 96.5200 mm
+    @(145.3800 mm, 114.8000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V1] on In2.Cu, length 94.2600 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(148.5000 mm, 44.9750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_8_B] on In1.Cu, length 17.4750 mm
+    @(148.5000 mm, 182.0750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_5_B] on In1.Cu, length 139.5750 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1300 mm)
+    Local override; error
+    @(145.0000 mm, 110.0000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V0] on In2.Cu, length 92.0000 mm
+    @(145.3800 mm, 114.8000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V1] on In2.Cu, length 94.2600 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(148.5000 mm, 182.0750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_5_B] on In1.Cu, length 139.5750 mm
+    @(164.3400 mm, 44.9750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_8_B] on In1.Cu, length 15.8400 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(148.5000 mm, 182.0750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_5_B] on In1.Cu, length 139.5750 mm
+    @(148.5000 mm, 44.9750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_8_A] on In1.Cu, length 14.9750 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(148.5000 mm, 182.0750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_5_B] on In1.Cu, length 139.5750 mm
+    @(161.8000 mm, 44.9750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_8_A] on In1.Cu, length 13.3000 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(148.5000 mm, 90.6750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_7_B] on In1.Cu, length 58.1750 mm
+    @(148.5000 mm, 182.0750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_4_B] on In1.Cu, length 134.5750 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(161.8000 mm, 90.6750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_7_A] on In1.Cu, length 13.3000 mm
+    @(148.5000 mm, 182.0750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_4_B] on In1.Cu, length 134.5750 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(148.5000 mm, 90.6750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_7_A] on In1.Cu, length 55.6750 mm
+    @(148.5000 mm, 182.0750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_4_B] on In1.Cu, length 134.5750 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(148.5000 mm, 136.3750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_6_B] on In1.Cu, length 98.8750 mm
+    @(148.5000 mm, 182.0750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_4_B] on In1.Cu, length 134.5750 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(164.3400 mm, 90.6750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_7_B] on In1.Cu, length 15.8400 mm
+    @(148.5000 mm, 182.0750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_4_B] on In1.Cu, length 134.5750 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(148.5000 mm, 136.3750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_6_A] on In1.Cu, length 96.3750 mm
+    @(148.5000 mm, 182.0750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_4_B] on In1.Cu, length 134.5750 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(164.3400 mm, 136.3750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_6_B] on In1.Cu, length 15.8400 mm
+    @(148.5000 mm, 182.0750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_4_B] on In1.Cu, length 134.5750 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(161.8000 mm, 136.3750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_6_A] on In1.Cu, length 13.3000 mm
+    @(148.5000 mm, 182.0750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_4_B] on In1.Cu, length 134.5750 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(148.5000 mm, 182.0750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_5_B] on In1.Cu, length 139.5750 mm
+    @(148.5000 mm, 182.0750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_4_B] on In1.Cu, length 134.5750 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(148.5000 mm, 182.0750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_4_B] on In1.Cu, length 134.5750 mm
+    @(164.3400 mm, 182.0750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_5_B] on In1.Cu, length 15.8400 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(148.5000 mm, 182.0750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_5_A] on In1.Cu, length 137.0750 mm
+    @(148.5000 mm, 182.0750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_4_B] on In1.Cu, length 134.5750 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(161.8000 mm, 182.0750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_5_A] on In1.Cu, length 13.3000 mm
+    @(148.5000 mm, 182.0750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_4_B] on In1.Cu, length 134.5750 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(137.7400 mm, 182.0750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_4_B] on In1.Cu, length 10.7600 mm
+    @(148.5000 mm, 182.0750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_5_B] on In1.Cu, length 139.5750 mm
+[shorting_items]: Items shorting two nets (nets CELL_7 and /03_BMS_Interface_and_Thermal/NTC_4_B)
+    Local override; error
+    @(148.5000 mm, 124.4000 mm): PTH pad 1 [CELL_7] of TP_7S1
+    @(148.5000 mm, 182.0750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_4_B] on In1.Cu, length 134.5750 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(148.5000 mm, 182.0750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_4_B] on In1.Cu, length 134.5750 mm
+    @(148.5000 mm, 182.0750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_4_A] on In1.Cu, length 132.0750 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(135.2000 mm, 182.0750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_4_A] on In1.Cu, length 13.3000 mm
+    @(148.5000 mm, 182.0750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_4_B] on In1.Cu, length 134.5750 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(148.5000 mm, 136.3750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_3_B] on In1.Cu, length 83.8750 mm
+    @(148.5000 mm, 182.0750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_4_B] on In1.Cu, length 134.5750 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(137.7400 mm, 136.3750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_3_B] on In1.Cu, length 10.7600 mm
+    @(148.5000 mm, 182.0750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_4_A] on In1.Cu, length 132.0750 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(135.2000 mm, 136.3750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_3_A] on In1.Cu, length 13.3000 mm
+    @(148.5000 mm, 182.0750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_4_A] on In1.Cu, length 132.0750 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(148.5000 mm, 136.3750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_3_A] on In1.Cu, length 81.3750 mm
+    @(148.5000 mm, 182.0750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_4_A] on In1.Cu, length 132.0750 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(148.5000 mm, 90.6750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_2_B] on In1.Cu, length 33.1750 mm
+    @(148.5000 mm, 182.0750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_4_A] on In1.Cu, length 132.0750 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(137.7400 mm, 90.6750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_2_B] on In1.Cu, length 10.7600 mm
+    @(148.5000 mm, 182.0750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_4_A] on In1.Cu, length 132.0750 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(148.5000 mm, 90.6750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_2_A] on In1.Cu, length 30.6750 mm
+    @(148.5000 mm, 182.0750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_4_A] on In1.Cu, length 132.0750 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(135.2000 mm, 90.6750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_2_A] on In1.Cu, length 13.3000 mm
+    @(148.5000 mm, 182.0750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_4_A] on In1.Cu, length 132.0750 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(148.5000 mm, 44.9750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_1_B] on In1.Cu, length 17.5250 mm
+    @(148.5000 mm, 182.0750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_4_A] on In1.Cu, length 132.0750 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(148.5000 mm, 182.0750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_5_B] on In1.Cu, length 139.5750 mm
+    @(137.7400 mm, 44.9750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_1_B] on In1.Cu, length 10.7600 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(148.5000 mm, 44.9750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_1_A] on In1.Cu, length 20.0250 mm
+    @(148.5000 mm, 182.0750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_4_A] on In1.Cu, length 132.0750 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(148.5000 mm, 182.0750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_5_B] on In1.Cu, length 139.5750 mm
+    @(135.2000 mm, 44.9750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_1_A] on In1.Cu, length 13.3000 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(68.0500 mm, 13.5000 mm): Track [GND] on F.Cu, length 170.5500 mm
+    @(206.3000 mm, 7.0000 mm): Track [PACK_POS] on F.Cu, length 7.0000 mm
+[shorting_items]: Items shorting two nets (nets CELL_16_UNFUSED and PACK_POS)
+    Local override; error
+    @(194.0625 mm, 7.0000 mm): Track [CELL_16_UNFUSED] on F.Cu, length 10.3625 mm
+    @(190.4625 mm, 7.0000 mm): Pad 2 [PACK_POS] of R_FUSE_BLOWN1 on F.Cu
+[shorting_items]: Items shorting two nets (nets CELL_16_UNFUSED and PACK_POS)
+    Local override; error
+    @(194.0625 mm, 7.0000 mm): Pad 1 [CELL_16_UNFUSED] of D_FUSE_BLOWN1 on F.Cu
+    @(190.4625 mm, 7.0000 mm): Track [PACK_POS] on F.Cu, length 15.8375 mm
+[shorting_items]: Items shorting two nets (nets Net-(D_FUSE_BLOWN1-A) and CELL_16_UNFUSED)
+    Local override; error
+    @(195.9375 mm, 7.0000 mm): Track [Net-(D_FUSE_BLOWN1-A)] on F.Cu, length 8.4000 mm
+    @(194.0625 mm, 7.0000 mm): Pad 1 [CELL_16_UNFUSED] of D_FUSE_BLOWN1 on F.Cu
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(115.0000 mm, 6.0375 mm): Track [PACK_POS] on F.Cu, length 6.9919 mm
+    @(121.5625 mm, 6.5500 mm): Track [Net-(D_ZENER_HV1-K)] on F.Cu, length 4.5375 mm
+[shorting_items]: Items shorting two nets (nets GND and Net-(Q_HV1-PadB))
+    Local override; error
+    @(117.5625 mm, 12.9500 mm): Track [GND] on F.Cu, length 4.9376 mm
+    @(122.5000 mm, 12.9125 mm): Pad 1 [Net-(Q_HV1-PadB)] of R_HV_PD1 on F.Cu
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(121.5625 mm, 6.5500 mm): Track [Net-(D_ZENER_HV1-K)] on F.Cu, length 4.5375 mm
+    @(117.5625 mm, 11.0500 mm): Track [Net-(Q_HV1-PadB)] on F.Cu, length 4.9376 mm
+[shorting_items]: Items shorting two nets (nets Net-(Q_HV1-PadB) and GND)
+    Local override; error
+    @(115.0000 mm, 12.9125 mm): Track [Net-(Q_HV1-PadB)] on F.Cu, length 3.1679 mm
+    @(125.0000 mm, 13.5000 mm): Track [GND] on F.Cu, length 56.9500 mm
+[shorting_items]: Items shorting two nets (nets PACK_POS and Net-(LED_HV1-K))
+    Local override; error
+    @(115.0000 mm, 8.9625 mm): Pad 1 [PACK_POS] of R_HV_LED1 on F.Cu
+    @(117.0625 mm, 7.5000 mm): Track [Net-(LED_HV1-K)] on F.Cu, length 2.5284 mm
+[shorting_items]: Items shorting two nets (nets Net-(D_ZENER_HV1-K) and Net-(Q_HV1-PadB))
+    Local override; error
+    @(121.5625 mm, 11.0875 mm): Track [Net-(D_ZENER_HV1-K)] on F.Cu, length 6.5625 mm
+    @(117.5625 mm, 11.0500 mm): Track [Net-(Q_HV1-PadB)] on F.Cu, length 4.9376 mm
+[shorting_items]: Items shorting two nets (nets Net-(D_ZENER_HV1-K) and PACK_POS)
+    Local override; error
+    @(121.5625 mm, 6.5500 mm): Track [Net-(D_ZENER_HV1-K)] on F.Cu, length 4.5375 mm
+    @(121.5625 mm, 8.4500 mm): Pad 2 [PACK_POS] of D_ZENER_HV1 on F.Cu
+[shorting_items]: Items shorting two nets (nets CELL_15 and Net-(LED_REV_16-A))
+    Local override; error
+    @(272.4125 mm, 36.0500 mm): Track [CELL_15] on F.Cu, length 5.0000 mm
+    @(270.5875 mm, 36.0500 mm): Pad 1 [Net-(LED_REV_16-A)] of R_REV_16 on F.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1907 mm)
+    Local override; error
+    @(281.0000 mm, 33.5500 mm): Track [CELL_15] on F.Cu, length 35.8102 mm
+    @(270.4500 mm, 31.0500 mm): Track [CELL_16_UNFUSED] on F.Cu, length 5.0000 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(272.5500 mm, 31.0500 mm): Track [Net-(D_REV_16-A)] on F.Cu, length 3.1938 mm
+    @(281.0000 mm, 33.5500 mm): Track [CELL_15] on F.Cu, length 35.8102 mm
+[shorting_items]: Items shorting two nets (nets CELL_14 and Net-(LED_REV_15-A))
+    Local override; error
+    @(272.4125 mm, 58.9000 mm): Track [CELL_14] on F.Cu, length 5.0000 mm
+    @(270.5875 mm, 58.9000 mm): Pad 1 [Net-(LED_REV_15-A)] of R_REV_15 on F.Cu
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(272.4125 mm, 36.0500 mm): Track [CELL_15] on F.Cu, length 5.0000 mm
+    @(272.4375 mm, 33.5500 mm): Track [Net-(LED_REV_16-A)] on F.Cu, length 3.1101 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(272.4375 mm, 56.4000 mm): Track [Net-(LED_REV_15-A)] on F.Cu, length 3.1101 mm
+    @(272.4125 mm, 58.9000 mm): Track [CELL_14] on F.Cu, length 5.0000 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(272.4125 mm, 81.7500 mm): Track [CELL_13] on F.Cu, length 5.0000 mm
+    @(272.4375 mm, 79.2500 mm): Track [Net-(LED_REV_14-A)] on F.Cu, length 3.1101 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(260.1100 mm, 56.4000 mm): Track [CELL_15] on F.Cu, length 20.8900 mm
+    @(272.5500 mm, 53.9000 mm): Track [Net-(D_REV_15-A)] on F.Cu, length 3.1938 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1907 mm)
+    Local override; error
+    @(270.4500 mm, 76.7500 mm): Track [CELL_14] on F.Cu, length 5.0000 mm
+    @(281.0000 mm, 79.2500 mm): Track [CELL_13] on F.Cu, length 35.8102 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(272.5500 mm, 76.7500 mm): Track [Net-(D_REV_14-A)] on F.Cu, length 3.1938 mm
+    @(281.0000 mm, 79.2500 mm): Track [CELL_13] on F.Cu, length 35.8102 mm
+[shorting_items]: Items shorting two nets (nets Net-(LED_REV_14-A) and CELL_13)
+    Local override; error
+    @(272.4375 mm, 79.2500 mm): Track [Net-(LED_REV_14-A)] on F.Cu, length 3.1101 mm
+    @(281.0000 mm, 79.2500 mm): Track [CELL_13] on F.Cu, length 35.8102 mm
+[shorting_items]: Items shorting two nets (nets CELL_12 and CELL_13)
+    Local override; error
+    @(272.4125 mm, 104.6000 mm): Track [CELL_12] on F.Cu, length 5.0000 mm
+    @(260.1100 mm, 102.1000 mm): PTH pad 1 [CELL_13] of BT13
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(272.4125 mm, 104.6000 mm): Track [CELL_12] on F.Cu, length 5.0000 mm
+    @(272.4375 mm, 102.1000 mm): Track [Net-(LED_REV_13-A)] on F.Cu, length 3.1101 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(260.1100 mm, 102.1000 mm): Track [CELL_13] on F.Cu, length 20.8900 mm
+    @(272.5500 mm, 99.6000 mm): Track [Net-(D_REV_13-A)] on F.Cu, length 3.1938 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(272.4375 mm, 124.9500 mm): Track [Net-(LED_REV_12-A)] on F.Cu, length 3.1101 mm
+    @(272.4125 mm, 127.4500 mm): Track [CELL_11] on F.Cu, length 5.0000 mm
+[shorting_items]: Items shorting two nets (nets Net-(LED_REV_12-A) and CELL_11)
+    Local override; error
+    @(270.5875 mm, 127.4500 mm): Pad 1 [Net-(LED_REV_12-A)] of R_REV_12 on F.Cu
+    @(272.4125 mm, 127.4500 mm): Track [CELL_11] on F.Cu, length 5.0000 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1907 mm)
+    Local override; error
+    @(270.4500 mm, 122.4500 mm): Track [CELL_12] on F.Cu, length 5.0000 mm
+    @(281.0000 mm, 124.9500 mm): Track [CELL_11] on F.Cu, length 35.8102 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(272.5500 mm, 122.4500 mm): Track [Net-(D_REV_12-A)] on F.Cu, length 3.1938 mm
+    @(281.0000 mm, 124.9500 mm): Track [CELL_11] on F.Cu, length 35.8102 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(272.4375 mm, 147.8000 mm): Track [Net-(LED_REV_11-A)] on F.Cu, length 3.1101 mm
+    @(272.4125 mm, 150.3000 mm): Track [CELL_10] on F.Cu, length 5.0000 mm
+[shorting_items]: Items shorting two nets (nets Net-(LED_REV_11-A) and CELL_10)
+    Local override; error
+    @(270.5875 mm, 150.3000 mm): Pad 1 [Net-(LED_REV_11-A)] of R_REV_11 on F.Cu
+    @(272.4125 mm, 150.3000 mm): Track [CELL_10] on F.Cu, length 5.0000 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(272.5500 mm, 145.3000 mm): Track [Net-(D_REV_11-A)] on F.Cu, length 3.1938 mm
+    @(260.1100 mm, 147.8000 mm): Track [CELL_11] on F.Cu, length 20.8900 mm
+[shorting_items]: Items shorting two nets (nets Net-(LED_REV_10-A) and CELL_9)
+    Local override; error
+    @(270.5875 mm, 173.1500 mm): Pad 1 [Net-(LED_REV_10-A)] of R_REV_10 on F.Cu
+    @(272.4125 mm, 173.1500 mm): Track [CELL_9] on F.Cu, length 5.0000 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(272.5500 mm, 168.1500 mm): Track [Net-(D_REV_10-A)] on F.Cu, length 3.1938 mm
+    @(281.0000 mm, 170.6500 mm): Track [CELL_9] on F.Cu, length 35.8102 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(272.4375 mm, 193.5000 mm): Track [Net-(LED_REV_9-A)] on F.Cu, length 3.1101 mm
+    @(272.4125 mm, 196.0000 mm): Track [CELL_8] on F.Cu, length 5.0000 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1907 mm)
+    Local override; error
+    @(270.4500 mm, 168.1500 mm): Track [CELL_10] on F.Cu, length 5.0000 mm
+    @(281.0000 mm, 170.6500 mm): Track [CELL_9] on F.Cu, length 35.8102 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(272.5500 mm, 191.0000 mm): Track [Net-(D_REV_9-A)] on F.Cu, length 3.1938 mm
+    @(260.1100 mm, 193.5000 mm): Track [CELL_9] on F.Cu, length 20.8900 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(260.1100 mm, 193.5000 mm): Track [CELL_9] on F.Cu, length 20.8900 mm
+    @(272.4375 mm, 193.5000 mm): Track [Net-(LED_REV_9-A)] on F.Cu, length 3.1101 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(26.5500 mm, 191.0000 mm): Track [Net-(D_REV_8-A)] on F.Cu, length 3.1938 mm
+    @(24.4500 mm, 191.0000 mm): Track [CELL_8] on F.Cu, length 5.0000 mm
+[shorting_items]: Items shorting two nets (nets Net-(D_REV_8-A) and CELL_8)
+    Local override; error
+    @(26.5500 mm, 191.0000 mm): Pad 2 [Net-(D_REV_8-A)] of D_REV_8 on F.Cu
+    @(24.4500 mm, 191.0000 mm): Track [CELL_8] on F.Cu, length 5.0000 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(26.4375 mm, 193.5000 mm): Track [Net-(LED_REV_8-A)] on F.Cu, length 3.1101 mm
+    @(16.0000 mm, 193.5000 mm): Track [CELL_7] on F.Cu, length 35.8102 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(26.4375 mm, 170.6500 mm): Track [Net-(LED_REV_7-A)] on F.Cu, length 3.1101 mm
+    @(36.8900 mm, 170.6500 mm): Track [CELL_7] on F.Cu, length 20.8900 mm
+[shorting_items]: Items shorting two nets (nets CELL_7 and Net-(D_REV_7-A))
+    Local override; error
+    @(24.4500 mm, 168.1500 mm): Track [CELL_7] on F.Cu, length 5.0000 mm
+    @(26.5500 mm, 168.1500 mm): Pad 2 [Net-(D_REV_7-A)] of D_REV_7 on F.Cu
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(26.5500 mm, 168.1500 mm): Track [Net-(D_REV_7-A)] on F.Cu, length 3.1938 mm
+    @(36.8900 mm, 170.6500 mm): Track [CELL_7] on F.Cu, length 20.8900 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(26.5500 mm, 122.4500 mm): Track [Net-(D_REV_5-A)] on F.Cu, length 3.1938 mm
+    @(24.4500 mm, 122.4500 mm): Track [CELL_5] on F.Cu, length 5.0000 mm
+[shorting_items]: Items shorting two nets (nets Net-(D_REV_6-A) and CELL_5)
+    Local override; error
+    @(26.5500 mm, 145.3000 mm): Track [Net-(D_REV_6-A)] on F.Cu, length 3.1938 mm
+    @(16.0000 mm, 147.8000 mm): Track [CELL_5] on F.Cu, length 35.8102 mm
+[shorting_items]: Items shorting two nets (nets CELL_6 and CELL_5)
+    Local override; error
+    @(24.4500 mm, 145.3000 mm): Track [CELL_6] on F.Cu, length 5.0000 mm
+    @(36.8900 mm, 147.8000 mm): PTH pad 2 [CELL_5] of BT6
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(36.8900 mm, 124.9500 mm): Track [CELL_5] on F.Cu, length 20.8900 mm
+    @(26.4375 mm, 124.9500 mm): Track [Net-(LED_REV_5-A)] on F.Cu, length 3.1101 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(36.8900 mm, 124.9500 mm): Track [CELL_5] on F.Cu, length 20.8900 mm
+    @(26.5500 mm, 122.4500 mm): Track [Net-(D_REV_5-A)] on F.Cu, length 3.1938 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(26.5500 mm, 99.6000 mm): Track [Net-(D_REV_4-A)] on F.Cu, length 3.1938 mm
+    @(24.4500 mm, 99.6000 mm): Track [CELL_4] on F.Cu, length 5.0000 mm
+[shorting_items]: Items shorting two nets (nets Net-(D_REV_4-A) and CELL_3)
+    Local override; error
+    @(26.5500 mm, 99.6000 mm): Track [Net-(D_REV_4-A)] on F.Cu, length 3.1938 mm
+    @(16.0000 mm, 102.1000 mm): Track [CELL_3] on F.Cu, length 35.8102 mm
+[shorting_items]: Items shorting two nets (nets CELL_2 and CELL_1)
+    Local override; error
+    @(24.4500 mm, 53.9000 mm): Track [CELL_2] on F.Cu, length 5.0000 mm
+    @(36.8900 mm, 56.4000 mm): PTH pad 2 [CELL_1] of BT2
+[shorting_items]: Items shorting two nets (nets CELL_3 and Net-(D_REV_3-A))
+    Local override; error
+    @(24.4500 mm, 76.7500 mm): Track [CELL_3] on F.Cu, length 5.0000 mm
+    @(26.5500 mm, 76.7500 mm): Pad 2 [Net-(D_REV_3-A)] of D_REV_3 on F.Cu
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(11.0000 mm, 28.0500 mm): Zone [CELL_1] on F.Cu, priority 0
+    @(44.6500 mm, 33.5500 mm): PTH pad 1 [CELL_1] of BT1
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(242.0000 mm, 165.1500 mm): Zone [CELL_9] on F.Cu, priority 0
+    @(252.3500 mm, 170.6500 mm): PTH pad 2 [CELL_9] of BT10
+[starved_thermal]: Thermal relief connection to zone incomplete (layer B.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(11.0000 mm, 119.4500 mm): Zone [CELL_5] on B.Cu, priority 0
+    @(44.6500 mm, 124.9500 mm): PTH pad 1 [CELL_5] of BT5
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(90.0000 mm, 96.6000 mm): Zone [CELL_4] on F.Cu, priority 0
+    @(101.3500 mm, 124.9500 mm): PTH pad 2 [CELL_4] of BT5
+[starved_thermal]: Thermal relief connection to zone incomplete (layer B.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(11.0000 mm, 28.0500 mm): Zone [CELL_1] on B.Cu, priority 0
+    @(44.6500 mm, 33.5500 mm): PTH pad 1 [CELL_1] of BT1
+[starved_thermal]: Thermal relief connection to zone incomplete (layer B.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(242.0000 mm, 165.1500 mm): Zone [CELL_9] on B.Cu, priority 0
+    @(252.3500 mm, 170.6500 mm): PTH pad 2 [CELL_9] of BT10
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(11.0000 mm, 165.1500 mm): Zone [CELL_7] on F.Cu, priority 0
+    @(44.6500 mm, 170.6500 mm): PTH pad 1 [CELL_7] of BT7
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(65.0000 mm, 6.0000 mm): Zone [GND] on F.Cu, priority 0
+    @(101.3500 mm, 33.5500 mm): PTH pad 2 [GND] of BT1
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(90.0000 mm, 142.3000 mm): Zone [CELL_6] on F.Cu, priority 0
+    @(101.3500 mm, 170.6500 mm): PTH pad 2 [CELL_6] of BT7
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(11.0000 mm, 73.7500 mm): Zone [CELL_3] on F.Cu, priority 0
+    @(44.6500 mm, 79.2500 mm): PTH pad 1 [CELL_3] of BT3
+[starved_thermal]: Thermal relief connection to zone incomplete (layer B.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(11.0000 mm, 165.1500 mm): Zone [CELL_7] on B.Cu, priority 0
+    @(44.6500 mm, 170.6500 mm): PTH pad 1 [CELL_7] of BT7
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(166.0000 mm, 10.0000 mm): Zone [CELL_16_UNFUSED] on F.Cu, priority 0
+    @(195.6500 mm, 33.5500 mm): PTH pad 1 [CELL_16_UNFUSED] of BT16
+[starved_thermal]: Thermal relief connection to zone incomplete (layer B.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(166.0000 mm, 10.0000 mm): Zone [CELL_16_UNFUSED] on B.Cu, priority 0
+    @(195.6500 mm, 33.5500 mm): PTH pad 1 [CELL_16_UNFUSED] of BT16
+[starved_thermal]: Thermal relief connection to zone incomplete (layer B.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(11.0000 mm, 73.7500 mm): Zone [CELL_3] on B.Cu, priority 0
+    @(44.6500 mm, 79.2500 mm): PTH pad 1 [CELL_3] of BT3
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(242.0000 mm, 119.4500 mm): Zone [CELL_11] on F.Cu, priority 0
+    @(252.3500 mm, 124.9500 mm): PTH pad 2 [CELL_11] of BT12
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(242.0000 mm, 73.7500 mm): Zone [CELL_13] on F.Cu, priority 0
+    @(252.3500 mm, 79.2500 mm): PTH pad 2 [CELL_13] of BT14
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(11.0000 mm, 119.4500 mm): Zone [CELL_5] on F.Cu, priority 0
+    @(44.6500 mm, 124.9500 mm): PTH pad 1 [CELL_5] of BT5
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(166.0000 mm, 142.3000 mm): Zone [CELL_10] on F.Cu, priority 0
+    @(195.6500 mm, 170.6500 mm): PTH pad 1 [CELL_10] of BT10
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(90.0000 mm, 50.9000 mm): Zone [CELL_2] on F.Cu, priority 0
+    @(101.3500 mm, 79.2500 mm): PTH pad 2 [CELL_2] of BT3
+[starved_thermal]: Thermal relief connection to zone incomplete (layer B.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(166.0000 mm, 142.3000 mm): Zone [CELL_10] on B.Cu, priority 0
+    @(195.6500 mm, 170.6500 mm): PTH pad 1 [CELL_10] of BT10
+[starved_thermal]: Thermal relief connection to zone incomplete (layer B.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(242.0000 mm, 119.4500 mm): Zone [CELL_11] on B.Cu, priority 0
+    @(252.3500 mm, 124.9500 mm): PTH pad 2 [CELL_11] of BT12
+[starved_thermal]: Thermal relief connection to zone incomplete (layer B.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(242.0000 mm, 73.7500 mm): Zone [CELL_13] on B.Cu, priority 0
+    @(252.3500 mm, 79.2500 mm): PTH pad 2 [CELL_13] of BT14
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(166.0000 mm, 96.6000 mm): Zone [CELL_12] on F.Cu, priority 0
+    @(195.6500 mm, 124.9500 mm): PTH pad 1 [CELL_12] of BT12
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(242.0000 mm, 28.0500 mm): Zone [CELL_15] on F.Cu, priority 0
+    @(252.3500 mm, 33.5500 mm): PTH pad 2 [CELL_15] of BT16
+[starved_thermal]: Thermal relief connection to zone incomplete (layer B.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(166.0000 mm, 96.6000 mm): Zone [CELL_12] on B.Cu, priority 0
+    @(195.6500 mm, 124.9500 mm): PTH pad 1 [CELL_12] of BT12
+[starved_thermal]: Thermal relief connection to zone incomplete (layer B.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(242.0000 mm, 28.0500 mm): Zone [CELL_15] on B.Cu, priority 0
+    @(252.3500 mm, 33.5500 mm): PTH pad 2 [CELL_15] of BT16
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(166.0000 mm, 50.9000 mm): Zone [CELL_14] on F.Cu, priority 0
+    @(195.6500 mm, 79.2500 mm): PTH pad 1 [CELL_14] of BT14
+[starved_thermal]: Thermal relief connection to zone incomplete (layer B.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(166.0000 mm, 50.9000 mm): Zone [CELL_14] on B.Cu, priority 0
+    @(195.6500 mm, 79.2500 mm): PTH pad 1 [CELL_14] of BT14
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(24.4500 mm, 31.0500 mm): Track [CELL_1] on F.Cu, length 5.0000 mm
+    @(26.5500 mm, 31.0500 mm): Pad 2 [Net-(D_REV_1-A)] of D_REV_1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(24.4500 mm, 53.9000 mm): Track [CELL_2] on F.Cu, length 5.0000 mm
+    @(36.8900 mm, 56.4000 mm): PTH pad 2 [CELL_1] of BT2
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(24.4500 mm, 53.9000 mm): Track [CELL_2] on F.Cu, length 5.0000 mm
+    @(26.5500 mm, 53.9000 mm): Pad 2 [Net-(D_REV_2-A)] of D_REV_2 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(24.4500 mm, 76.7500 mm): Track [CELL_3] on F.Cu, length 5.0000 mm
+    @(26.5500 mm, 76.7500 mm): Pad 2 [Net-(D_REV_3-A)] of D_REV_3 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(260.1100 mm, 147.8000 mm): Track [CELL_11] on F.Cu, length 20.8900 mm
+    @(272.4375 mm, 147.8000 mm): Pad 2 [Net-(LED_REV_11-A)] of LED_REV_11 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(260.1100 mm, 147.8000 mm): Track [CELL_11] on F.Cu, length 20.8900 mm
+    @(270.5625 mm, 147.8000 mm): Pad 1 [Net-(D_REV_11-A)] of LED_REV_11 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(281.0000 mm, 124.9500 mm): Track [CELL_11] on F.Cu, length 35.8102 mm
+    @(270.5625 mm, 124.9500 mm): Pad 1 [Net-(D_REV_12-A)] of LED_REV_12 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(281.0000 mm, 124.9500 mm): Track [CELL_11] on F.Cu, length 35.8102 mm
+    @(272.4375 mm, 124.9500 mm): Pad 2 [Net-(LED_REV_12-A)] of LED_REV_12 on F.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(187.8900 mm, 124.9500 mm): Track [CELL_12] on B.Cu, length 49.3525 mm
+    @(148.5000 mm, 124.4000 mm): PTH pad 1 [CELL_7] of TP_7S1
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(260.1100 mm, 147.8000 mm): Track [CELL_11] on B.Cu, length 121.5725 mm
+    @(195.6500 mm, 147.8000 mm): PTH pad 2 [CELL_10] of BT11
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(260.1100 mm, 147.8000 mm): Track [CELL_11] on B.Cu, length 121.5725 mm
+    @(187.8900 mm, 147.8000 mm): PTH pad 2 [CELL_10] of BT11
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(260.1100 mm, 147.8000 mm): Track [CELL_11] on B.Cu, length 121.5725 mm
+    @(172.0000 mm, 147.8000 mm): PTH pad 1 [CELL_10] of J_NEG_11
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(148.5000 mm, 124.4000 mm): Track [CELL_7] on F.Cu, length 7.9625 mm
+    @(140.5375 mm, 124.4000 mm): Pad 1 [CELL_3] of F_PTC4 on F.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(187.8900 mm, 79.2500 mm): Track [CELL_14] on B.Cu, length 49.3525 mm
+    @(148.5000 mm, 80.0000 mm): PTH pad 7 [/03_BMS_Interface_and_Thermal/NTC_4_A] of J2
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(148.5000 mm, 124.4000 mm): Track [CELL_7] on F.Cu, length 7.9625 mm
+    @(143.4625 mm, 124.4000 mm): Pad 2 [/03_BMS_Interface_and_Thermal/BMS_V3] of F_PTC4 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(260.1100 mm, 102.1000 mm): Track [CELL_13] on F.Cu, length 20.8900 mm
+    @(272.4375 mm, 102.1000 mm): Pad 2 [Net-(LED_REV_13-A)] of LED_REV_13 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(140.5375 mm, 124.4000 mm): Track [CELL_7] on F.Cu, length 19.2000 mm
+    @(140.5375 mm, 134.0000 mm): Pad 1 [CELL_5] of F_PTC6 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(140.5375 mm, 124.4000 mm): Track [CELL_7] on F.Cu, length 19.2000 mm
+    @(140.5375 mm, 138.8000 mm): Pad 1 [CELL_6] of F_PTC7 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(260.1100 mm, 193.5000 mm): Track [CELL_9] on F.Cu, length 20.8900 mm
+    @(270.5625 mm, 193.5000 mm): Pad 1 [Net-(D_REV_9-A)] of LED_REV_9 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(260.1100 mm, 102.1000 mm): Track [CELL_13] on F.Cu, length 20.8900 mm
+    @(270.5625 mm, 102.1000 mm): Pad 1 [Net-(D_REV_13-A)] of LED_REV_13 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(140.5375 mm, 124.4000 mm): Track [CELL_7] on F.Cu, length 19.2000 mm
+    @(140.5375 mm, 129.2000 mm): Pad 1 [CELL_4] of F_PTC5 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(260.1100 mm, 193.5000 mm): Track [CELL_9] on F.Cu, length 20.8900 mm
+    @(272.4375 mm, 193.5000 mm): Pad 2 [Net-(LED_REV_9-A)] of LED_REV_9 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(140.5375 mm, 124.4000 mm): Track [CELL_7] on F.Cu, length 19.2000 mm
+    @(140.5375 mm, 124.4000 mm): Pad 1 [CELL_3] of F_PTC4 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(281.0000 mm, 79.2500 mm): Track [CELL_13] on F.Cu, length 35.8102 mm
+    @(272.4375 mm, 79.2500 mm): Pad 2 [Net-(LED_REV_14-A)] of LED_REV_14 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(148.5000 mm, 143.6000 mm): Track [CELL_10] on F.Cu, length 7.9625 mm
+    @(140.5375 mm, 143.6000 mm): Pad 1 [CELL_7] of F_PTC8 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(281.0000 mm, 79.2500 mm): Track [CELL_13] on F.Cu, length 35.8102 mm
+    @(270.5625 mm, 79.2500 mm): Pad 1 [Net-(D_REV_14-A)] of LED_REV_14 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(148.5000 mm, 143.6000 mm): Track [CELL_10] on F.Cu, length 7.9625 mm
+    @(143.4625 mm, 143.6000 mm): Pad 2 [/03_BMS_Interface_and_Thermal/BMS_V7] of F_PTC8 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(281.0000 mm, 170.6500 mm): Track [CELL_9] on F.Cu, length 35.8102 mm
+    @(270.5625 mm, 170.6500 mm): Pad 1 [Net-(D_REV_10-A)] of LED_REV_10 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(140.5375 mm, 143.6000 mm): Track [CELL_10] on F.Cu, length 14.4000 mm
+    @(140.5375 mm, 153.2000 mm): Pad 1 [CELL_9] of F_PTC10 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(140.5375 mm, 143.6000 mm): Track [CELL_10] on F.Cu, length 14.4000 mm
+    @(140.5375 mm, 143.6000 mm): Pad 1 [CELL_7] of F_PTC8 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(24.4500 mm, 99.6000 mm): Track [CELL_4] on F.Cu, length 5.0000 mm
+    @(26.5500 mm, 99.6000 mm): Pad 2 [Net-(D_REV_4-A)] of D_REV_4 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(140.5375 mm, 143.6000 mm): Track [CELL_10] on F.Cu, length 14.4000 mm
+    @(140.5375 mm, 148.4000 mm): Pad 1 [CELL_8] of F_PTC9 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(148.5000 mm, 162.8000 mm): Track [CELL_14] on F.Cu, length 7.9625 mm
+    @(143.4625 mm, 162.8000 mm): Pad 2 [/03_BMS_Interface_and_Thermal/BMS_V11] of F_PTC12 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(24.4500 mm, 99.6000 mm): Track [CELL_4] on F.Cu, length 5.0000 mm
+    @(36.8900 mm, 102.1000 mm): PTH pad 2 [CELL_3] of BT4
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(148.5000 mm, 162.8000 mm): Track [CELL_14] on F.Cu, length 7.9625 mm
+    @(140.5375 mm, 162.8000 mm): Pad 1 [CELL_11] of F_PTC12 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(281.0000 mm, 170.6500 mm): Track [CELL_9] on F.Cu, length 35.8102 mm
+    @(272.4375 mm, 170.6500 mm): Pad 2 [Net-(LED_REV_10-A)] of LED_REV_10 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(140.5375 mm, 162.8000 mm): Track [CELL_14] on F.Cu, length 14.4000 mm
+    @(140.5375 mm, 172.4000 mm): Pad 1 [CELL_13] of F_PTC14 on F.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(260.1100 mm, 102.1000 mm): Track [CELL_13] on B.Cu, length 121.5725 mm
+    @(172.0000 mm, 102.1000 mm): PTH pad 1 [CELL_12] of J_NEG_13
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(140.5375 mm, 162.8000 mm): Track [CELL_14] on F.Cu, length 14.4000 mm
+    @(140.5375 mm, 167.6000 mm): Pad 1 [CELL_12] of F_PTC13 on F.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(260.1100 mm, 102.1000 mm): Track [CELL_13] on B.Cu, length 121.5725 mm
+    @(187.8900 mm, 102.1000 mm): PTH pad 2 [CELL_12] of BT13
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(140.5375 mm, 162.8000 mm): Track [CELL_14] on F.Cu, length 14.4000 mm
+    @(140.5375 mm, 162.8000 mm): Pad 1 [CELL_11] of F_PTC12 on F.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(260.1100 mm, 102.1000 mm): Track [CELL_13] on B.Cu, length 121.5725 mm
+    @(195.6500 mm, 102.1000 mm): PTH pad 2 [CELL_12] of BT13
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(24.4500 mm, 122.4500 mm): Track [CELL_5] on F.Cu, length 5.0000 mm
+    @(26.5500 mm, 122.4500 mm): Pad 2 [Net-(D_REV_5-A)] of D_REV_5 on F.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(260.1100 mm, 102.1000 mm): Track [CELL_13] on B.Cu, length 121.5725 mm
+    @(148.5000 mm, 102.5000 mm): PTH pad 16 [/03_BMS_Interface_and_Thermal/NTC_8_B] of J2
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(36.8900 mm, 33.5500 mm): Track [CELL_1] on F.Cu, length 20.8900 mm
+    @(24.5625 mm, 33.5500 mm): Pad 1 [Net-(D_REV_1-A)] of LED_REV_1 on F.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(260.1100 mm, 193.5000 mm): Track [CELL_9] on B.Cu, length 121.5725 mm
+    @(187.8900 mm, 193.5000 mm): PTH pad 2 [CELL_8] of BT9
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(260.1100 mm, 56.4000 mm): Track [CELL_15] on F.Cu, length 20.8900 mm
+    @(270.5625 mm, 56.4000 mm): Pad 1 [Net-(D_REV_15-A)] of LED_REV_15 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(36.8900 mm, 33.5500 mm): Track [CELL_1] on F.Cu, length 20.8900 mm
+    @(26.4375 mm, 33.5500 mm): Pad 2 [Net-(LED_REV_1-A)] of LED_REV_1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(260.1100 mm, 56.4000 mm): Track [CELL_15] on F.Cu, length 20.8900 mm
+    @(272.4375 mm, 56.4000 mm): Pad 2 [Net-(LED_REV_15-A)] of LED_REV_15 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(24.4500 mm, 145.3000 mm): Track [CELL_6] on F.Cu, length 5.0000 mm
+    @(26.5500 mm, 145.3000 mm): Pad 2 [Net-(D_REV_6-A)] of D_REV_6 on F.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(260.1100 mm, 193.5000 mm): Track [CELL_9] on B.Cu, length 121.5725 mm
+    @(172.0000 mm, 193.5000 mm): PTH pad 1 [CELL_8] of J_NEG_9
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(16.0000 mm, 56.4000 mm): Track [CELL_1] on F.Cu, length 35.8102 mm
+    @(24.5625 mm, 56.4000 mm): Pad 1 [Net-(D_REV_2-A)] of LED_REV_2 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(24.4500 mm, 145.3000 mm): Track [CELL_6] on F.Cu, length 5.0000 mm
+    @(36.8900 mm, 147.8000 mm): PTH pad 2 [CELL_5] of BT6
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(260.1100 mm, 193.5000 mm): Track [CELL_9] on B.Cu, length 121.5725 mm
+    @(195.6500 mm, 193.5000 mm): PTH pad 2 [CELL_8] of BT9
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(16.0000 mm, 56.4000 mm): Track [CELL_1] on F.Cu, length 35.8102 mm
+    @(26.4375 mm, 56.4000 mm): Pad 2 [Net-(LED_REV_2-A)] of LED_REV_2 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(281.0000 mm, 33.5500 mm): Track [CELL_15] on F.Cu, length 35.8102 mm
+    @(272.4375 mm, 33.5500 mm): Pad 2 [Net-(LED_REV_16-A)] of LED_REV_16 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(281.0000 mm, 33.5500 mm): Track [CELL_15] on F.Cu, length 35.8102 mm
+    @(270.5625 mm, 33.5500 mm): Pad 1 [Net-(D_REV_16-A)] of LED_REV_16 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(24.4500 mm, 168.1500 mm): Track [CELL_7] on F.Cu, length 5.0000 mm
+    @(26.5500 mm, 168.1500 mm): Pad 2 [Net-(D_REV_7-A)] of D_REV_7 on F.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(36.8900 mm, 33.5500 mm): Track [CELL_1] on B.Cu, length 101.6475 mm
+    @(125.0000 mm, 33.5500 mm): PTH pad 1 [GND] of J_NEG_1
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(36.8900 mm, 33.5500 mm): Track [CELL_1] on B.Cu, length 101.6475 mm
+    @(109.1100 mm, 33.5500 mm): PTH pad 2 [GND] of BT1
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(36.8900 mm, 33.5500 mm): Track [CELL_1] on B.Cu, length 101.6475 mm
+    @(101.3500 mm, 33.5500 mm): PTH pad 2 [GND] of BT1
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(260.1100 mm, 56.4000 mm): Track [CELL_15] on B.Cu, length 121.5725 mm
+    @(148.5000 mm, 56.1000 mm): PTH pad 16 [/03_BMS_Interface_and_Thermal/BMS_V15] of J1
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(24.4500 mm, 191.0000 mm): Track [CELL_8] on F.Cu, length 5.0000 mm
+    @(26.5500 mm, 191.0000 mm): Pad 2 [Net-(D_REV_8-A)] of D_REV_8 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(24.4500 mm, 191.0000 mm): Track [CELL_8] on F.Cu, length 5.0000 mm
+    @(36.8900 mm, 193.5000 mm): PTH pad 2 [CELL_7] of BT8
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(260.1100 mm, 56.4000 mm): Track [CELL_15] on B.Cu, length 121.5725 mm
+    @(187.8900 mm, 56.4000 mm): PTH pad 2 [CELL_14] of BT15
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(36.8900 mm, 79.2500 mm): Track [CELL_3] on F.Cu, length 20.8900 mm
+    @(24.5625 mm, 79.2500 mm): Pad 1 [Net-(D_REV_3-A)] of LED_REV_3 on F.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(260.1100 mm, 56.4000 mm): Track [CELL_15] on B.Cu, length 121.5725 mm
+    @(195.6500 mm, 56.4000 mm): PTH pad 2 [CELL_14] of BT15
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(260.1100 mm, 56.4000 mm): Track [CELL_15] on B.Cu, length 121.5725 mm
+    @(172.0000 mm, 56.4000 mm): PTH pad 1 [CELL_14] of J_NEG_15
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(36.8900 mm, 79.2500 mm): Track [CELL_3] on F.Cu, length 20.8900 mm
+    @(26.4375 mm, 79.2500 mm): Pad 2 [Net-(LED_REV_3-A)] of LED_REV_3 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(16.0000 mm, 102.1000 mm): Track [CELL_3] on F.Cu, length 35.8102 mm
+    @(24.5625 mm, 102.1000 mm): Pad 1 [Net-(D_REV_4-A)] of LED_REV_4 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(272.4125 mm, 196.0000 mm): Track [CELL_8] on F.Cu, length 5.0000 mm
+    @(270.5875 mm, 196.0000 mm): Pad 1 [Net-(LED_REV_9-A)] of R_REV_9 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(16.0000 mm, 102.1000 mm): Track [CELL_3] on F.Cu, length 35.8102 mm
+    @(26.4375 mm, 102.1000 mm): Pad 2 [Net-(LED_REV_4-A)] of LED_REV_4 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(272.4125 mm, 196.0000 mm): Track [CELL_8] on F.Cu, length 5.0000 mm
+    @(260.1100 mm, 193.5000 mm): PTH pad 1 [CELL_9] of BT9
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(36.8900 mm, 79.2500 mm): Track [CELL_3] on B.Cu, length 101.6475 mm
+    @(109.1100 mm, 79.2500 mm): PTH pad 2 [CELL_2] of BT3
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(272.4125 mm, 173.1500 mm): Track [CELL_9] on F.Cu, length 5.0000 mm
+    @(270.5875 mm, 173.1500 mm): Pad 1 [Net-(LED_REV_10-A)] of R_REV_10 on F.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(36.8900 mm, 79.2500 mm): Track [CELL_3] on B.Cu, length 101.6475 mm
+    @(101.3500 mm, 79.2500 mm): PTH pad 2 [CELL_2] of BT3
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(125.0000 mm, 13.5000 mm): Track [GND] on F.Cu, length 56.9500 mm
+    @(122.5000 mm, 12.9125 mm): Pad 1 [Net-(Q_HV1-PadB)] of R_HV_PD1 on F.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(36.8900 mm, 79.2500 mm): Track [CELL_3] on B.Cu, length 101.6475 mm
+    @(125.0000 mm, 79.2500 mm): PTH pad 1 [CELL_2] of J_NEG_3
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(125.0000 mm, 13.5000 mm): Track [GND] on F.Cu, length 56.9500 mm
+    @(115.0000 mm, 12.9125 mm): Pad 1 [Net-(D_ZENER_HV1-K)] of R_HV_BASE1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(272.4125 mm, 150.3000 mm): Track [CELL_10] on F.Cu, length 5.0000 mm
+    @(260.1100 mm, 147.8000 mm): PTH pad 1 [CELL_11] of BT11
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(36.8900 mm, 124.9500 mm): Track [CELL_5] on F.Cu, length 20.8900 mm
+    @(26.4375 mm, 124.9500 mm): Pad 2 [Net-(LED_REV_5-A)] of LED_REV_5 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(272.4125 mm, 150.3000 mm): Track [CELL_10] on F.Cu, length 5.0000 mm
+    @(270.5875 mm, 150.3000 mm): Pad 1 [Net-(LED_REV_11-A)] of R_REV_11 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(68.0500 mm, 13.5000 mm): Track [GND] on F.Cu, length 170.5500 mm
+    @(183.7000 mm, 14.0000 mm): PTH pad 1 [CELL_16_UNFUSED] of F1
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(36.8900 mm, 124.9500 mm): Track [CELL_5] on F.Cu, length 20.8900 mm
+    @(24.5625 mm, 124.9500 mm): Pad 1 [Net-(D_REV_5-A)] of LED_REV_5 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(68.0500 mm, 13.5000 mm): Track [GND] on F.Cu, length 170.5500 mm
+    @(122.5000 mm, 12.9125 mm): Pad 1 [Net-(Q_HV1-PadB)] of R_HV_PD1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(16.0000 mm, 147.8000 mm): Track [CELL_5] on F.Cu, length 35.8102 mm
+    @(24.5625 mm, 147.8000 mm): Pad 1 [Net-(D_REV_6-A)] of LED_REV_6 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(68.0500 mm, 13.5000 mm): Track [GND] on F.Cu, length 170.5500 mm
+    @(115.0000 mm, 12.9125 mm): Pad 1 [Net-(D_ZENER_HV1-K)] of R_HV_BASE1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(16.0000 mm, 147.8000 mm): Track [CELL_5] on F.Cu, length 35.8102 mm
+    @(26.4375 mm, 147.8000 mm): Pad 2 [Net-(LED_REV_6-A)] of LED_REV_6 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(272.4125 mm, 127.4500 mm): Track [CELL_11] on F.Cu, length 5.0000 mm
+    @(270.5875 mm, 127.4500 mm): Pad 1 [Net-(LED_REV_12-A)] of R_REV_12 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(68.0500 mm, 13.5000 mm): Track [GND] on F.Cu, length 170.5500 mm
+    @(206.3000 mm, 14.0000 mm): PTH pad 2 [PACK_POS] of F1
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(68.0500 mm, 13.5000 mm): Track [GND] on F.Cu, length 170.5500 mm
+    @(219.0500 mm, 13.5000 mm): PTH pad 1 [PACK_POS] of J3
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(68.0500 mm, 13.5000 mm): Track [GND] on F.Cu, length 170.5500 mm
+    @(228.9500 mm, 13.5000 mm): PTH pad 4 [PACK_POS] of J3
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(272.4125 mm, 104.6000 mm): Track [CELL_12] on F.Cu, length 5.0000 mm
+    @(270.5875 mm, 104.6000 mm): Pad 1 [Net-(LED_REV_13-A)] of R_REV_13 on F.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(36.8900 mm, 124.9500 mm): Track [CELL_5] on B.Cu, length 101.6475 mm
+    @(109.1100 mm, 124.9500 mm): PTH pad 2 [CELL_4] of BT5
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(272.4125 mm, 104.6000 mm): Track [CELL_12] on F.Cu, length 5.0000 mm
+    @(260.1100 mm, 102.1000 mm): PTH pad 1 [CELL_13] of BT13
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(36.8900 mm, 124.9500 mm): Track [CELL_5] on B.Cu, length 101.6475 mm
+    @(101.3500 mm, 124.9500 mm): PTH pad 2 [CELL_4] of BT5
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(68.0500 mm, 13.5000 mm): Track [GND] on B.Cu, length 170.5500 mm
+    @(183.7000 mm, 14.0000 mm): PTH pad 1 [CELL_16_UNFUSED] of F1
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(272.4125 mm, 81.7500 mm): Track [CELL_13] on F.Cu, length 5.0000 mm
+    @(270.5875 mm, 81.7500 mm): Pad 1 [Net-(LED_REV_14-A)] of R_REV_14 on F.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(36.8900 mm, 124.9500 mm): Track [CELL_5] on B.Cu, length 101.6475 mm
+    @(125.0000 mm, 124.9500 mm): PTH pad 1 [CELL_4] of J_NEG_5
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(68.0500 mm, 13.5000 mm): Track [GND] on B.Cu, length 170.5500 mm
+    @(206.3000 mm, 14.0000 mm): PTH pad 2 [PACK_POS] of F1
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(68.0500 mm, 13.5000 mm): Track [GND] on B.Cu, length 170.5500 mm
+    @(219.0500 mm, 13.5000 mm): PTH pad 1 [PACK_POS] of J3
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(68.0500 mm, 13.5000 mm): Track [GND] on B.Cu, length 170.5500 mm
+    @(228.9500 mm, 13.5000 mm): PTH pad 4 [PACK_POS] of J3
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(36.8900 mm, 170.6500 mm): Track [CELL_7] on F.Cu, length 20.8900 mm
+    @(24.5625 mm, 170.6500 mm): Pad 1 [Net-(D_REV_7-A)] of LED_REV_7 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(272.4125 mm, 58.9000 mm): Track [CELL_14] on F.Cu, length 5.0000 mm
+    @(260.1100 mm, 56.4000 mm): PTH pad 1 [CELL_15] of BT15
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(36.8900 mm, 170.6500 mm): Track [CELL_7] on F.Cu, length 20.8900 mm
+    @(26.4375 mm, 170.6500 mm): Pad 2 [Net-(LED_REV_7-A)] of LED_REV_7 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(272.4125 mm, 58.9000 mm): Track [CELL_14] on F.Cu, length 5.0000 mm
+    @(270.5875 mm, 58.9000 mm): Pad 1 [Net-(LED_REV_15-A)] of R_REV_15 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(16.0000 mm, 193.5000 mm): Track [CELL_7] on F.Cu, length 35.8102 mm
+    @(24.5625 mm, 193.5000 mm): Pad 1 [Net-(D_REV_8-A)] of LED_REV_8 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(16.0000 mm, 193.5000 mm): Track [CELL_7] on F.Cu, length 35.8102 mm
+    @(26.4375 mm, 193.5000 mm): Pad 2 [Net-(LED_REV_8-A)] of LED_REV_8 on F.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(172.0000 mm, 33.5500 mm): Track [CELL_16_UNFUSED] on B.Cu, length 33.4625 mm
+    @(148.5000 mm, 33.2400 mm): PTH pad 7 [/03_BMS_Interface_and_Thermal/BMS_V6] of J1
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(272.4125 mm, 36.0500 mm): Track [CELL_15] on F.Cu, length 5.0000 mm
+    @(270.5875 mm, 36.0500 mm): Pad 1 [Net-(LED_REV_16-A)] of R_REV_16 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(121.5625 mm, 6.5500 mm): Track [Net-(D_ZENER_HV1-K)] on F.Cu, length 4.5375 mm
+    @(121.5625 mm, 8.4500 mm): Pad 2 [PACK_POS] of D_ZENER_HV1 on F.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(36.8900 mm, 170.6500 mm): Track [CELL_7] on B.Cu, length 101.6475 mm
+    @(125.0000 mm, 170.6500 mm): PTH pad 1 [CELL_6] of J_NEG_7
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(219.0500 mm, 13.5000 mm): Track [PACK_POS] on F.Cu, length 26.4683 mm
+    @(238.6000 mm, 11.0000 mm): Pad 1 [GND] of D_TVS_MAIN1 on F.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(36.8900 mm, 170.6500 mm): Track [CELL_7] on B.Cu, length 101.6475 mm
+    @(109.1100 mm, 170.6500 mm): PTH pad 2 [CELL_6] of BT7
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(121.5625 mm, 11.0875 mm): Track [Net-(D_ZENER_HV1-K)] on F.Cu, length 6.5625 mm
+    @(115.0000 mm, 11.0875 mm): Pad 2 [Net-(Q_HV1-PadB)] of R_HV_BASE1 on F.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(36.8900 mm, 170.6500 mm): Track [CELL_7] on B.Cu, length 101.6475 mm
+    @(101.3500 mm, 170.6500 mm): PTH pad 2 [CELL_6] of BT7
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(121.5625 mm, 11.0875 mm): Track [Net-(D_ZENER_HV1-K)] on F.Cu, length 6.5625 mm
+    @(117.5625 mm, 11.0500 mm): Pad 1 [Net-(Q_HV1-PadB)] of Q_HV1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(115.0000 mm, 12.9125 mm): Track [Net-(Q_HV1-PadB)] on F.Cu, length 3.1679 mm
+    @(115.0000 mm, 12.9125 mm): Pad 1 [Net-(D_ZENER_HV1-K)] of R_HV_BASE1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(117.5625 mm, 11.0500 mm): Track [Net-(Q_HV1-PadB)] on F.Cu, length 4.9376 mm
+    @(122.5000 mm, 11.0875 mm): Pad 2 [GND] of R_HV_PD1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(119.4375 mm, 7.5000 mm): Track [Net-(LED_HV1-A)] on F.Cu, length 4.5000 mm
+    @(119.4375 mm, 12.0000 mm): Pad 3 [Net-(LED_HV1-K)] of Q_HV1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(117.0625 mm, 7.5000 mm): Track [Net-(LED_HV1-K)] on F.Cu, length 2.5284 mm
+    @(115.0000 mm, 8.9625 mm): Pad 1 [PACK_POS] of R_HV_LED1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(117.5625 mm, 12.9500 mm): Track [GND] on F.Cu, length 4.9376 mm
+    @(122.5000 mm, 12.9125 mm): Pad 1 [Net-(Q_HV1-PadB)] of R_HV_PD1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(115.0000 mm, 6.0375 mm): Track [PACK_POS] on F.Cu, length 6.9919 mm
+    @(118.9375 mm, 7.5000 mm): Pad 2 [Net-(LED_HV1-A)] of LED_HV1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(115.0000 mm, 6.0375 mm): Track [PACK_POS] on F.Cu, length 6.9919 mm
+    @(117.0625 mm, 7.5000 mm): Pad 1 [Net-(LED_HV1-K)] of LED_HV1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(115.0000 mm, 6.0375 mm): Track [PACK_POS] on F.Cu, length 6.9919 mm
+    @(115.0000 mm, 6.0375 mm): Pad 2 [Net-(LED_HV1-K)] of R_HV_LED1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(195.9375 mm, 7.0000 mm): Track [Net-(D_FUSE_BLOWN1-A)] on F.Cu, length 8.4000 mm
+    @(194.0625 mm, 7.0000 mm): Pad 1 [CELL_16_UNFUSED] of D_FUSE_BLOWN1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(195.9375 mm, 7.0000 mm): Track [Net-(D_FUSE_BLOWN1-A)] on F.Cu, length 8.4000 mm
+    @(190.4625 mm, 7.0000 mm): Pad 2 [PACK_POS] of R_FUSE_BLOWN1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(190.4625 mm, 7.0000 mm): Track [PACK_POS] on F.Cu, length 15.8375 mm
+    @(194.0625 mm, 7.0000 mm): Pad 1 [CELL_16_UNFUSED] of D_FUSE_BLOWN1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(190.4625 mm, 7.0000 mm): Track [PACK_POS] on F.Cu, length 15.8375 mm
+    @(195.9375 mm, 7.0000 mm): Pad 2 [Net-(D_FUSE_BLOWN1-A)] of D_FUSE_BLOWN1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(194.0625 mm, 7.0000 mm): Track [CELL_16_UNFUSED] on F.Cu, length 10.3625 mm
+    @(190.4625 mm, 7.0000 mm): Pad 2 [PACK_POS] of R_FUSE_BLOWN1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(194.0625 mm, 7.0000 mm): Track [CELL_16_UNFUSED] on F.Cu, length 10.3625 mm
+    @(187.5375 mm, 7.0000 mm): Pad 1 [Net-(D_FUSE_BLOWN1-A)] of R_FUSE_BLOWN1 on F.Cu
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(26.4125 mm, 36.0500 mm): Track [GND] on F.Cu, length 5.0000 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(26.4125 mm, 81.7500 mm): Track [CELL_2] on F.Cu, length 5.0000 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(26.4125 mm, 127.4500 mm): Track [CELL_4] on F.Cu, length 5.0000 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(26.4125 mm, 173.1500 mm): Track [CELL_6] on F.Cu, length 5.0000 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(270.4500 mm, 168.1500 mm): Track [CELL_10] on F.Cu, length 5.0000 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(270.4500 mm, 122.4500 mm): Track [CELL_12] on F.Cu, length 5.0000 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(270.4500 mm, 76.7500 mm): Track [CELL_14] on F.Cu, length 5.0000 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(270.4500 mm, 31.0500 mm): Track [CELL_16_UNFUSED] on F.Cu, length 5.0000 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(194.0625 mm, 7.0000 mm): Track [CELL_16_UNFUSED] on F.Cu, length 10.3625 mm
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(149.7000 mm, 189.2000 mm): Via [PACK_POS] on F.Cu - B.Cu
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(16.0000 mm, 28.0500 mm): Via [CELL_1] on F.Cu - B.Cu
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(16.0000 mm, 61.9000 mm): Via [CELL_1] on F.Cu - B.Cu
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(16.0000 mm, 73.7500 mm): Via [CELL_3] on F.Cu - B.Cu
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(16.0000 mm, 107.6000 mm): Via [CELL_3] on F.Cu - B.Cu
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(16.0000 mm, 119.4500 mm): Via [CELL_5] on F.Cu - B.Cu
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(16.0000 mm, 153.3000 mm): Via [CELL_5] on F.Cu - B.Cu
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(16.0000 mm, 165.1500 mm): Via [CELL_7] on F.Cu - B.Cu
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(16.0000 mm, 199.0000 mm): Via [CELL_7] on F.Cu - B.Cu
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(125.0000 mm, 50.9000 mm): Via [CELL_2] on F.Cu - B.Cu
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(125.0000 mm, 84.7500 mm): Via [CELL_2] on F.Cu - B.Cu
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(125.0000 mm, 96.6000 mm): Via [CELL_4] on F.Cu - B.Cu
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(125.0000 mm, 130.4500 mm): Via [CELL_4] on F.Cu - B.Cu
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(125.0000 mm, 142.3000 mm): Via [CELL_6] on F.Cu - B.Cu
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(125.0000 mm, 176.1500 mm): Via [CELL_6] on F.Cu - B.Cu
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(172.0000 mm, 176.1500 mm): Via [CELL_10] on F.Cu - B.Cu
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(172.0000 mm, 142.3000 mm): Via [CELL_10] on F.Cu - B.Cu
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(172.0000 mm, 130.4500 mm): Via [CELL_12] on F.Cu - B.Cu
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(172.0000 mm, 96.6000 mm): Via [CELL_12] on F.Cu - B.Cu
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(172.0000 mm, 84.7500 mm): Via [CELL_14] on F.Cu - B.Cu
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(172.0000 mm, 50.9000 mm): Via [CELL_14] on F.Cu - B.Cu
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(281.0000 mm, 199.0000 mm): Via [CELL_9] on F.Cu - B.Cu
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(281.0000 mm, 165.1500 mm): Via [CELL_9] on F.Cu - B.Cu
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(281.0000 mm, 153.3000 mm): Via [CELL_11] on F.Cu - B.Cu
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(281.0000 mm, 119.4500 mm): Via [CELL_11] on F.Cu - B.Cu
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(281.0000 mm, 107.6000 mm): Via [CELL_13] on F.Cu - B.Cu
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(281.0000 mm, 73.7500 mm): Via [CELL_13] on F.Cu - B.Cu
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(281.0000 mm, 61.9000 mm): Via [CELL_15] on F.Cu - B.Cu
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(281.0000 mm, 28.0500 mm): Via [CELL_15] on F.Cu - B.Cu
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(125.0000 mm, 188.0000 mm): Via [CELL_8] on F.Cu - B.Cu
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(125.0000 mm, 199.0000 mm): Via [CELL_8] on F.Cu - B.Cu
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(172.0000 mm, 188.0000 mm): Via [CELL_8] on F.Cu - B.Cu
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(172.0000 mm, 199.0000 mm): Via [CELL_8] on F.Cu - B.Cu
+[lib_footprint_mismatch]: Footprint 'JST_XH_S16B-XH-A_1x16_P2.50mm_Horizontal' does not match copy in library 'Connector_JST'
+    Local override; warning
+    @(148.5000 mm, 65.0000 mm): Footprint J2
+[lib_footprint_mismatch]: Footprint 'R_0805_2012Metric' does not match copy in library 'Resistor_SMD'
+    Local override; warning
+    @(122.5000 mm, 12.0000 mm): Footprint R_HV_PD1
+[lib_footprint_mismatch]: Footprint 'BH18650B1BA002' does not match copy in library 'footprints'
+    Local override; warning
+    @(73.0000 mm, 33.5500 mm): Footprint BT1
+[lib_footprint_mismatch]: Footprint 'BH18650B1BA002' does not match copy in library 'footprints'
+    Local override; warning
+    @(73.0000 mm, 79.2500 mm): Footprint BT3
+[lib_footprint_mismatch]: Footprint 'BH18650B1BA002' does not match copy in library 'footprints'
+    Local override; warning
+    @(224.0000 mm, 33.5500 mm): Footprint BT16
+[lib_footprint_mismatch]: Footprint 'BH18650B1BA002' does not match copy in library 'footprints'
+    Local override; warning
+    @(224.0000 mm, 79.2500 mm): Footprint BT14
+[lib_footprint_mismatch]: Footprint 'BH18650B1BA002' does not match copy in library 'footprints'
+    Local override; warning
+    @(73.0000 mm, 170.6500 mm): Footprint BT7
+[lib_footprint_mismatch]: Footprint 'BH18650B1BA002' does not match copy in library 'footprints'
+    Local override; warning
+    @(73.0000 mm, 124.9500 mm): Footprint BT5
+[lib_footprint_mismatch]: Footprint 'R_0805_2012Metric' does not match copy in library 'Resistor_SMD'
+    Local override; warning
+    @(115.0000 mm, 12.0000 mm): Footprint R_HV_BASE1
+[lib_footprint_mismatch]: Footprint 'BH18650B1BA002' does not match copy in library 'footprints'
+    Local override; warning
+    @(224.0000 mm, 170.6500 mm): Footprint BT10
+[lib_footprint_mismatch]: Footprint 'BH18650B1BA002' does not match copy in library 'footprints'
+    Local override; warning
+    @(224.0000 mm, 124.9500 mm): Footprint BT12
+[lib_footprint_mismatch]: Footprint 'R_1206_3216Metric' does not match copy in library 'Resistor_SMD'
+    Local override; warning
+    @(115.0000 mm, 7.5000 mm): Footprint R_HV_LED1
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(148.5000 mm, 5.5000 mm): PCB text 'REV 3.0 | TRUE A4 LANDSCAPE (297 x 210 mm) | 4-LAYER HEAVY COPPER (2oz/1oz/1oz/2oz) | ENIG FINISH' on F.Silkscreen
+    @(143.0000 mm, 18.0000 mm): PCB text 'J1: BMS V-SENSE (1x17)' on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(148.5000 mm, 5.5000 mm): PCB text 'REV 3.0 | TRUE A4 LANDSCAPE (297 x 210 mm) | 4-LAYER HEAVY COPPER (2oz/1oz/1oz/2oz) | ENIG FINISH' on F.Silkscreen
+    @(121.7400 mm, 5.9400 mm): Segment of D_ZENER_HV1 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(118.5000 mm, 3.5000 mm): PCB text 'HV STROBE
+>42V DC' on F.Silkscreen
+    @(148.5000 mm, 3.5000 mm): PCB text 'DECIBELS LAB — MODULAR 16S / 14S BATTERY PACK ON PCB' on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(148.5000 mm, 3.5000 mm): PCB text 'DECIBELS LAB — MODULAR 16S / 14S BATTERY PACK ON PCB' on F.Silkscreen
+    @(148.5000 mm, 3.2000 mm): Reference field of H5
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(73.0000 mm, 182.6500 mm): Reference field of BT7
+    @(108.8400 mm, 183.1750 mm): Segment of BT8 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(73.0000 mm, 181.5000 mm): Reference field of BT8
+    @(73.0000 mm, 182.6500 mm): Reference field of BT7
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(73.0000 mm, 181.5000 mm): Reference field of BT8
+    @(37.1600 mm, 180.9750 mm): Segment of BT7 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(37.1600 mm, 135.2750 mm): Segment of BT5 on F.Silkscreen
+    @(73.0000 mm, 135.8000 mm): Reference field of BT6
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(73.0000 mm, 4.5000 mm): Reference field of J4
+    @(73.0000 mm, 5.0000 mm): PCB text 'PACK - (GND)' on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(143.0000 mm, 65.0000 mm): PCB text 'J2: BMS TEMP NTC (1x16)' on F.Silkscreen
+    @(139.1900 mm, 62.4400 mm): Segment of J2 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(145.3000 mm, 64.7500 mm): Rectangle of J2 on F.Silkscreen
+    @(143.0000 mm, 65.0000 mm): PCB text 'J2: BMS TEMP NTC (1x16)' on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(73.0000 mm, 90.1000 mm): Reference field of BT4
+    @(73.0000 mm, 91.2500 mm): Reference field of BT3
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(73.0000 mm, 91.2500 mm): Reference field of BT3
+    @(108.8400 mm, 91.7750 mm): Segment of BT4 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(73.0000 mm, 90.1000 mm): Reference field of BT4
+    @(37.1600 mm, 89.5750 mm): Segment of BT3 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(73.0000 mm, 45.5500 mm): Reference field of BT1
+    @(108.8400 mm, 46.0750 mm): Segment of BT2 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(73.0000 mm, 44.4000 mm): Reference field of BT2
+    @(73.0000 mm, 45.5500 mm): Reference field of BT1
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(73.0000 mm, 44.4000 mm): Reference field of BT2
+    @(37.1600 mm, 43.8750 mm): Segment of BT1 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(108.8400 mm, 137.4750 mm): Segment of BT6 on F.Silkscreen
+    @(73.0000 mm, 136.9500 mm): Reference field of BT5
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(73.0000 mm, 136.9500 mm): Reference field of BT5
+    @(73.0000 mm, 135.8000 mm): Reference field of BT6
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(151.4900 mm, 139.5500 mm): Segment of D_TVS7 on F.Silkscreen
+    @(148.5000 mm, 141.1000 mm): Reference field of TP_10S1
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(151.4900 mm, 158.7500 mm): Segment of D_TVS11 on F.Silkscreen
+    @(148.5000 mm, 160.3000 mm): Reference field of TP_14S1
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(207.4500 mm, 18.9500 mm): Segment of F1 on F.Silkscreen
+    @(224.0000 mm, 19.5000 mm): PCB text 'ROW 2: CELLS 16 TO 9 [SERPENTINE BUSBAR]' on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(224.0000 mm, 5.0000 mm): PCB text 'PACK + (B+)' on F.Silkscreen
+    @(224.0000 mm, 4.5000 mm): Reference field of J3
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(224.0000 mm, 44.4000 mm): Reference field of BT15
+    @(224.0000 mm, 45.5500 mm): Reference field of BT16
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(224.0000 mm, 44.4000 mm): Reference field of BT15
+    @(188.1600 mm, 43.8750 mm): Segment of BT16 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(224.0000 mm, 45.5500 mm): Reference field of BT16
+    @(259.8400 mm, 46.0750 mm): Segment of BT15 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(188.1600 mm, 89.5750 mm): Segment of BT14 on F.Silkscreen
+    @(224.0000 mm, 90.1000 mm): Reference field of BT13
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(259.8400 mm, 91.7750 mm): Segment of BT13 on F.Silkscreen
+    @(224.0000 mm, 91.2500 mm): Reference field of BT14
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(224.0000 mm, 90.1000 mm): Reference field of BT13
+    @(224.0000 mm, 91.2500 mm): Reference field of BT14
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(259.8400 mm, 183.1750 mm): Segment of BT9 on F.Silkscreen
+    @(224.0000 mm, 182.6500 mm): Reference field of BT10
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(224.0000 mm, 182.6500 mm): Reference field of BT10
+    @(224.0000 mm, 181.5000 mm): Reference field of BT9
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(188.1600 mm, 180.9750 mm): Segment of BT10 on F.Silkscreen
+    @(224.0000 mm, 181.5000 mm): Reference field of BT9
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(188.1600 mm, 135.2750 mm): Segment of BT12 on F.Silkscreen
+    @(224.0000 mm, 135.8000 mm): Reference field of BT11
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(259.8400 mm, 137.4750 mm): Segment of BT11 on F.Silkscreen
+    @(224.0000 mm, 136.9500 mm): Reference field of BT12
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(224.0000 mm, 135.8000 mm): Reference field of BT11
+    @(224.0000 mm, 136.9500 mm): Reference field of BT12
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(148.5000 mm, 5.5000 mm): PCB text 'REV 3.0 | TRUE A4 LANDSCAPE (297 x 210 mm) | 4-LAYER HEAVY COPPER (2oz/1oz/1oz/2oz) | ENIG FINISH' on F.Silkscreen
+    @(148.5000 mm, 7.0000 mm): NPTH pad of H5
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(148.5000 mm, 5.5000 mm): PCB text 'REV 3.0 | TRUE A4 LANDSCAPE (297 x 210 mm) | 4-LAYER HEAVY COPPER (2oz/1oz/1oz/2oz) | ENIG FINISH' on F.Silkscreen
+    @(115.0000 mm, 6.0375 mm): Pad 2 [Net-(LED_HV1-K)] of R_HV_LED1 on F.Cu
+
+** Found 77 unconnected pads **
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(172.0000 mm, 14.0000 mm): Track [CELL_16_UNFUSED] on F.Cu, length 11.7000 mm
+    @(194.0625 mm, 7.0000 mm): Track [CELL_16_UNFUSED] on F.Cu, length 10.3625 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(202.7200 mm, 31.0100 mm): PTH pad 1 [CELL_16_UNFUSED] of BT16
+    @(270.4500 mm, 31.0500 mm): Track [CELL_16_UNFUSED] on F.Cu, length 5.0000 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(115.0000 mm, 6.0375 mm): Track [PACK_POS] on F.Cu, length 6.9919 mm
+    @(115.0000 mm, 8.9625 mm): Pad 1 [PACK_POS] of R_HV_LED1 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(148.5000 mm, 20.0000 mm): Track [PACK_POS] on In2.Cu, length 57.8000 mm
+    @(115.0000 mm, 6.0375 mm): Track [PACK_POS] on F.Cu, length 6.9919 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(157.0000 mm, 170.0000 mm): Pad 2 [/03_BMS_Interface_and_Thermal/BMS_V12] of D_TVS13 on F.Cu
+    @(143.4625 mm, 167.6000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V12] on F.Cu, length 9.8348 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(157.0000 mm, 165.2000 mm): Pad 2 [/03_BMS_Interface_and_Thermal/BMS_V11] of D_TVS12 on F.Cu
+    @(143.4625 mm, 162.8000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V11] on F.Cu, length 9.8348 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(157.0000 mm, 160.4000 mm): Pad 2 [/03_BMS_Interface_and_Thermal/BMS_V10] of D_TVS11 on F.Cu
+    @(143.4625 mm, 158.0000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V10] on F.Cu, length 9.8348 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(157.0000 mm, 155.6000 mm): Pad 2 [/03_BMS_Interface_and_Thermal/BMS_V9] of D_TVS10 on F.Cu
+    @(143.4625 mm, 153.2000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V9] on F.Cu, length 9.8348 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(121.5625 mm, 11.0875 mm): Track [Net-(D_ZENER_HV1-K)] on F.Cu, length 6.5625 mm
+    @(115.0000 mm, 12.9125 mm): Pad 1 [Net-(D_ZENER_HV1-K)] of R_HV_BASE1 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(148.5000 mm, 67.5000 mm): PTH pad 2 [/03_BMS_Interface_and_Thermal/NTC_1_B] of J2
+    @(148.5000 mm, 44.9750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_1_B] on In1.Cu, length 17.5250 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(161.8000 mm, 90.6750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_7_A] on In1.Cu, length 13.3000 mm
+    @(148.5000 mm, 95.0000 mm): PTH pad 13 [/03_BMS_Interface_and_Thermal/NTC_7_A] of J2
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(164.3400 mm, 90.6750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_7_B] on In1.Cu, length 15.8400 mm
+    @(148.5000 mm, 97.5000 mm): PTH pad 14 [/03_BMS_Interface_and_Thermal/NTC_7_B] of J2
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(148.5000 mm, 44.9750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_8_A] on In1.Cu, length 14.9750 mm
+    @(148.5000 mm, 100.0000 mm): PTH pad 15 [/03_BMS_Interface_and_Thermal/NTC_8_A] of J2
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(164.3400 mm, 44.9750 mm): Track [/03_BMS_Interface_and_Thermal/NTC_8_B] on In1.Cu, length 15.8400 mm
+    @(148.5000 mm, 102.5000 mm): PTH pad 16 [/03_BMS_Interface_and_Thermal/NTC_8_B] of J2
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(24.4500 mm, 99.6000 mm): Track [CELL_4] on F.Cu, length 5.0000 mm
+    @(26.4125 mm, 127.4500 mm): Track [CELL_4] on F.Cu, length 5.0000 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(26.4125 mm, 127.4500 mm): Track [CELL_4] on F.Cu, length 5.0000 mm
+    @(90.0000 mm, 96.6000 mm): Zone [CELL_4] on F.Cu, priority 0
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(125.0000 mm, 96.6000 mm): Via [CELL_4] on F.Cu - B.Cu
+    @(90.0000 mm, 96.6000 mm): Zone [CELL_4] on B.Cu, priority 0
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(125.0000 mm, 130.4500 mm): Via [CELL_4] on F.Cu - B.Cu
+    @(125.0000 mm, 102.1000 mm): Track [CELL_4] on B.Cu, length 22.8500 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(16.0000 mm, 119.4500 mm): Via [CELL_5] on F.Cu - B.Cu
+    @(11.0000 mm, 119.4500 mm): Zone [CELL_5] on B.Cu, priority 0
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(11.0000 mm, 119.4500 mm): Zone [CELL_5] on B.Cu, priority 0
+    @(16.0000 mm, 153.3000 mm): Via [CELL_5] on F.Cu - B.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(143.4625 mm, 134.0000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V5] on F.Cu, length 9.8348 mm
+    @(157.0000 mm, 136.4000 mm): Pad 2 [/03_BMS_Interface_and_Thermal/BMS_V5] of D_TVS6 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(166.0000 mm, 142.3000 mm): Zone [CELL_10] on F.Cu, priority 0
+    @(172.0000 mm, 176.1500 mm): Via [CELL_10] on F.Cu - B.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(172.0000 mm, 142.3000 mm): Via [CELL_10] on F.Cu - B.Cu
+    @(166.0000 mm, 142.3000 mm): Zone [CELL_10] on F.Cu, priority 0
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(270.4500 mm, 168.1500 mm): Track [CELL_10] on F.Cu, length 5.0000 mm
+    @(166.0000 mm, 142.3000 mm): Zone [CELL_10] on F.Cu, priority 0
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(272.4125 mm, 150.3000 mm): Track [CELL_10] on F.Cu, length 5.0000 mm
+    @(270.4500 mm, 168.1500 mm): Track [CELL_10] on F.Cu, length 5.0000 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(143.4625 mm, 129.2000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V4] on F.Cu, length 9.8348 mm
+    @(157.0000 mm, 131.6000 mm): Pad 2 [/03_BMS_Interface_and_Thermal/BMS_V4] of D_TVS5 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(115.0000 mm, 11.0875 mm): Pad 2 [Net-(Q_HV1-PadB)] of R_HV_BASE1 on F.Cu
+    @(115.0000 mm, 12.9125 mm): Track [Net-(Q_HV1-PadB)] on F.Cu, length 3.1679 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(122.5000 mm, 12.9125 mm): Pad 1 [Net-(Q_HV1-PadB)] of R_HV_PD1 on F.Cu
+    @(117.5625 mm, 11.0500 mm): Track [Net-(Q_HV1-PadB)] on F.Cu, length 4.9376 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(68.0500 mm, 13.5000 mm): Track [GND] on B.Cu, length 170.5500 mm
+    @(26.4125 mm, 36.0500 mm): Track [GND] on F.Cu, length 5.0000 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(144.6625 mm, 110.0000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V0] on In2.Cu, length 0.3375 mm
+    @(157.0000 mm, 112.4000 mm): Pad 2 [/03_BMS_Interface_and_Thermal/BMS_V0] of D_TVS1 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(143.4625 mm, 114.8000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V1] on F.Cu, length 9.8348 mm
+    @(157.0000 mm, 117.2000 mm): Pad 2 [/03_BMS_Interface_and_Thermal/BMS_V1] of D_TVS2 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(143.4625 mm, 119.6000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V2] on F.Cu, length 9.8348 mm
+    @(157.0000 mm, 122.0000 mm): Pad 2 [/03_BMS_Interface_and_Thermal/BMS_V2] of D_TVS3 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(143.4625 mm, 124.4000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V3] on F.Cu, length 9.8348 mm
+    @(157.0000 mm, 126.8000 mm): Pad 2 [/03_BMS_Interface_and_Thermal/BMS_V3] of D_TVS4 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(143.4625 mm, 138.8000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V6] on F.Cu, length 9.8348 mm
+    @(157.0000 mm, 141.2000 mm): Pad 2 [/03_BMS_Interface_and_Thermal/BMS_V6] of D_TVS7 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(157.0000 mm, 146.0000 mm): Pad 2 [/03_BMS_Interface_and_Thermal/BMS_V7] of D_TVS8 on F.Cu
+    @(143.4625 mm, 143.6000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V7] on F.Cu, length 9.8348 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(157.0000 mm, 150.8000 mm): Pad 2 [/03_BMS_Interface_and_Thermal/BMS_V8] of D_TVS9 on F.Cu
+    @(143.4625 mm, 148.4000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V8] on F.Cu, length 9.8348 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(157.0000 mm, 174.8000 mm): Pad 2 [/03_BMS_Interface_and_Thermal/BMS_V13] of D_TVS14 on F.Cu
+    @(143.4625 mm, 172.4000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V13] on F.Cu, length 9.8348 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(157.0000 mm, 179.6000 mm): Pad 2 [/03_BMS_Interface_and_Thermal/BMS_V14] of D_TVS15 on F.Cu
+    @(143.4625 mm, 177.2000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V14] on F.Cu, length 9.8348 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(157.0000 mm, 184.4000 mm): Pad 2 [/03_BMS_Interface_and_Thermal/BMS_V15] of D_TVS16 on F.Cu
+    @(143.4625 mm, 182.0000 mm): Track [/03_BMS_Interface_and_Thermal/BMS_V15] on F.Cu, length 9.8348 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(24.4500 mm, 53.9000 mm): Track [CELL_2] on F.Cu, length 5.0000 mm
+    @(26.4125 mm, 81.7500 mm): Track [CELL_2] on F.Cu, length 5.0000 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(26.4125 mm, 81.7500 mm): Track [CELL_2] on F.Cu, length 5.0000 mm
+    @(90.0000 mm, 50.9000 mm): Zone [CELL_2] on F.Cu, priority 0
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(125.0000 mm, 50.9000 mm): Via [CELL_2] on F.Cu - B.Cu
+    @(90.0000 mm, 50.9000 mm): Zone [CELL_2] on F.Cu, priority 0
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(125.0000 mm, 84.7500 mm): Via [CELL_2] on F.Cu - B.Cu
+    @(90.0000 mm, 50.9000 mm): Zone [CELL_2] on F.Cu, priority 0
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(11.0000 mm, 73.7500 mm): Zone [CELL_3] on F.Cu, priority 0
+    @(16.0000 mm, 107.6000 mm): Via [CELL_3] on F.Cu - B.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(16.0000 mm, 73.7500 mm): Via [CELL_3] on F.Cu - B.Cu
+    @(11.0000 mm, 73.7500 mm): Zone [CELL_3] on F.Cu, priority 0
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(94.2800 mm, 190.9600 mm): PTH pad 1 [CELL_8] of BT8
+    @(24.4500 mm, 191.0000 mm): Track [CELL_8] on F.Cu, length 5.0000 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(90.0000 mm, 188.0000 mm): Zone [CELL_8] on B.Cu, priority 0
+    @(125.0000 mm, 188.0000 mm): Via [CELL_8] on F.Cu - B.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(90.0000 mm, 188.0000 mm): Zone [CELL_8] on B.Cu, priority 0
+    @(125.0000 mm, 199.0000 mm): Via [CELL_8] on F.Cu - B.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(172.0000 mm, 188.0000 mm): Via [CELL_8] on F.Cu - B.Cu
+    @(90.0000 mm, 188.0000 mm): Zone [CELL_8] on B.Cu, priority 0
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(172.0000 mm, 199.0000 mm): Via [CELL_8] on F.Cu - B.Cu
+    @(90.0000 mm, 188.0000 mm): Zone [CELL_8] on B.Cu, priority 0
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(272.4125 mm, 196.0000 mm): Track [CELL_8] on F.Cu, length 5.0000 mm
+    @(172.0000 mm, 193.5000 mm): Track [CELL_8] on B.Cu, length 30.8248 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(11.0000 mm, 28.0500 mm): Zone [CELL_1] on B.Cu, priority 0
+    @(16.0000 mm, 61.9000 mm): Via [CELL_1] on F.Cu - B.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(16.0000 mm, 28.0500 mm): Via [CELL_1] on F.Cu - B.Cu
+    @(11.0000 mm, 28.0500 mm): Zone [CELL_1] on F.Cu, priority 0
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(281.0000 mm, 153.3000 mm): Via [CELL_11] on F.Cu - B.Cu
+    @(242.0000 mm, 119.4500 mm): Zone [CELL_11] on B.Cu, priority 0
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(242.0000 mm, 119.4500 mm): Zone [CELL_11] on B.Cu, priority 0
+    @(281.0000 mm, 119.4500 mm): Via [CELL_11] on F.Cu - B.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(281.0000 mm, 61.9000 mm): Via [CELL_15] on F.Cu - B.Cu
+    @(242.0000 mm, 28.0500 mm): Zone [CELL_15] on F.Cu, priority 0
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(242.0000 mm, 28.0500 mm): Zone [CELL_15] on F.Cu, priority 0
+    @(281.0000 mm, 28.0500 mm): Via [CELL_15] on F.Cu - B.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(166.0000 mm, 50.9000 mm): Zone [CELL_14] on F.Cu, priority 0
+    @(172.0000 mm, 84.7500 mm): Via [CELL_14] on F.Cu - B.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(166.0000 mm, 50.9000 mm): Zone [CELL_14] on F.Cu, priority 0
+    @(172.0000 mm, 50.9000 mm): Via [CELL_14] on F.Cu - B.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(270.4500 mm, 76.7500 mm): Track [CELL_14] on F.Cu, length 5.0000 mm
+    @(166.0000 mm, 50.9000 mm): Zone [CELL_14] on F.Cu, priority 0
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(272.4125 mm, 58.9000 mm): Track [CELL_14] on F.Cu, length 5.0000 mm
+    @(270.4500 mm, 76.7500 mm): Track [CELL_14] on F.Cu, length 5.0000 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(16.0000 mm, 165.1500 mm): Via [CELL_7] on F.Cu - B.Cu
+    @(11.0000 mm, 165.1500 mm): Zone [CELL_7] on F.Cu, priority 0
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(11.0000 mm, 165.1500 mm): Zone [CELL_7] on B.Cu, priority 0
+    @(16.0000 mm, 199.0000 mm): Via [CELL_7] on F.Cu - B.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(281.0000 mm, 107.6000 mm): Via [CELL_13] on F.Cu - B.Cu
+    @(242.0000 mm, 73.7500 mm): Zone [CELL_13] on F.Cu, priority 0
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(242.0000 mm, 73.7500 mm): Zone [CELL_13] on F.Cu, priority 0
+    @(281.0000 mm, 73.7500 mm): Via [CELL_13] on F.Cu - B.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(24.4500 mm, 145.3000 mm): Track [CELL_6] on F.Cu, length 5.0000 mm
+    @(26.4125 mm, 173.1500 mm): Track [CELL_6] on F.Cu, length 5.0000 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(26.4125 mm, 173.1500 mm): Track [CELL_6] on F.Cu, length 5.0000 mm
+    @(90.0000 mm, 142.3000 mm): Zone [CELL_6] on F.Cu, priority 0
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(125.0000 mm, 142.3000 mm): Via [CELL_6] on F.Cu - B.Cu
+    @(90.0000 mm, 142.3000 mm): Zone [CELL_6] on F.Cu, priority 0
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(125.0000 mm, 176.1500 mm): Via [CELL_6] on F.Cu - B.Cu
+    @(90.0000 mm, 142.3000 mm): Zone [CELL_6] on F.Cu, priority 0
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(281.0000 mm, 199.0000 mm): Via [CELL_9] on F.Cu - B.Cu
+    @(242.0000 mm, 165.1500 mm): Zone [CELL_9] on F.Cu, priority 0
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(242.0000 mm, 165.1500 mm): Zone [CELL_9] on F.Cu, priority 0
+    @(281.0000 mm, 165.1500 mm): Via [CELL_9] on F.Cu - B.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(166.0000 mm, 96.6000 mm): Zone [CELL_12] on F.Cu, priority 0
+    @(172.0000 mm, 130.4500 mm): Via [CELL_12] on F.Cu - B.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(172.0000 mm, 96.6000 mm): Via [CELL_12] on F.Cu - B.Cu
+    @(166.0000 mm, 96.6000 mm): Zone [CELL_12] on F.Cu, priority 0
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(270.4500 mm, 122.4500 mm): Track [CELL_12] on F.Cu, length 5.0000 mm
+    @(166.0000 mm, 96.6000 mm): Zone [CELL_12] on F.Cu, priority 0
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(272.4125 mm, 104.6000 mm): Track [CELL_12] on F.Cu, length 5.0000 mm
+    @(270.4500 mm, 122.4500 mm): Track [CELL_12] on F.Cu, length 5.0000 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(117.0625 mm, 7.5000 mm): Track [Net-(LED_HV1-K)] on F.Cu, length 2.5284 mm
+    @(115.0000 mm, 6.0375 mm): Pad 2 [Net-(LED_HV1-K)] of R_HV_LED1 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(119.4375 mm, 12.0000 mm): Pad 3 [Net-(LED_HV1-K)] of Q_HV1 on F.Cu
+    @(117.0625 mm, 7.5000 mm): Track [Net-(LED_HV1-K)] on F.Cu, length 2.5284 mm
+
+** Found 0 Footprint errors **
+
+** Ignored checks **
+    - Footprint has no courtyard defined
+    - Track endpoint not centered on via
+    - Tuning profile track geometries
+    - Footprint doesn't match symbol's footprint filters
+    - PTH inside courtyard
+    - NPTH inside courtyard
+    - Footprint component type doesn't match footprint pads
+
+** End of Report **

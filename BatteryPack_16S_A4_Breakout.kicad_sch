@@ -1,0 +1,320 @@
+(kicad_sch
+	(version 20260306)
+	(generator "eeschema")
+	(generator_version "10.0")
+	(uuid "00000000-0000-0000-0000-000000000001")
+	(paper "A3")
+	(title_block
+		(title "BATTERY PACK ON PCB — SYSTEM ARCHITECTURE & MASTER HIERARCHY")
+		(date "2026-10-12")
+		(rev "Rev 1.0")
+		(company "Antigravity Battery Engineering")
+		(comment 1 "IEC 62368-1 SELV <=60V | IEC 62619 | IEEE 1625 | IPC-2152")
+		(comment 2 "Industry-Standard Modular 16S / 14S Battery Pack on PCB")
+		(comment 3 "Sheet 1 of 6")
+	)
+	(lib_symbols)
+	(text "Mechanical Bay: 6x Galvanically Isolated M3 Standoffs, Fiducials, High-Current Modular Tap Testpoints"
+		(exclude_from_sim no)
+		(at 127 223.52 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "02e76e57-3e8d-4586-b6f0-1c81a05dba66")
+	)
+	(text "Module 2 (Cells 9 to 16): SMT 18650 Holders [C2988620], Banana Jacks, Reverse Triads, Inter-Row Bus"
+		(exclude_from_sim no)
+		(at 127 116.84 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "47c41e06-122e-4919-833e-a0338dd53726")
+	)
+	(text "Power Path Bay: F1 20A [C268205], Blown Fuse Alert, Pre-Charge Branch, 70V TVS [C1976987], >42V HV Strobe"
+		(exclude_from_sim no)
+		(at 127 187.96 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "644c4534-48c2-4587-9e2c-cfb9ce03895d")
+	)
+	(text "Module 1 (Cells 1 to 8): SMT 18650 Holders [C2988620], Banana Jacks, Reverse Triads"
+		(exclude_from_sim no)
+		(at 127 81.28 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "c640f429-1340-44d0-abf7-444f52569271")
+	)
+	(text "BATTERY PACK ON PCB: MODULAR 16S / 14S BREAKOUT & TRAINING BOARD\n========================================================================\n• Form Factor: True A4 Landscape (297 mm x 210 mm)\n• Power Stackup: 4-Layer Symmetrical Heavy Copper (2oz Top, 1oz Inner 1, 1oz Inner 2, 2oz Bottom)\n• Safety Standard: IEC 62368-1 SELV (<=60V DC default lab rating with 14S; 16S under acrylic cover)\n• Sensing: 4-Wire True Kelvin Voltage Sense Taps & 8x Dual-Can Saddle NTC Thermistors\n• Active Safety: Zero-Drain Reverse Polarity Triads, 1500A High-Breaking Ceramic Fuse, 70V TVS Clamping"
+		(exclude_from_sim no)
+		(at 25.4 25.4 0)
+		(effects
+			(font
+				(size 1.524 1.524)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+		(uuid "ccbca99f-8f8c-41dc-9429-1ee89daf342b")
+	)
+	(text "BMS Interface Bay: J102 17-Pin Voltage Harness + 17x PPTC [C207035] + 16x TVS [C266332]; J103 16-Pin + 8x NTCs [C123378]"
+		(exclude_from_sim no)
+		(at 127 152.4 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "ef43f3b8-c4cc-4274-82d1-0b0a95bbf2f0")
+	)
+	(sheet
+		(at 30.48 71.12)
+		(size 91.44 20.32)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(stroke
+			(width 0.254)
+			(type solid)
+		)
+		(fill
+			(color 255 255 255 0)
+		)
+		(uuid "00000000-0000-0000-0000-000000000002")
+		(property "Sheetname" "01_Cell_Module_Row1"
+			(at 30.48 69.85 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.524 1.524)
+					(bold yes)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "01_Cell_Module_Row1.kicad_sch"
+			(at 30.48 92.71 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "BatteryPack_16S_A4_Breakout"
+				(path "/550d46ae-59f5-4417-b2d1-d9a458747a99"
+					(page "2")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 30.48 106.68)
+		(size 91.44 20.32)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(stroke
+			(width 0.254)
+			(type solid)
+		)
+		(fill
+			(color 255 255 255 0)
+		)
+		(uuid "00000000-0000-0000-0000-000000000003")
+		(property "Sheetname" "02_Cell_Module_Row2"
+			(at 30.48 105.41 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.524 1.524)
+					(bold yes)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "02_Cell_Module_Row2.kicad_sch"
+			(at 30.48 128.27 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "BatteryPack_16S_A4_Breakout"
+				(path "/550d46ae-59f5-4417-b2d1-d9a458747a99"
+					(page "3")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 30.48 142.24)
+		(size 91.44 20.32)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(stroke
+			(width 0.254)
+			(type solid)
+		)
+		(fill
+			(color 255 255 255 0)
+		)
+		(uuid "00000000-0000-0000-0000-000000000004")
+		(property "Sheetname" "03_BMS_Interface_and_Thermal"
+			(at 30.48 140.97 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.524 1.524)
+					(bold yes)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "03_BMS_Interface_and_Thermal.kicad_sch"
+			(at 30.48 163.83 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "BatteryPack_16S_A4_Breakout"
+				(path "/550d46ae-59f5-4417-b2d1-d9a458747a99"
+					(page "4")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 30.48 177.8)
+		(size 91.44 20.32)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(stroke
+			(width 0.254)
+			(type solid)
+		)
+		(fill
+			(color 255 255 255 0)
+		)
+		(uuid "00000000-0000-0000-0000-000000000005")
+		(property "Sheetname" "04_Power_Path_and_Protection"
+			(at 30.48 176.53 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.524 1.524)
+					(bold yes)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "04_Power_Path_and_Protection.kicad_sch"
+			(at 30.48 199.39 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "BatteryPack_16S_A4_Breakout"
+				(path "/550d46ae-59f5-4417-b2d1-d9a458747a99"
+					(page "5")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 30.48 213.36)
+		(size 91.44 20.32)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(stroke
+			(width 0.254)
+			(type solid)
+		)
+		(fill
+			(color 255 255 255 0)
+		)
+		(uuid "00000000-0000-0000-0000-000000000006")
+		(property "Sheetname" "05_Mechanical_and_Hardware"
+			(at 30.48 212.09 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.524 1.524)
+					(bold yes)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "05_Mechanical_and_Hardware.kicad_sch"
+			(at 30.48 234.95 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "BatteryPack_16S_A4_Breakout"
+				(path "/550d46ae-59f5-4417-b2d1-d9a458747a99"
+					(page "6")
+				)
+			)
+		)
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
+)
