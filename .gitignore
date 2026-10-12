@@ -1,0 +1,5 @@
+__pycache__/
+*-lock
+fp-info-cache
+*_tmp.kicad_pcb
+fab/pos_kicad.csv

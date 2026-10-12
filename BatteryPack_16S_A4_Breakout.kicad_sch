@@ -5,60 +5,15 @@
 	(uuid "00000000-0000-0000-0000-000000000001")
 	(paper "A3")
 	(title_block
-		(title "BATTERY PACK ON PCB — SYSTEM ARCHITECTURE & MASTER HIERARCHY")
+		(title "14S BATTERY PACK BREAKOUT - SYSTEM ARCHITECTURE")
 		(date "2026-10-12")
-		(rev "Rev 1.0")
-		(company "Antigravity Battery Engineering")
-		(comment 1 "IEC 62368-1 SELV <=60V | IEC 62619 | IEEE 1625 | IPC-2152")
-		(comment 2 "Industry-Standard Modular 16S / 14S Battery Pack on PCB")
-		(comment 3 "Sheet 1 of 6")
+		(rev "Rev 2.0 (14S)")
+		(company "Battery Pack Breakout - 14S / A4")
+		(comment 1 "14S Li-ion 18650 (58.8V max / 50.4V nom) | IEC 62368-1 ES2 hazard >60V not reached")
+		(comment 2 "All parts JLCPCB/LCSC sourced - LCSC field on every symbol")
 	)
 	(lib_symbols)
-	(text "Mechanical Bay: 6x Galvanically Isolated M3 Standoffs, Fiducials, High-Current Modular Tap Testpoints"
-		(exclude_from_sim no)
-		(at 127 223.52 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "02e76e57-3e8d-4586-b6f0-1c81a05dba66")
-	)
-	(text "Module 2 (Cells 9 to 16): SMT 18650 Holders [C2988620], Banana Jacks, Reverse Triads, Inter-Row Bus"
-		(exclude_from_sim no)
-		(at 127 116.84 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "47c41e06-122e-4919-833e-a0338dd53726")
-	)
-	(text "Power Path Bay: F1 20A [C268205], Blown Fuse Alert, Pre-Charge Branch, 70V TVS [C1976987], >42V HV Strobe"
-		(exclude_from_sim no)
-		(at 127 187.96 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "644c4534-48c2-4587-9e2c-cfb9ce03895d")
-	)
-	(text "Module 1 (Cells 1 to 8): SMT 18650 Holders [C2988620], Banana Jacks, Reverse Triads"
-		(exclude_from_sim no)
-		(at 127 81.28 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "c640f429-1340-44d0-abf7-444f52569271")
-	)
-	(text "BATTERY PACK ON PCB: MODULAR 16S / 14S BREAKOUT & TRAINING BOARD\n========================================================================\n• Form Factor: True A4 Landscape (297 mm x 210 mm)\n• Power Stackup: 4-Layer Symmetrical Heavy Copper (2oz Top, 1oz Inner 1, 1oz Inner 2, 2oz Bottom)\n• Safety Standard: IEC 62368-1 SELV (<=60V DC default lab rating with 14S; 16S under acrylic cover)\n• Sensing: 4-Wire True Kelvin Voltage Sense Taps & 8x Dual-Can Saddle NTC Thermistors\n• Active Safety: Zero-Drain Reverse Polarity Triads, 1500A High-Breaking Ceramic Fuse, 70V TVS Clamping"
+	(text "14S 18650 BATTERY PACK ON PCB - BMS BREAKOUT / TRAINING BOARD\n- Board: A4 landscape 297 x 210 mm, 4-layer\n- 14 cells in series: 58.8V max / 50.4V nominal / 42V empty (below the 60V SELV limit)\n- Cell sense: JST XH 15-pin (B-, C1..C14) through 60V PPTCs + per-cell 5V TVS\n- Temperature: 7x 10k B3950 NTC, one between each pair of cells, JST XH 14-pin\n- Pack output: M4 lugs PACK+ (after 5x20 10A fuse) and PACK-\n- Per cell: red/black test loops + reverse-insertion LED"
 		(exclude_from_sim no)
 		(at 25.4 25.4 0)
 		(effects
@@ -66,23 +21,67 @@
 				(size 1.524 1.524)
 				(bold yes)
 			)
-			(justify left bottom)
+			(justify left top)
 		)
-		(uuid "ccbca99f-8f8c-41dc-9429-1ee89daf342b")
+		(uuid "7525214c-7e02-561a-978d-3afcfe134849")
 	)
-	(text "BMS Interface Bay: J102 17-Pin Voltage Harness + 17x PPTC [C207035] + 16x TVS [C266332]; J103 16-Pin + 8x NTCs [C123378]"
+	(text "CELL MODULE A: CELLS 1 TO 7"
 		(exclude_from_sim no)
-		(at 127 152.4 0)
+		(at 127 85.09 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left)
+			(justify left top)
 		)
-		(uuid "ef43f3b8-c4cc-4274-82d1-0b0a95bbf2f0")
+		(uuid "b9118084-62b2-5060-a584-c4c18bfa0a9c")
+	)
+	(text "CELL MODULE B: CELLS 8 TO 14"
+		(exclude_from_sim no)
+		(at 127 118.11 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+		)
+		(uuid "3d71e6a2-eae2-5c3e-bc79-5117e35f8a97")
+	)
+	(text "BMS INTERFACE: 15-WIRE CELL SENSE + 7x NTC"
+		(exclude_from_sim no)
+		(at 127 151.13 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+		)
+		(uuid "5c1f54a4-1371-59b6-a29c-b05720d8e905")
+	)
+	(text "POWER PATH: FUSE, PACK TERMINALS, TVS, INDICATORS"
+		(exclude_from_sim no)
+		(at 127 184.15 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+		)
+		(uuid "6097eb99-77e6-5e48-9b0b-88d95b04fd2c")
+	)
+	(text "MECHANICAL: MOUNTING HOLES & FIDUCIALS"
+		(exclude_from_sim no)
+		(at 127 217.17 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+		)
+		(uuid "31f39b52-3eee-5849-bde8-1e72268021df")
 	)
 	(sheet
-		(at 30.48 71.12)
+		(at 30.48 76.2)
 		(size 91.44 20.32)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -97,19 +96,18 @@
 		)
 		(uuid "00000000-0000-0000-0000-000000000002")
 		(property "Sheetname" "01_Cell_Module_Row1"
-			(at 30.48 69.85 0)
+			(at 30.48 74.93 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.524 1.524)
-					(bold yes)
 				)
 				(justify left bottom)
 			)
 		)
 		(property "Sheetfile" "01_Cell_Module_Row1.kicad_sch"
-			(at 30.48 92.71 0)
+			(at 30.48 97.79 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -121,14 +119,14 @@
 		)
 		(instances
 			(project "BatteryPack_16S_A4_Breakout"
-				(path "/550d46ae-59f5-4417-b2d1-d9a458747a99"
+				(path "/00000000-0000-0000-0000-000000000001"
 					(page "2")
 				)
 			)
 		)
 	)
 	(sheet
-		(at 30.48 106.68)
+		(at 30.48 109.22)
 		(size 91.44 20.32)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -143,19 +141,18 @@
 		)
 		(uuid "00000000-0000-0000-0000-000000000003")
 		(property "Sheetname" "02_Cell_Module_Row2"
-			(at 30.48 105.41 0)
+			(at 30.48 107.95 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.524 1.524)
-					(bold yes)
 				)
 				(justify left bottom)
 			)
 		)
 		(property "Sheetfile" "02_Cell_Module_Row2.kicad_sch"
-			(at 30.48 128.27 0)
+			(at 30.48 130.81 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -167,7 +164,7 @@
 		)
 		(instances
 			(project "BatteryPack_16S_A4_Breakout"
-				(path "/550d46ae-59f5-4417-b2d1-d9a458747a99"
+				(path "/00000000-0000-0000-0000-000000000001"
 					(page "3")
 				)
 			)
@@ -195,7 +192,6 @@
 			(effects
 				(font
 					(size 1.524 1.524)
-					(bold yes)
 				)
 				(justify left bottom)
 			)
@@ -213,14 +209,14 @@
 		)
 		(instances
 			(project "BatteryPack_16S_A4_Breakout"
-				(path "/550d46ae-59f5-4417-b2d1-d9a458747a99"
+				(path "/00000000-0000-0000-0000-000000000001"
 					(page "4")
 				)
 			)
 		)
 	)
 	(sheet
-		(at 30.48 177.8)
+		(at 30.48 175.26)
 		(size 91.44 20.32)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -235,19 +231,18 @@
 		)
 		(uuid "00000000-0000-0000-0000-000000000005")
 		(property "Sheetname" "04_Power_Path_and_Protection"
-			(at 30.48 176.53 0)
+			(at 30.48 173.99 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.524 1.524)
-					(bold yes)
 				)
 				(justify left bottom)
 			)
 		)
 		(property "Sheetfile" "04_Power_Path_and_Protection.kicad_sch"
-			(at 30.48 199.39 0)
+			(at 30.48 196.85 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -259,14 +254,14 @@
 		)
 		(instances
 			(project "BatteryPack_16S_A4_Breakout"
-				(path "/550d46ae-59f5-4417-b2d1-d9a458747a99"
+				(path "/00000000-0000-0000-0000-000000000001"
 					(page "5")
 				)
 			)
 		)
 	)
 	(sheet
-		(at 30.48 213.36)
+		(at 30.48 208.28)
 		(size 91.44 20.32)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -281,19 +276,18 @@
 		)
 		(uuid "00000000-0000-0000-0000-000000000006")
 		(property "Sheetname" "05_Mechanical_and_Hardware"
-			(at 30.48 212.09 0)
+			(at 30.48 207.01 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.524 1.524)
-					(bold yes)
 				)
 				(justify left bottom)
 			)
 		)
 		(property "Sheetfile" "05_Mechanical_and_Hardware.kicad_sch"
-			(at 30.48 234.95 0)
+			(at 30.48 229.87 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -305,7 +299,7 @@
 		)
 		(instances
 			(project "BatteryPack_16S_A4_Breakout"
-				(path "/550d46ae-59f5-4417-b2d1-d9a458747a99"
+				(path "/00000000-0000-0000-0000-000000000001"
 					(page "6")
 				)
 			)
