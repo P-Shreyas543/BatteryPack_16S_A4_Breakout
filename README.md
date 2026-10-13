@@ -7,16 +7,28 @@ KiCad 10 project for a 14S (58.8 V max, 50.4 V nominal) 18650 battery pack on a 
 ## What's on the board
 | Block | Parts (all JLCPCB / LCSC) |
 |---|---|
-| 14 cells | BH-18650-B1BA002 SMT holders `C2988620`. Left column has cells 1–8, right column has cells 9–14 (serpentine). |
+| 14 cells | BH-18650-B1BA002 SMT holders `C2988620`. Two mirrored columns of 7: cells 1–7 run down the left, a bottom bus links cell 7 to cell 8, and cells 8–14 run up the right. |
 | Per cell | Red (+) / black (−) Keystone 5000/5001 test loops (`C5199900` / `C238122`). Zero-drain reverse-insertion indicator: 1k `C17513`, red LED `C84256`, 1N4148WS `C2128`. |
 | BMS cell sense **J1** | JST XH **B15B-XH-A** `C158020`. Pin 1 = B−, pin 15 = C14+. Each tap has a 60 V PPTC MF-MSMF010-2 `C12430` and a SMAJ5.0CA TVS `C5174731` across every cell. |
 | Temperature **J2** | JST XH **B14B-XH-A** `C158022` with **7× 10k B3950 NTC** MF52A103F3950 `C13879`. Each NTC is a saddle between a pair of cells. Pins 2n−1/2n = NTCn. |
 | Power path | CELL_14 → F1 5×20 mm holder FH1-200CK-B `C268205` (fit a 10 A fuse) → PACK+ M4 lug (J3). Cell 1 negative → PACK− M4 lug (J4). Both lugs are T44009 `C481463`. SMCJ70CA `C840779` clamp. |
 | Indicators | HV-present LED (on above ~44 V: BZX84C43 + MMBTA42 + 22k/1206). Fuse-blown amber LED across F1. |
 
-NTC map: NTC1 = cells 1/2, NTC2 = 3/4, NTC3 = 5/6, NTC4 = 7/8, NTC5 = 13/14, NTC6 = 11/12, NTC7 = 9/10.
+NTC map, numbered along the series path: NTC1 = cells 1/2, NTC2 = 3/4, NTC3 = 5/6, NTC4 = 6/7, NTC5 = 9/10, NTC6 = 11/12, NTC7 = 13/14. The gap between cells 8 and 9 has the same spacing, but no NTC is fitted there.
+
+## How to connect (everything is on the top edge)
+Left to right along the top edge: **J2 NTC** · **B− lug (J4)** · **J1 balance** · **PACK+ lug (J3)** · **F1 fuse**
+
+1. Plug the BMS balance lead into **J1**. The B− wire goes on pin 1 (left end) and C14+ on pin 15.
+2. Plug the BMS NTC lead into **J2** (pins 2n−1/2n = NTCn), or leave it unplugged.
+3. Connect the **B− lug** to the BMS B− pad, and the **PACK+ lug** to the load or charger +.
+4. Connect the load or charger − to the BMS P−.
+5. Insert the cells last. A red LED next to a cell means that cell is in backwards. The red and black test loops beside each cell are its + and −.
+
+The same steps are printed on the board's silkscreen, in the centre channel.
 
 ## Files
+- Connectors are top-entry JST XH. Side-entry S15B-XH-A (`C157935`) is out of stock at LCSC, so the top-entry headers sit right on the top edge and the cables leave over the edge.
 - `fab/BatteryPack_14S_A4_gerbers.zip`: Gerbers and drill files for JLCPCB (4 layers, 1.6 mm, 2 oz outer recommended).
 - `fab/JLCPCB_BOM.csv`, `fab/JLCPCB_CPL.csv`: assembly files. Check part rotations in JLC's preview.
 - `fab/erc.rpt`, `fab/drc.rpt`: 0 ERC violations, 0 DRC violations, 0 unconnected items, 0 schematic-parity issues.

@@ -97,8 +97,9 @@ SHEETS = [
     ("05_Mechanical_and_Hardware", "MECHANICAL: MOUNTING HOLES & FIDUCIALS"),
 ]
 
-# NTC i sits between cells NTC_CELLS[i]; numbered top->bottom, left column then right column
-NTC_CELLS = [(1, 2), (3, 4), (5, 6), (7, 8), (13, 14), (11, 12), (9, 10)]
+# NTC i sits between cells NTC_CELLS[i]; numbered along the series path
+# (left column top->bottom, then right column bottom->top)
+NTC_CELLS = [(1, 2), (3, 4), (5, 6), (6, 7), (9, 10), (11, 12), (13, 14)]
 
 
 def build():

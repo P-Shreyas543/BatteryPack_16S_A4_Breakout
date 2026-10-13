@@ -238,74 +238,83 @@ def silk_line(pts, w=0.15, layer=pcbnew.F_SilkS):
 
 
 # ================================================================== geometry
+# Two mirrored columns of 7 cells.  Series path: left column top->bottom (cells 1..7),
+# bus along the bottom of the channel, right column bottom->top (cells 8..14).
+# With 7 cells per column, B- (cell 1 -) lands at the top-left corner and cell 14 +
+# at the top-right corner, so every external connection sits on the top edge.
 XL, XR = 66.8, W - 66.8
-YL = [17.5, 43.8, 67.1, 93.4, 116.7, 143.0, 166.3, 192.6]          # BT1..BT8  (left, top->bottom)
-YR = {9: 192.6, 10: 166.3, 11: 143.0, 12: 116.7, 13: 93.4, 14: 67.1}  # BT9..BT14 (right, bottom->top)
-LANE = 10.4  # inner-layer lane offset from holder centre (clear of holder pads and pegs)
+ROWY = [40.8, 67.1, 90.4, 116.7, 140.0, 166.3, 192.6]   # row 1..7 holder centres
+LANE = 10.4   # inner-layer lane offset from a holder centre (clear of holder pads/pegs)
+
+
+def cell_row(n):
+    return n if n <= 7 else 15 - n
 
 
 def cell_xy(n):
-    if n <= 8:
-        return XL, YL[n - 1], (180 if n % 2 else 0), "L"
-    return XR, YR[n], (0 if n % 2 else 180), "R"
+    r = cell_row(n)
+    if n <= 7:
+        return XL, ROWY[r - 1], (0 if n % 2 else 180), "L"
+    return XR, ROWY[r - 1], (0 if n % 2 == 0 else 180), "R"
 
 
-def gap(y1, y2):
-    return round((y1 + y2) / 2, 3)
+def gap(r1, r2):
+    return round((ROWY[r1 - 1] + ROWY[r2 - 1]) / 2, 3)
 
 
-# series-node geometry: side ("L"/"R"), inner/outer, y of the route that carries it
-#   inner node -> via at the channel edge; outer node -> via in the outer margin
-NODE = {}
-NODE[0] = ("L", "in", YL[0] - LANE)
-NODE[1] = ("L", "out", YL[0] + LANE)
-NODE[2] = ("L", "in", gap(YL[1], YL[2]))
-NODE[3] = ("L", "out", YL[2] + LANE)
-NODE[4] = ("L", "in", gap(YL[3], YL[4]))
-NODE[5] = ("L", "out", YL[4] + LANE)
-NODE[6] = ("L", "in", gap(YL[5], YL[6]))
-NODE[7] = ("L", "out", YL[6] + LANE)
-NODE[8] = ("LR", "in", YL[7] + LANE)
-NODE[9] = ("R", "out", YR[10] + LANE)
-NODE[10] = ("R", "in", gap(YR[10], YR[11]))
-NODE[11] = ("R", "out", YR[12] + LANE)
-NODE[12] = ("R", "in", gap(YR[12], YR[13]))
-NODE[13] = ("R", "out", YR[14] + LANE)
-NODE[14] = ("R", "in", YR[14] - LANE)
+def lane_below(r):
+    return round(ROWY[r - 1] + LANE, 3)
 
-X_INV_L, X_INV_R = 112.6, W - 112.6      # inner-node vias (channel edge)
-X_OUTSENSE_L, X_OUTSENSE_R = 18.0, W - 18.0  # outer-node sense vias
-X_TRIAD_L, X_TRIAD_R = 11.0, W - 11.0      # triad column / inner-route via
-X_TP_L, X_TP_R = 4.6, W - 4.6
+
+def side_of(k):
+    return "L" if k <= 7 else "R"
+
+
+# series node k: (kind, route y).  inner = channel side, outer = board-edge side
+NODE = {
+    0: ("top", None), 14: ("top", None),
+    1: ("in", lane_below(1)), 13: ("in", lane_below(1)),
+    2: ("out", gap(2, 3)), 12: ("out", gap(2, 3)),
+    3: ("in", lane_below(3)), 11: ("in", lane_below(3)),
+    4: ("out", gap(4, 5)), 10: ("out", gap(4, 5)),
+    5: ("in", lane_below(5)), 9: ("in", lane_below(5)),
+    6: ("out", lane_below(6)), 8: ("out", lane_below(6)),
+    7: ("in", lane_below(7)),
+}
+X_INV_L, X_INV_R = 112.6, W - 112.6
+X_OUTSENSE_L, X_OUTSENSE_R = 18.0, W - 18.0
+X_TRIAD_L, X_TRIAD_R = 11.0, W - 11.0
+X_TP_L = 4.6
+N = design.node
 
 # ================================================================== zones (F.Cu + B.Cu)
 ZL_OUT = (1.0, 48.0)
 ZL_IN = (85.7, 114.5)
 ZR_OUT = (W - 48.0, W - 1.0)
 ZR_IN = (W - 114.5, W - 85.7)
-N = design.node
-zone(N(1), rect(ZL_OUT[0], YL[0] - 5, ZL_OUT[1], YL[1] + 5))
-zone(N(3), rect(ZL_OUT[0], YL[2] - 5, ZL_OUT[1], YL[3] + 5))
-zone(N(5), rect(ZL_OUT[0], YL[4] - 5, ZL_OUT[1], YL[5] + 5))
-zone(N(7), rect(ZL_OUT[0], YL[6] - 5, ZL_OUT[1], YL[7] + 5))
-zone(N(2), rect(ZL_IN[0], YL[1] - 5, ZL_IN[1], YL[2] + 5))
-zone(N(4), rect(ZL_IN[0], YL[3] - 5, ZL_IN[1], YL[4] + 5))
-zone(N(6), rect(ZL_IN[0], YL[5] - 5, ZL_IN[1], YL[6] + 5))
-zone(N(9), rect(ZR_OUT[0], YR[10] - 5, ZR_OUT[1], YR[9] + 5))
-zone(N(11), rect(ZR_OUT[0], YR[12] - 5, ZR_OUT[1], YR[11] + 5))
-zone(N(13), rect(ZR_OUT[0], YR[14] - 5, ZR_OUT[1], YR[13] + 5))
-zone(N(10), rect(ZR_IN[0], YR[11] - 5, ZR_IN[1], YR[10] + 5))
-zone(N(12), rect(ZR_IN[0], YR[13] - 5, ZR_IN[1], YR[12] + 5))
-# bottom bus: cell 8 (+) -> cell 9 (-)
-zone(N(8), rect(ZL_IN[0], YL[7] - 6, ZR_IN[1], 205.5))
-# PACK- strip across the top: cell 1 (-) -> J4 / TVS / HV indicator
-zone(design.PACK_NEG, rect(ZL_IN[0], 3.0, W - 1.0, 24.0))
-# cell 14 (+) up to the fuse
-zone(design.TOP, [(183.0, 33.0), (205.0, 33.0), (205.0, 56.0), (ZR_IN[1], 56.0), (ZR_IN[1], 72.5), (183.0, 72.5)])
-# PACK+ after the fuse
-zone(design.PACK_POS, rect(214.0, 29.0, W - 1.0, 52.0))
 
-HOLES = [(5, 5), (W - 5, 5), (5, H - 5), (W - 5, H - 5), (MX, 7), (MX, H - 7)]
+
+def rows_rect(xr, r1, r2):
+    return rect(xr[0], ROWY[r1 - 1] - 5, xr[1], ROWY[r2 - 1] + 5)
+
+
+for (k, xr, r1, r2) in [(2, ZL_OUT, 2, 3), (4, ZL_OUT, 4, 5), (6, ZL_OUT, 6, 7),
+                        (1, ZL_IN, 1, 2), (3, ZL_IN, 3, 4), (5, ZL_IN, 5, 6),
+                        (12, ZR_OUT, 2, 3), (10, ZR_OUT, 4, 5), (8, ZR_OUT, 6, 7),
+                        (13, ZR_IN, 1, 2), (11, ZR_IN, 3, 4), (9, ZR_IN, 5, 6)]:
+    zone(N(k), rows_rect(xr, r1, r2))
+zone(N(7), rect(ZL_IN[0], ROWY[6] - 5, ZR_IN[1], 205.5))                     # bottom bus 7 -> 8
+YTB = 29.0  # bottom of the top connector band
+# PACK- : cell 1 (-) at the top-left corner + left half of the top band
+zone(design.PACK_NEG, [(1, 1), (119, 1), (119, YTB), (48, YTB), (48, ROWY[0] + 5.7), (1, ROWY[0] + 5.7)])
+zone(design.PACK_NEG, rect(100, 22.5, 212, 29.6), layers=(B,), prio=1)                # return strip for TVS/HV
+# cell 14 (+) at the top-right corner up to the fuse
+zone(design.TOP, [(230, 1), (W - 1, 1), (W - 1, ROWY[0] + 5.7), (249, ROWY[0] + 5.7), (249, YTB), (230, YTB)])
+# PACK+ after the fuse
+zone(design.PACK_POS, rect(178, 1, 226, YTB), layers=(F,))
+zone(design.PACK_POS, rect(178, 1, 226, 21.9), layers=(B,))
+
+HOLES = [(5, 5), (W - 5, 5), (5, H - 5), (W - 5, H - 5), (127.0, 115.0), (W - 127.0, 115.0)]
 for x, y in HOLES:
     keepout(x, y, 3.8)
 
@@ -314,41 +323,49 @@ for n in range(1, design.NCELLS + 1):
     x, y, rot, side = cell_xy(n)
     place("BT%d" % n, x, y, rot, show_ref=False)
 
-# NTC saddles: left column top->bottom, then right column top->bottom
-NTC_POS = [(XL, gap(YL[0], YL[1])), (XL, gap(YL[2], YL[3])), (XL, gap(YL[4], YL[5])), (XL, gap(YL[6], YL[7])),
-           (XR, gap(YR[14], YR[13])), (XR, gap(YR[12], YR[11])), (XR, gap(YR[10], YR[9]))]
-for i, (x, y) in enumerate(NTC_POS):
-    place("TH%d" % (i + 1), x - 1.27, y, 0, show_ref=False)
+# NTC saddles, numbered along the series path: left column down, right column up
+NTC_ROWS = [("L", 1, 2), ("L", 3, 4), ("L", 5, 6), ("L", 6, 7), ("R", 5, 6), ("R", 3, 4), ("R", 1, 2)]
+NTC_POS = []
+for i, (sd, r1, r2) in enumerate(NTC_ROWS):
+    y = gap(r1, r2)
+    if sd == "L":
+        place("TH%d" % (i + 1), XL - 1.27, y, 0, show_ref=False)      # pad1 west
+    else:
+        place("TH%d" % (i + 1), XR + 1.27, y, 180, show_ref=False)    # pad1 east
+    NTC_POS.append((sd, XL if sd == "L" else XR, y))
 
-# per-cell outer-margin group: triad, test loops, route via for the cell's inner node
+
+def inner_route_y(n, inner_node):
+    if inner_node == 0 or inner_node == 14:
+        return None
+    return NODE[inner_node][1]
+
+
 for n in range(1, design.NCELLS + 1):
     x, y, rot, side = cell_xy(n)
     left = side == "L"
     sx = (lambda v: v) if left else (lambda v: W - v)
-    pos_inner = (rot == 0) if left else (rot == 180)  # + terminal on the channel side?
+    pos_inner = (rot == 0) if left else (rot == 180)   # + terminal on the channel side?
     inner_node = n if pos_inner else n - 1
     outer_node = n - 1 if pos_inner else n
-    ly = NODE[inner_node][2]
+    ly = NODE[inner_node][1]
     s = 1 if ly > y else -1
     xt = sx(X_TRIAD_L)
-    # triad order from the inner node outwards
-    chain = ["D_REV%d" % n, "LED_REV%d" % n, "R_REV%d" % n]  # + ... -
+    chain = ["D_REV%d" % n, "LED_REV%d" % n, "R_REV%d" % n]   # + ... -
     if not pos_inner:
         chain.reverse()
     ys = [y + 6.0 * s, y + 1.0 * s, y - 4.0 * s]
     inner_net = N(inner_node)
-    up_net = inner_net  # net that must face the inner via (towards s)
+    up_net = inner_net
     prev_bottom = None
     for ref, yy in zip(chain, ys):
         c = comps[ref]["pins"]
-        # rotation so that the pad carrying `up_net` faces the via side
         best = None
         for r in (90, 270):
             fp = place(ref, xt, yy, r, show_ref=False)
             pp = pads_of(ref)
             pn = [k for k, v in c.items() if v == up_net][0]
-            ok = (pp[pn][1] - yy) * s > 0
-            if ok:
+            if (pp[pn][1] - yy) * s > 0:
                 best = r
                 break
             board.Remove(fp)
@@ -362,172 +379,174 @@ for n in range(1, design.NCELLS + 1):
             track(up_net, F, 0.3, [prev_bottom, pp[pin_up]])
         prev_bottom = pp[pin_dn]
         up_net = c[pin_dn]
-    # last pad belongs to the outer node -> tie into the outer zone with a short stub
     track(N(outer_node), F, 0.4, [prev_bottom, (prev_bottom[0], prev_bottom[1] - 2.0 * s)])
-    # test loops: inner-node loop next to the via, outer-node loop sits in the outer zone
     tp_in = ("TP_P%d" if pos_inner else "TP_N%d") % n
     tp_out = ("TP_N%d" if pos_inner else "TP_P%d") % n
     place(tp_in, sx(X_TP_L), y + 6.5 * s, 0, show_ref=False)
     place(tp_out, sx(X_TP_L), y - 4.5 * s, 0, show_ref=False)
     track(inner_net, F, 0.4, [(xt, ly), pad(tp_in, "1")])
     via(inner_net, xt, ly)
-    # silkscreen
     lx = sx(X_TP_L + 3.4)
     text("C%d" % n, sx(X_TRIAD_L + 6.3), y, 1.5, bold=True)
     text("+", lx, (y + 6.5 * s) if pos_inner else (y - 4.5 * s), 1.2, bold=True)
     text("-", lx, (y - 4.5 * s) if pos_inner else (y + 6.5 * s), 1.2, bold=True)
 
-# ================================================================== inner-layer routes from nodes
-# triad/test-loop routes: inner node via at the channel edge -> In1 lane -> outer margin via
-for k, (side, kind, ly) in NODE.items():
+# inner nodes: via at the channel edge, In1 lane out to the outer-margin triad via
+for k, (kind, ly) in NODE.items():
     if kind != "in":
         continue
-    sides = ["L", "R"] if side == "LR" else [side]
+    sides = ["L", "R"] if k == 7 else [side_of(k)]
     for sd in sides:
-        if (sd == "L" and k > 8) or (sd == "R" and k < 8):
-            continue
         xi = X_INV_L if sd == "L" else X_INV_R
         xt = X_TRIAD_L if sd == "L" else X_TRIAD_R
-        if k in (0, 14) or sd in ("L", "R"):
-            track(N(k), I1, 0.3, [(xi, ly), (xt, ly)])
+        track(N(k), I1, 0.3, [(xi, ly), (xt, ly)])
         via(N(k), xi, ly, 0.8, 0.4)
+# outer nodes: sense via in the outer zone
+for k, (kind, ly) in NODE.items():
+    if kind == "out":
+        via(N(k), X_OUTSENSE_L if k <= 7 else X_OUTSENSE_R, ly, 0.8, 0.4)
 
-# outer-node sense routes: via in the outer zone -> In1 lane -> channel
-for k, (side, kind, ly) in NODE.items():
-    if kind != "out":
-        continue
-    xo = X_OUTSENSE_L if side == "L" else X_OUTSENSE_R
-    via(N(k), xo, ly, 0.8, 0.4)
+# ================================================================== top edge: connectors
+XJ1, YJ = 131.0, 5.5           # J1 pin 1 (balance, 15 pins, B- at the left)
+XJ2 = 38.0                     # J2 pin 1 (NTC, 14 pins)
+place("J1", XJ1, YJ, 0, show_ref=False)
+place("J2", XJ2, YJ, 0, show_ref=False)
+place("J4", MX - 44.5, 13.0, 0)       # PACK- / B- lug
+place("J3", MX + 44.5, 13.0, 0)       # PACK+ lug
+place("F1", 226.7, 24.0, 180)         # pad1 (cell 14) east, pad2 (PACK+) west
 
-# ================================================================== BMS sense block (channel)
-Y0 = 77.0
-ROW = [Y0 + 4.0 * k for k in range(design.NCELLS + 1)]
-XA, XB = 127.0, 134.0          # PPTC columns (even / odd rows)
-XT1, XT2 = 141.0, 146.0        # TVS columns (odd / even k)
-XJ1 = 160.0
-YJ1 = Y0 + 10.5
-for k in range(design.NCELLS + 1):
-    xc = XA if k % 2 == 0 else XB
-    place("F_PTC%d" % (k + 1), xc, ROW[k], 0, show_ref=False)
+# ================================================================== BMS sense block under J1
+XK = [MX - 28.0 + 4.0 * k for k in range(design.NCELLS + 1)]   # 4 mm lanes
+Y_TVS = {0: 24.0, 1: 30.0}     # TVS rows (even k / odd k)
+Y_PTC = {1: 38.0, 0: 45.0}     # PPTC rows (odd k / even k)
+Y_IN = {1: 41.9, 0: 48.9}      # input vias (odd / even)
 for k in range(1, design.NCELLS + 1):
-    xc = XT1 if k % 2 else XT2
-    place("D_TVS%d" % k, xc, (ROW[k - 1] + ROW[k]) / 2, 270, show_ref=False)
-place("J1", XJ1, YJ1, 270, show_ref=False)
-XS = 148.6  # fan-out start
-
+    place("D_TVS%d" % k, (XK[k - 1] + XK[k]) / 2, Y_TVS[k % 2], 0, show_ref=False)
+for k in range(design.NCELLS + 1):
+    place("F_PTC%d" % (k + 1), XK[k], Y_PTC[k % 2], 90, show_ref=False)
 for k in range(design.NCELLS + 1):
     bms = comps["J1"]["pins"][str(k + 1)]
     f = "F_PTC%d" % (k + 1)
-    p1, p2 = pad(f, "1"), pad(f, "2")
-    vin = (p1[0] - 1.6, ROW[k])
+    pj = pad("J1", str(k + 1))
+    d = abs(pj[0] - XK[k])
+    track(bms, F, 0.4, [pj, (pj[0], 8.0), (XK[k], 8.0 + d), pad(f, "2")])
+    p1 = pad(f, "1")
+    vin = (XK[k], Y_IN[k % 2])
+    track(N(k), F, 0.4, [p1, vin])
     via(N(k), *vin)
-    track(N(k), F, 0.4, [vin, p1])
-    yj = YJ1 + 2.5 * k
-    d = yj - ROW[k]
-    track(bms, F, 0.4, [p2, (XS, ROW[k]), (XS + abs(d), yj), pad("J1", str(k + 1))])
 
-# left nodes 0..8 -> rows 0..8 ; above group (entry above row) and below group
-ENTRY_L = {k: NODE[k][2] for k in range(0, 9)}
-TRUNK_L = {0: 116.6, 1: 115.95, 2: 115.3, 3: 114.65,             # above: top entry nearest block
-           4: 114.0, 5: 114.65, 6: 115.3, 7: 115.95, 8: 116.6}    # below: bottom entry nearest block
-for k in range(0, 9):
-    ye, xt = ENTRY_L[k], TRUNK_L[k]
-    x0 = X_INV_L if NODE[k][1] == "in" else X_OUTSENSE_L
-    vin = (pad("F_PTC%d" % (k + 1), "1")[0] - 1.6, ROW[k])
-    track(N(k), I1, 0.25, [(x0, ye), (xt, ye), (xt, ROW[k]), vin])
+# In1 sense routes: every entry runs horizontally to its lane, then straight up to the input via
+for k in range(1, 14):
+    kind, ye = NODE[k]
+    if k == 7:
+        ye = 195.0
+        via(N(7), X_INV_L, ye, 0.8, 0.4)
+        x0 = X_INV_L
+    elif kind == "in":
+        x0 = X_INV_L if k <= 7 else X_INV_R
+    else:
+        x0 = X_OUTSENSE_L if k <= 7 else X_OUTSENSE_R
+    track(N(k), I1, 0.25, [(x0, ye), (XK[k], ye), (XK[k], Y_IN[k % 2])])
+# B- and cell 14 come from the top corners
+via(design.PACK_NEG, 117.0, 25.0, 0.8, 0.4)
+track(design.PACK_NEG, I1, 0.25, [(117.0, 25.0), (117.0, 50.5), (XK[0], 50.5), (XK[0], Y_IN[0])])
+via(design.TOP, 245.0, 27.0, 0.8, 0.4)
+track(design.TOP, I1, 0.25, [(245.0, 27.0), (245.0, 30.2), (181.0, 30.2), (181.0, 50.5),
+                             (XK[14], 50.5), (XK[14], Y_IN[0])])
 
-# right nodes 9..14 wrap under the block and come up the west side
-X_E = {14: 176.0, 13: 176.65, 12: 177.3, 11: 177.95, 9: 178.6, 10: 179.25}
-Y_B = {14: 137.0, 13: 137.65, 12: 138.3, 11: 138.95, 10: 139.6, 9: 140.25}
-X_W = {14: 121.0, 13: 120.35, 12: 119.7, 11: 119.05, 10: 118.4, 9: 117.75}
-for k in range(9, 15):
-    ye = NODE[k][2]
-    x0 = X_INV_R if NODE[k][1] == "in" else X_OUTSENSE_R
-    vin = (pad("F_PTC%d" % (k + 1), "1")[0] - 1.6, ROW[k])
-    track(N(k), I1, 0.25, [(x0, ye), (X_E[k], ye), (X_E[k], Y_B[k]), (X_W[k], Y_B[k]), (X_W[k], ROW[k]), vin])
-
-# ================================================================== NTC routes (In2) -> J2
-XJ2, YJ2 = 150.0, 150.0
-place("J2", XJ2, YJ2, 270, show_ref=False)
-LG = 1.3  # lane offset inside the holder gap
-for i, (x, y) in enumerate(NTC_POS):
+# ================================================================== NTC routes (In2) -> J2 (top-left)
+LG = 1.3
+for i, (sd, x, y) in enumerate(NTC_POS):
     th = "TH%d" % (i + 1)
     a, b = pad(th, "1"), pad(th, "2")
     na, nb = comps[th]["pins"]["1"], comps[th]["pins"]["2"]
     pa, pb = pad("J2", str(2 * i + 1)), pad("J2", str(2 * i + 2))
-    if i < 4:   # left column -> west face of J2
-        xa_t = {0: 121.0, 1: 119.7, 2: 118.4}.get(i, 120.35)
-        xb_t = {0: 120.35, 1: 119.05, 2: 117.75}.get(i, 121.0)
-        track(na, I2, 0.25, [a, (a[0], y - LG), (xa_t, y - LG), (xa_t, pa[1]), pa])
-        track(nb, I2, 0.25, [b, (b[0], y + LG), (xb_t, y + LG), (xb_t, pb[1]), pb])
-    else:       # right column -> east face of J2
+    if sd == "L":
+        wa, wb = 2 * i, 2 * i + 1
+        for pt, nt, w, pj, dy in ((a, na, wa, pa, -LG), (b, nb, wb, pb, LG)):
+            xt, yt = 71.0 + 0.6 * w, 27.0 - 0.6 * w
+            track(nt, I2, 0.25, [pt, (pt[0], y + dy), (xt, y + dy), (xt, yt), (pj[0], yt), pj])
+    else:
         j = i - 4
-        xa_t = 166.0 + 1.3 * j
-        xb_t = 166.65 + 1.3 * j
-        track(na, I2, 0.25, [a, (a[0], y - LG), (xa_t, y - LG), (xa_t, pa[1]), pa])
-        track(nb, I2, 0.25, [b, (b[0], y + LG), (xb_t, y + LG), (xb_t, pb[1]), pb])
+        for pt, nt, r, pj, dy in ((a, na, 2 * j, pa, LG), (b, nb, 2 * j + 1, pb, -LG)):
+            xt, yt = 221.0 + 0.6 * r, 21.5 - 0.6 * r
+            track(nt, I2, 0.25, [pt, (pt[0], y + dy), (xt, y + dy), (xt, yt), (pj[0], yt), pj])
 
-# ================================================================== power path (top right)
-place("F1", 208.3, 40.0, 0)
-place("J3", 275.0, 41.0, 0)
-place("J4", 275.0, 13.5, 0)
-place("D_TVS_MAIN1", 252.0, 26.5, 270)
-# fuse-blown indicator under the fuse
-place("R_FB1", 208.5, 49.5, 0, show_ref=False)
-place("LED_FB1", 212.3, 49.5, 180, show_ref=False)
-track(design.TOP, F, 0.4, [pad("R_FB1", "1"), (204.0, 49.5)])
-track(comps["R_FB1"]["pins"]["2"], F, 0.3, [pad("R_FB1", "2"), pad("LED_FB1", "2")])
-track(design.PACK_POS, F, 0.4, [pad("LED_FB1", "1"), (215.0, 49.5)])
+# ================================================================== power path extras (top right)
+# fuse-blown indicator bridging the PACK+ zone (west) and the cell-14 zone (east)
+def place_facing(ref, x, y, net_east):
+    for r in (0, 180):
+        fp = place(ref, x, y, r, show_ref=False)
+        pp = pads_of(ref)
+        pe = [k for k, v in comps[ref]["pins"].items() if v == net_east][0]
+        if pp[pe][0] > x:
+            return pp
+        board.Remove(fp)
+    raise RuntimeError(ref)
 
-# HV-present indicator in the channel, under the PACK- strip
-YH = 37.05
-place("D_HV1", 134.0, YH - 0.95, 180, show_ref=False)      # K (pad 3) west, A (pad 1) east
-place("R_HV_BASE1", 139.5, YH, 0, show_ref=False)
-place("R_HV_PD1", 144.0, 38.0, 270, show_ref=False)          # pad1 (base) top, pad2 (PACK-) bottom
-place("Q_HV1", 147.0, 38.0, 0, show_ref=False)               # B top-left, E bottom-left, C right
-place("LED_HV1", 152.0, 38.0, 0, show_ref=False)
-place("R_HV_LED1", 157.0, 38.0, 180, show_ref=False)
-pp = pad
+
+fb_mid = comps["R_FB1"]["pins"]["2"] if comps["R_FB1"]["pins"]["1"] == design.TOP else comps["R_FB1"]["pins"]["1"]
+pl = place_facing("LED_FB1", 225.9, 10.0, fb_mid)
+pr = place_facing("R_FB1", 229.9, 10.0, design.TOP)
+la = [v for k, v in pl.items() if comps["LED_FB1"]["pins"][k] == fb_mid][0]
+rm = [v for k, v in pr.items() if comps["R_FB1"]["pins"][k] == fb_mid][0]
+track(fb_mid, F, 0.3, [la, rm])
+# pack TVS: PACK+ zone on top, PACK- through vias into the B.Cu return strip
+place("D_TVS_MAIN1", 210.3, 17.0, 90, show_ref=False)
+pt1 = [v for k, v in pads_of("D_TVS_MAIN1").items() if comps["D_TVS_MAIN1"]["pins"][k] == design.PACK_NEG][0]
+for dx in (-1.0, 0.0, 1.0):
+    via(design.PACK_NEG, pt1[0] + dx, 24.2, 0.8, 0.4)
+    track(design.PACK_NEG, F, 0.5, [pt1, (pt1[0] + dx, 24.2)])
+# HV-present indicator (PACK+ zone supplies the zener and LED resistor directly)
+YH = 25.05
+place("D_HV1", 181.0, YH - 0.95, 180, show_ref=False)
+place("R_HV_BASE1", 186.5, YH, 0, show_ref=False)
+place("R_HV_PD1", 191.0, 26.0, 270, show_ref=False)
+place("Q_HV1", 194.0, 26.0, 0, show_ref=False)
+place("LED_HV1", 199.0, 26.0, 0, show_ref=False)
+place("R_HV_LED1", 204.0, 26.0, 180, show_ref=False)
 hz, hb = comps["D_HV1"]["pins"]["1"], comps["Q_HV1"]["pins"]["1"]
 hk, ha = comps["Q_HV1"]["pins"]["3"], comps["R_HV_LED1"]["pins"]["2"]
-track(hz, F, 0.3, [pp("D_HV1", "1"), pp("R_HV_BASE1", "1")])
-track(hb, F, 0.3, [pp("R_HV_BASE1", "2"), (142.5, pp("R_HV_BASE1", "2")[1]), pp("R_HV_PD1", "1")])
-track(hb, F, 0.3, [pp("R_HV_PD1", "1"), pp("Q_HV1", "1")])
-track(design.PACK_NEG, F, 0.3, [pp("R_HV_PD1", "2"), pp("Q_HV1", "2")])
-track(design.PACK_NEG, F, 0.4, [pp("R_HV_PD1", "2"), (pp("R_HV_PD1", "2")[0], 41.0)])
-via(design.PACK_NEG, pp("R_HV_PD1", "2")[0], 41.0)
-track(design.PACK_NEG, I1, 0.3, [(pp("R_HV_PD1", "2")[0], 41.0), (pp("R_HV_PD1", "2")[0], 20.0)])
-via(design.PACK_NEG, pp("R_HV_PD1", "2")[0], 20.0)
-track(hk, F, 0.3, [pp("Q_HV1", "3"), pp("LED_HV1", "1")])
-track(ha, F, 0.3, [pp("LED_HV1", "2"), pp("R_HV_LED1", "2")])
-# PACK+ feed from the PACK+ zone along y=30.5
-k3, r1 = pp("D_HV1", "3"), pp("R_HV_LED1", "1")
-track(design.PACK_POS, F, 0.4, [(216.0, 30.5), (r1[0], 30.5), (131.5, 30.5), (131.5, k3[1]), k3])
-track(design.PACK_POS, F, 0.4, [(r1[0], 30.5), r1])
+track(hz, F, 0.3, [pad("D_HV1", "1"), pad("R_HV_BASE1", "1")])
+track(hb, F, 0.3, [pad("R_HV_BASE1", "2"), (189.5, pad("R_HV_BASE1", "2")[1]), pad("R_HV_PD1", "1")])
+track(hb, F, 0.3, [pad("R_HV_PD1", "1"), pad("Q_HV1", "1")])
+track(design.PACK_NEG, F, 0.3, [pad("R_HV_PD1", "2"), pad("Q_HV1", "2")])
+track(design.PACK_NEG, F, 0.4, [pad("R_HV_PD1", "2"), (pad("R_HV_PD1", "2")[0], 28.9)])
+via(design.PACK_NEG, pad("R_HV_PD1", "2")[0], 28.9)
+track(hk, F, 0.3, [pad("Q_HV1", "3"), pad("LED_HV1", "1")])
+track(ha, F, 0.3, [pad("LED_HV1", "2"), pad("R_HV_LED1", "2")])
 
 # ================================================================== mechanical
 for i, (x, y) in enumerate(HOLES):
     place("H%d" % (i + 1), x, y, 0, show_ref=False)
-for i, (x, y) in enumerate([(15.0, 3.6), (W - 14.0, 3.6), (15.0, H - 3.6)]):
+for i, (x, y) in enumerate([(16.0, 3.4), (W - 14.0, 3.4), (16.0, H - 3.4)]):
     place("FID%d" % (i + 1), x, y, 0, show_ref=False)
 
 # ================================================================== silkscreen
-text("14S 18650 BATTERY PACK BREAKOUT", MX, 26.2, 1.5, bold=True)
-text("58.8V MAX  |  A4 297 x 210 mm  |  4-LAYER", MX, 28.6, 1.0)
-text("BMS CELL SENSE  J1  (JST XH 15P)", XJ1 - 1.0, Y0 - 4.6, 1.0)
-for k in range(design.NCELLS + 1):
-    text("B-" if k == 0 else "C%d" % k, XJ1 + 4.5, YJ1 + 2.5 * k, 0.9, just=-1)
-text("NTC  J2  (JST XH 14P)", XJ2, YJ2 - 5.0, 1.0)
-for i in range(design.NNTC):
-    text("T%d" % (i + 1), XJ2 + 4.5, YJ2 + 5.0 * i + 1.25, 0.9, just=-1)
-for i, (x, y) in enumerate(NTC_POS):
-    text("NTC%d" % (i + 1), x + 6.5, y, 0.9)
-text("PACK+", 275.0, 48.5, 1.4, bold=True)
-text("PACK-", 275.0, 21.0, 1.4, bold=True)
-text("F1  5x20mm  10A", 208.3, 34.0, 1.0)
-text("HV >44V", 152.0, 34.6, 1.0)
-text("FUSE BLOWN", 210.4, 52.2, 0.9)
-text("CELL 8 (+)  -->  CELL 9 (-)   BUS", MX, 192.0, 1.2)
+text("J1  BALANCE  ->  BMS   (1 = B-  ...  15 = C14+)", XJ1 + 17.5, 11.2, 1.0)
+text("J2  NTC  ->  BMS   (1-2 = NTC1 ... 13-14 = NTC7)", XJ2 + 16.25, 11.2, 1.0)
+text("B-  /  PACK-", MX - 44.5, 19.6, 1.3, bold=True)
+text("to BMS B-", MX - 44.5, 21.8, 1.0)
+text("PACK+", MX + 44.5, 19.6, 1.3, bold=True)
+text("to load / charger +", MX + 44.5, 21.8, 1.0)
+text("F1 5x20 10A", 226.7, 17.4, 1.0)
+text("HV>44V", 199.0, 23.6, 0.8)
+text("FUSE BLOWN", 227.9, 7.6, 0.8)
+for i, (sd, x, y) in enumerate(NTC_POS):
+    text("NTC%d" % (i + 1), x + (6.5 if sd == "L" else -6.5), y, 0.9)
+YT = 58.0
+text("14S 18650 BATTERY PACK BREAKOUT", MX, YT, 1.5, bold=True)
+text("58.8V MAX  |  A4 297 x 210 mm  |  4-LAYER", MX, YT + 2.6, 1.0)
+guide = ["HOW TO CONNECT",
+         "1. J1 <- BMS balance lead (B- wire on pin 1)",
+         "2. J2 <- BMS NTC lead (or leave open)",
+         "3. B- lug -> BMS B-     PACK+ lug -> load/charger +",
+         "4. Load/charger - -> BMS P-",
+         "5. Insert cells LAST. A red LED = that cell is reversed.",
+         "Test loops: red = cell +, black = cell -"]
+for i, g in enumerate(guide):
+    text(g, MX, YT + 8.0 + 2.2 * i, 1.0, bold=(i == 0))
+text("CELL 7 (+)  -->  CELL 8 (-)   BUS", MX, 199.0, 1.2)
 text("WARNING: LIVE 58.8V DC. INSERT CELLS WITH CORRECT POLARITY - RED LED = REVERSED CELL.", MX, 208.0, 1.0)
 
 pcbnew.ZONE_FILLER(board).Fill(board.Zones())

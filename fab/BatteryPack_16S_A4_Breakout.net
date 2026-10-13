@@ -2,7 +2,7 @@
 	(version "E")
 	(design
 		(source "/prj/BatteryPack_16S_A4_Breakout.kicad_sch")
-		(date "2026-10-12T13:21:11")
+		(date "2026-10-13T01:13:18")
 		(tool "Eeschema 10.0.6")
 		(sheet
 			(number "1")
