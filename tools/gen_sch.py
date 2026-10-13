@@ -230,7 +230,7 @@ cell_sheet(sheets[1], range(8, 15))
 # ---- BMS interface
 s = sheets[2]
 s.text("BMS CELL-SENSE HARNESS (J1, JST XH B15B-XH-A, 15 pins)\n"
-       "Each tap: 60V-rated PPTC (MF-MSMF010-2) in series, 5V bidirectional TVS across every cell.\n"
+       "Each tap: 60V PPTC (MF-MSMF010-2) next to its cell node, 5V bidir TVS (LKS05D3-B) across every cell at J1.\n"
        "J1 pin 1 = B- (V0) ... pin 15 = C14+ (V14). Mating housing XHP-15 + SXH-001T-P0.6 crimps.", 25.4, 22.86, 1.524, True)
 for k in range(design.NCELLS + 1):
     y = 50.8 + k * 10.16

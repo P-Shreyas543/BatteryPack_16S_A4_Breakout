@@ -13,6 +13,7 @@ from pcbnew import FromMM, VECTOR2I
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import design  # noqa: E402
+import geom  # noqa: E402
 import sexpr  # noqa: E402
 from sexpr import find, find1  # noqa: E402
 
@@ -237,317 +238,328 @@ def silk_line(pts, w=0.15, layer=pcbnew.F_SilkS):
         board.Add(s)
 
 
-# ================================================================== geometry
-# Two mirrored columns of 7 cells.  Series path: left column top->bottom (cells 1..7),
-# bus along the bottom of the channel, right column bottom->top (cells 8..14).
-# With 7 cells per column, B- (cell 1 -) lands at the top-left corner and cell 14 +
-# at the top-right corner, so every external connection sits on the top edge.
-XL, XR = 66.8, W - 66.8
-ROWY = [40.8, 67.1, 90.4, 116.7, 140.0, 166.3, 192.6]   # row 1..7 holder centres
-LANE = 10.4   # inner-layer lane offset from a holder centre (clear of holder pads/pegs)
+# ================================================================== geometry (see geom.py)
+ROWY, XL, XR, LANE = geom.ROWY, geom.XL, geom.XR, 10.4
+N = design.node
 
 
-def cell_row(n):
-    return n if n <= 7 else 15 - n
+def mirror(x, side):
+    return x if side == "L" else W - x
 
 
-def cell_xy(n):
-    r = cell_row(n)
-    if n <= 7:
-        return XL, ROWY[r - 1], (0 if n % 2 else 180), "L"
-    return XR, ROWY[r - 1], (0 if n % 2 == 0 else 180), "R"
-
-
-def gap(r1, r2):
-    return round((ROWY[r1 - 1] + ROWY[r2 - 1]) / 2, 3)
-
-
-def lane_below(r):
+def upper_lane(r):
     return round(ROWY[r - 1] + LANE, 3)
 
 
-def side_of(k):
-    return "L" if k <= 7 else "R"
+# series nodes: kind and the y of the inner-layer route that carries them
+#   inner = channel end of the holders, outer = board-edge end
+NODE = {7: ("in", upper_lane(7))}
+for k, r in ((1, 1), (3, 3), (5, 5)):
+    NODE[k] = ("in", upper_lane(r))
+    NODE[14 - k] = ("in", upper_lane(r))
+for k, r in ((2, 2), (4, 4), (6, 6)):
+    NODE[k] = ("out", upper_lane(r))
+    NODE[14 - k] = ("out", upper_lane(r))
 
+X_TRIAD, X_TP, X_OSV = 31.0, 37.0, 39.6          # left-margin columns (mirrored on the right)
+X_IV, X_PTC = 138.0, 140.4                        # channel: inner-node via, PPTC column (left side)
+X_BUS0, BUS_P = 143.6, 0.7                        # In1 sense bus inside the channel
 
-# series node k: (kind, route y).  inner = channel side, outer = board-edge side
-NODE = {
-    0: ("top", None), 14: ("top", None),
-    1: ("in", lane_below(1)), 13: ("in", lane_below(1)),
-    2: ("out", gap(2, 3)), 12: ("out", gap(2, 3)),
-    3: ("in", lane_below(3)), 11: ("in", lane_below(3)),
-    4: ("out", gap(4, 5)), 10: ("out", gap(4, 5)),
-    5: ("in", lane_below(5)), 9: ("in", lane_below(5)),
-    6: ("out", lane_below(6)), 8: ("out", lane_below(6)),
-    7: ("in", lane_below(7)),
-}
-X_INV_L, X_INV_R = 112.6, W - 112.6
-X_OUTSENSE_L, X_OUTSENSE_R = 18.0, W - 18.0
-X_TRIAD_L, X_TRIAD_R = 11.0, W - 11.0
-X_TP_L = 4.6
-N = design.node
+# ================================================================== copper: identical cell straps
+for i, (name, poly, pa, pb) in enumerate(geom.links()):
+    k = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13][i]
+    zone(N(k), poly)
+# stitching vias, same pattern in every in-column strap
+for k in list(range(1, 7)) + list(range(8, 14)):
+    if k <= 6:
+        xc, r1 = XL, k
+        e = geom.end_x(k, "in" if k % 2 else "out")
+    else:
+        xc, r1 = XR, 14 - k
+        e = geom.end_x(k, "out" if k % 2 == 0 else "in")
+    for yy in (ROWY[r1 - 1] + 6.5, ROWY[r1] - 6.5):
+        for xr in (39.7, 42.7, 45.7):
+            via(N(k), xc + e * xr, yy, 0.8, 0.4)
+for xx in (XL + geom.PAD_X + 6.5, XR - geom.PAD_X - 6.5):
+    for dy in (-4.0, 0.0, 4.0):
+        via(N(7), xx, ROWY[6] + dy, 0.8, 0.4)
 
-# ================================================================== zones (F.Cu + B.Cu)
-ZL_OUT = (1.0, 48.0)
-ZL_IN = (85.7, 114.5)
-ZR_OUT = (W - 48.0, W - 1.0)
-ZR_IN = (W - 114.5, W - 85.7)
+# pack terminals: B- (cell 1 -) top-left corner, cell 14 (+) top-right corner -> fuse -> PACK+
+B_NEG_F = [(21, 1), (127, 1), (127, 9.4), (76, 9.4), (76, 16), (56, 16), (56, 25.12), (69.5, 25.12),
+           (69.5, 33.72), (21, 33.72)]
+B_NEG_B = [(21, 1), (76, 1), (76, 16), (56, 16), (56, 25.12), (69.5, 25.12), (69.5, 33.72), (21, 33.72)]
+zone(design.PACK_NEG, B_NEG_F, layers=(F,))
+zone(design.PACK_NEG, B_NEG_B, layers=(B,))
+zone(design.TOP, [(276, 1), (255, 1), (255, 17.2), (241, 17.2), (241, 25.12), (227.5, 25.12),
+                  (227.5, 33.72), (276, 33.72)])
+zone(design.PACK_POS, [(209, 1), (250, 1), (250, 14.5), (209, 14.5)], layers=(F,))
+# PACK+ on B.Cu also runs west along the top band to feed the HV indicator / pack TVS
+zone(design.PACK_POS, [(97, 1), (127.6, 1), (127.6, 10.8), (209, 10.8), (209, 1), (250, 1),
+                       (250, 14.5), (97, 14.5)], layers=(B,))
 
-
-def rows_rect(xr, r1, r2):
-    return rect(xr[0], ROWY[r1 - 1] - 5, xr[1], ROWY[r2 - 1] + 5)
-
-
-for (k, xr, r1, r2) in [(2, ZL_OUT, 2, 3), (4, ZL_OUT, 4, 5), (6, ZL_OUT, 6, 7),
-                        (1, ZL_IN, 1, 2), (3, ZL_IN, 3, 4), (5, ZL_IN, 5, 6),
-                        (12, ZR_OUT, 2, 3), (10, ZR_OUT, 4, 5), (8, ZR_OUT, 6, 7),
-                        (13, ZR_IN, 1, 2), (11, ZR_IN, 3, 4), (9, ZR_IN, 5, 6)]:
-    zone(N(k), rows_rect(xr, r1, r2))
-zone(N(7), rect(ZL_IN[0], ROWY[6] - 5, ZR_IN[1], 205.5))                     # bottom bus 7 -> 8
-YTB = 29.0  # bottom of the top connector band
-# PACK- : cell 1 (-) at the top-left corner + left half of the top band
-zone(design.PACK_NEG, [(1, 1), (119, 1), (119, YTB), (48, YTB), (48, ROWY[0] + 5.7), (1, ROWY[0] + 5.7)])
-zone(design.PACK_NEG, rect(100, 22.5, 212, 29.6), layers=(B,), prio=1)                # return strip for TVS/HV
-# cell 14 (+) at the top-right corner up to the fuse
-zone(design.TOP, [(230, 1), (W - 1, 1), (W - 1, ROWY[0] + 5.7), (249, ROWY[0] + 5.7), (249, YTB), (230, YTB)])
-# PACK+ after the fuse
-zone(design.PACK_POS, rect(178, 1, 226, YTB), layers=(F,))
-zone(design.PACK_POS, rect(178, 1, 226, 21.9), layers=(B,))
-
-HOLES = [(5, 5), (W - 5, 5), (5, H - 5), (W - 5, H - 5), (127.0, 115.0), (W - 127.0, 115.0)]
+HOLES = [(5, 5), (W - 5, 5), (5, H - 5), (W - 5, H - 5), (12.0, 98.42), (W - 12.0, 98.42)]
 for x, y in HOLES:
     keepout(x, y, 3.8)
 
 # ================================================================== cells
 for n in range(1, design.NCELLS + 1):
-    x, y, rot, side = cell_xy(n)
-    place("BT%d" % n, x, y, rot, show_ref=False)
+    x, y = geom.cell_xy(n)
+    place("BT%d" % n, x, y, geom.cell_rot(n), show_ref=False)
 
-# NTC saddles, numbered along the series path: left column down, right column up
-NTC_ROWS = [("L", 1, 2), ("L", 3, 4), ("L", 5, 6), ("L", 6, 7), ("R", 5, 6), ("R", 3, 4), ("R", 1, 2)]
+NTC_AT = [("L", 1), ("L", 3), ("L", 5), ("L", 6), ("R", 1), ("R", 3), ("R", 5)]   # gap below row r
 NTC_POS = []
-for i, (sd, r1, r2) in enumerate(NTC_ROWS):
-    y = gap(r1, r2)
-    if sd == "L":
-        place("TH%d" % (i + 1), XL - 1.27, y, 0, show_ref=False)      # pad1 west
-    else:
-        place("TH%d" % (i + 1), XR + 1.27, y, 180, show_ref=False)    # pad1 east
-    NTC_POS.append((sd, XL if sd == "L" else XR, y))
+for i, (sd, r) in enumerate(NTC_AT):
+    xc = XL if sd == "L" else XR
+    gy = round((ROWY[r - 1] + ROWY[r]) / 2, 3)
+    place("TH%d" % (i + 1), xc - 1.27, gy, 0, show_ref=False)
+    NTC_POS.append((sd, xc, gy))
 
 
-def inner_route_y(n, inner_node):
-    if inner_node == 0 or inner_node == 14:
-        return None
-    return NODE[inner_node][1]
-
-
-for n in range(1, design.NCELLS + 1):
-    x, y, rot, side = cell_xy(n)
-    left = side == "L"
-    sx = (lambda v: v) if left else (lambda v: W - v)
-    pos_inner = (rot == 0) if left else (rot == 180)   # + terminal on the channel side?
-    inner_node = n if pos_inner else n - 1
-    outer_node = n - 1 if pos_inner else n
-    ly = NODE[inner_node][1]
-    s = 1 if ly > y else -1
-    xt = sx(X_TRIAD_L)
-    chain = ["D_REV%d" % n, "LED_REV%d" % n, "R_REV%d" % n]   # + ... -
-    if not pos_inner:
-        chain.reverse()
-    ys = [y + 6.0 * s, y + 1.0 * s, y - 4.0 * s]
-    inner_net = N(inner_node)
-    up_net = inner_net
-    prev_bottom = None
-    for ref, yy in zip(chain, ys):
-        c = comps[ref]["pins"]
-        best = None
-        for r in (90, 270):
-            fp = place(ref, xt, yy, r, show_ref=False)
-            pp = pads_of(ref)
-            pn = [k for k, v in c.items() if v == up_net][0]
-            if (pp[pn][1] - yy) * s > 0:
-                best = r
-                break
-            board.Remove(fp)
-        assert best is not None, ref
-        pp = pads_of(ref)
-        pin_up = [k for k, v in c.items() if v == up_net][0]
-        pin_dn = [k for k in pp if k != pin_up][0]
-        if prev_bottom is None:
-            track(inner_net, F, 0.4, [(xt, ly), pp[pin_up]])
-        else:
-            track(up_net, F, 0.3, [prev_bottom, pp[pin_up]])
-        prev_bottom = pp[pin_dn]
-        up_net = c[pin_dn]
-    track(N(outer_node), F, 0.4, [prev_bottom, (prev_bottom[0], prev_bottom[1] - 2.0 * s)])
-    tp_in = ("TP_P%d" if pos_inner else "TP_N%d") % n
-    tp_out = ("TP_N%d" if pos_inner else "TP_P%d") % n
-    place(tp_in, sx(X_TP_L), y + 6.5 * s, 0, show_ref=False)
-    place(tp_out, sx(X_TP_L), y - 4.5 * s, 0, show_ref=False)
-    track(inner_net, F, 0.4, [(xt, ly), pad(tp_in, "1")])
-    via(inner_net, xt, ly)
-    lx = sx(X_TP_L + 3.4)
-    text("C%d" % n, sx(X_TRIAD_L + 6.3), y, 1.5, bold=True)
-    text("+", lx, (y + 6.5 * s) if pos_inner else (y - 4.5 * s), 1.2, bold=True)
-    text("-", lx, (y - 4.5 * s) if pos_inner else (y + 6.5 * s), 1.2, bold=True)
-
-# inner nodes: via at the channel edge, In1 lane out to the outer-margin triad via
-for k, (kind, ly) in NODE.items():
-    if kind != "in":
-        continue
-    sides = ["L", "R"] if k == 7 else [side_of(k)]
-    for sd in sides:
-        xi = X_INV_L if sd == "L" else X_INV_R
-        xt = X_TRIAD_L if sd == "L" else X_TRIAD_R
-        track(N(k), I1, 0.3, [(xi, ly), (xt, ly)])
-        via(N(k), xi, ly, 0.8, 0.4)
-# outer nodes: sense via in the outer zone
-for k, (kind, ly) in NODE.items():
-    if kind == "out":
-        via(N(k), X_OUTSENSE_L if k <= 7 else X_OUTSENSE_R, ly, 0.8, 0.4)
-
-# ================================================================== top edge: connectors
-XJ1, YJ = 131.0, 5.5           # J1 pin 1 (balance, 15 pins, B- at the left)
-XJ2 = 38.0                     # J2 pin 1 (NTC, 14 pins)
-place("J1", XJ1, YJ, 0, show_ref=False)
-place("J2", XJ2, YJ, 0, show_ref=False)
-place("J4", MX - 44.5, 13.0, 0)       # PACK- / B- lug
-place("J3", MX + 44.5, 13.0, 0)       # PACK+ lug
-place("F1", 226.7, 24.0, 180)         # pad1 (cell 14) east, pad2 (PACK+) west
-
-# ================================================================== BMS sense block under J1
-XK = [MX - 28.0 + 4.0 * k for k in range(design.NCELLS + 1)]   # 4 mm lanes
-Y_TVS = {0: 24.0, 1: 30.0}     # TVS rows (even k / odd k)
-Y_PTC = {1: 38.0, 0: 45.0}     # PPTC rows (odd k / even k)
-Y_IN = {1: 41.9, 0: 48.9}      # input vias (odd / even)
-for k in range(1, design.NCELLS + 1):
-    place("D_TVS%d" % k, (XK[k - 1] + XK[k]) / 2, Y_TVS[k % 2], 0, show_ref=False)
-for k in range(design.NCELLS + 1):
-    place("F_PTC%d" % (k + 1), XK[k], Y_PTC[k % 2], 90, show_ref=False)
-for k in range(design.NCELLS + 1):
-    bms = comps["J1"]["pins"][str(k + 1)]
-    f = "F_PTC%d" % (k + 1)
-    pj = pad("J1", str(k + 1))
-    d = abs(pj[0] - XK[k])
-    track(bms, F, 0.4, [pj, (pj[0], 8.0), (XK[k], 8.0 + d), pad(f, "2")])
-    p1 = pad(f, "1")
-    vin = (XK[k], Y_IN[k % 2])
-    track(N(k), F, 0.4, [p1, vin])
-    via(N(k), *vin)
-
-# In1 sense routes: every entry runs horizontally to its lane, then straight up to the input via
-for k in range(1, 14):
-    kind, ye = NODE[k]
-    if k == 7:
-        ye = 195.0
-        via(N(7), X_INV_L, ye, 0.8, 0.4)
-        x0 = X_INV_L
-    elif kind == "in":
-        x0 = X_INV_L if k <= 7 else X_INV_R
-    else:
-        x0 = X_OUTSENSE_L if k <= 7 else X_OUTSENSE_R
-    track(N(k), I1, 0.25, [(x0, ye), (XK[k], ye), (XK[k], Y_IN[k % 2])])
-# B- and cell 14 come from the top corners
-via(design.PACK_NEG, 117.0, 25.0, 0.8, 0.4)
-track(design.PACK_NEG, I1, 0.25, [(117.0, 25.0), (117.0, 50.5), (XK[0], 50.5), (XK[0], Y_IN[0])])
-via(design.TOP, 245.0, 27.0, 0.8, 0.4)
-track(design.TOP, I1, 0.25, [(245.0, 27.0), (245.0, 30.2), (181.0, 30.2), (181.0, 50.5),
-                             (XK[14], 50.5), (XK[14], Y_IN[0])])
-
-# ================================================================== NTC routes (In2) -> J2 (top-left)
-LG = 1.3
-for i, (sd, x, y) in enumerate(NTC_POS):
-    th = "TH%d" % (i + 1)
-    a, b = pad(th, "1"), pad(th, "2")
-    na, nb = comps[th]["pins"]["1"], comps[th]["pins"]["2"]
-    pa, pb = pad("J2", str(2 * i + 1)), pad("J2", str(2 * i + 2))
-    if sd == "L":
-        wa, wb = 2 * i, 2 * i + 1
-        for pt, nt, w, pj, dy in ((a, na, wa, pa, -LG), (b, nb, wb, pb, LG)):
-            xt, yt = 71.0 + 0.6 * w, 27.0 - 0.6 * w
-            track(nt, I2, 0.25, [pt, (pt[0], y + dy), (xt, y + dy), (xt, yt), (pj[0], yt), pj])
-    else:
-        j = i - 4
-        for pt, nt, r, pj, dy in ((a, na, 2 * j, pa, LG), (b, nb, 2 * j + 1, pb, -LG)):
-            xt, yt = 221.0 + 0.6 * r, 21.5 - 0.6 * r
-            track(nt, I2, 0.25, [pt, (pt[0], y + dy), (xt, y + dy), (xt, yt), (pj[0], yt), pj])
-
-# ================================================================== power path extras (top right)
-# fuse-blown indicator bridging the PACK+ zone (west) and the cell-14 zone (east)
-def place_facing(ref, x, y, net_east):
-    for r in (0, 180):
+def place_rot(ref, x, y, net_dir):
+    """place a 2-pad part vertically so the pad carrying net_dir[0] faces direction net_dir[1] (+1 down)."""
+    netn, s = net_dir
+    for r in (90, 270):
         fp = place(ref, x, y, r, show_ref=False)
         pp = pads_of(ref)
-        pe = [k for k, v in comps[ref]["pins"].items() if v == net_east][0]
-        if pp[pe][0] > x:
+        pn = [k for k, v in comps[ref]["pins"].items() if v == netn][0]
+        if (pp[pn][1] - y) * s > 0:
             return pp
         board.Remove(fp)
     raise RuntimeError(ref)
 
 
-fb_mid = comps["R_FB1"]["pins"]["2"] if comps["R_FB1"]["pins"]["1"] == design.TOP else comps["R_FB1"]["pins"]["1"]
-pl = place_facing("LED_FB1", 225.9, 10.0, fb_mid)
-pr = place_facing("R_FB1", 229.9, 10.0, design.TOP)
-la = [v for k, v in pl.items() if comps["LED_FB1"]["pins"][k] == fb_mid][0]
-rm = [v for k, v in pr.items() if comps["R_FB1"]["pins"][k] == fb_mid][0]
-track(fb_mid, F, 0.3, [la, rm])
-# pack TVS: PACK+ zone on top, PACK- through vias into the B.Cu return strip
-place("D_TVS_MAIN1", 210.3, 17.0, 90, show_ref=False)
-pt1 = [v for k, v in pads_of("D_TVS_MAIN1").items() if comps["D_TVS_MAIN1"]["pins"][k] == design.PACK_NEG][0]
-for dx in (-1.0, 0.0, 1.0):
-    via(design.PACK_NEG, pt1[0] + dx, 24.2, 0.8, 0.4)
-    track(design.PACK_NEG, F, 0.5, [pt1, (pt1[0] + dx, 24.2)])
-# HV-present indicator (PACK+ zone supplies the zener and LED resistor directly)
-YH = 25.05
-place("D_HV1", 181.0, YH - 0.95, 180, show_ref=False)
-place("R_HV_BASE1", 186.5, YH, 0, show_ref=False)
-place("R_HV_PD1", 191.0, 26.0, 270, show_ref=False)
-place("Q_HV1", 194.0, 26.0, 0, show_ref=False)
-place("LED_HV1", 199.0, 26.0, 0, show_ref=False)
-place("R_HV_LED1", 204.0, 26.0, 180, show_ref=False)
-hz, hb = comps["D_HV1"]["pins"]["1"], comps["Q_HV1"]["pins"]["1"]
-hk, ha = comps["Q_HV1"]["pins"]["3"], comps["R_HV_LED1"]["pins"]["2"]
-track(hz, F, 0.3, [pad("D_HV1", "1"), pad("R_HV_BASE1", "1")])
-track(hb, F, 0.3, [pad("R_HV_BASE1", "2"), (189.5, pad("R_HV_BASE1", "2")[1]), pad("R_HV_PD1", "1")])
-track(hb, F, 0.3, [pad("R_HV_PD1", "1"), pad("Q_HV1", "1")])
-track(design.PACK_NEG, F, 0.3, [pad("R_HV_PD1", "2"), pad("Q_HV1", "2")])
-track(design.PACK_NEG, F, 0.4, [pad("R_HV_PD1", "2"), (pad("R_HV_PD1", "2")[0], 28.9)])
-via(design.PACK_NEG, pad("R_HV_PD1", "2")[0], 28.9)
-track(hk, F, 0.3, [pad("Q_HV1", "3"), pad("LED_HV1", "1")])
-track(ha, F, 0.3, [pad("LED_HV1", "2"), pad("R_HV_LED1", "2")])
+for n in range(1, design.NCELLS + 1):
+    x, y = geom.cell_xy(n)
+    side = geom.cell_side(n)
+    rot = geom.cell_rot(n)
+    sx = lambda v, side=side: mirror(v, side)  # noqa: E731
+    pos_inner = (rot == 0) if side == "L" else (rot == 180)
+    inner_node = n if pos_inner else n - 1
+    outer_node = n - 1 if pos_inner else n
+    ly = NODE[inner_node][1]
+    s = 1 if ly > y else -1
+    xt = sx(X_TRIAD)
+    chain = ["D_REV%d" % n, "LED_REV%d" % n, "R_REV%d" % n]      # + ... -
+    if not pos_inner:
+        chain.reverse()
+    up_net = N(inner_node)
+    prev = None
+    for ref, yy in zip(chain, (y + 6.5 * s, y + 1.5 * s, y - 3.5 * s)):
+        pp = place_rot(ref, xt, yy, (up_net, s))
+        pin_up = [k for k, v in comps[ref]["pins"].items() if v == up_net][0]
+        pin_dn = [k for k in pp if k != pin_up][0]
+        track(up_net, F, 0.4 if prev is None else 0.3, [(xt, ly) if prev is None else prev, pp[pin_up]])
+        prev = pp[pin_dn]
+        up_net = comps[ref]["pins"][pin_dn]
+    tp_in = ("TP_P%d" if pos_inner else "TP_N%d") % n
+    tp_out = ("TP_N%d" if pos_inner else "TP_P%d") % n
+    place(tp_in, sx(X_TP), y + 4.0 * s, 0, show_ref=False)
+    place(tp_out, sx(X_TP), y - 4.0 * s, 0, show_ref=False)
+    # outer node: triad end -> test loop -> finger of the holder contact
+    track(N(outer_node), F, 0.4, [prev, pad(tp_out, "1"), (sx(42.2), y - 4.0 * s)])
+    # inner node: via of the In1 route -> test loop
+    track(N(inner_node), F, 0.4, [(xt, ly), pad(tp_in, "1")])
+    via(N(inner_node), xt, ly)
+    # silkscreen: polarity marks and a writable cell box
+    text("+" if pos_inner else "-", sx(39.5), y + 4.0 * s, 1.1, bold=True)
+    text("-" if pos_inner else "+", sx(39.5), y - 4.0 * s, 1.1, bold=True)
+    bx0, bx1 = sorted((sx(3.0), sx(20.0)))
+    silk_line([(bx0, y - 5.5), (bx1, y - 5.5), (bx1, y + 4.5), (bx0, y + 4.5), (bx0, y - 5.5)], 0.12)
+    text("C%d" % n, (bx0 + bx1) / 2, y - 3.0, 1.5, bold=True)
+    text("V ______", (bx0 + bx1) / 2, y + 0.2, 0.9)
+    text("IR _____", (bx0 + bx1) / 2, y + 2.6, 0.9)
+
+# inner nodes: via at the strap (channel side) and In1 route out to the margin triad
+for k, (kind, ly) in NODE.items():
+    if kind != "in":
+        continue
+    for side in (["L", "R"] if k == 7 else ["L" if k < 7 else "R"]):
+        xv = mirror(X_IV, side)
+        via(N(k), xv, ly, 0.8, 0.4)
+        ys = ROWY[6] + geom.W_H / 2 - 0.6 if k == 7 else ly
+        track(N(k), F, 0.5, [(xv, ly), (mirror(136.0, side), ys) if k != 7 else (xv, ys)])
+        track(N(k), I1, 0.3, [(xv, ly), (mirror(X_TRIAD, side), ly)])
+# outer nodes: sense via next to the strap
+for k, (kind, ly) in NODE.items():
+    if kind == "out":
+        side = "L" if k < 7 else "R"
+        via(N(k), mirror(X_OSV, side), ly, 0.8, 0.4)
+        track(N(k), F, 0.5, [(mirror(X_OSV, side), ly), (mirror(42.2, side), ly)])
+
+# ================================================================== BMS sense: PPTC at every node, bus up the channel
+XPIN = [geom.MX - 17.5 + 2.5 * k for k in range(15)]      # J1 pins (top edge, centred)
+Y_VIA_J1 = 17.4
+Y_FAN = 28.5
+place("J1", XPIN[0], 5.5, 0, show_ref=False)
+
+
+def bus_x(k):
+    if k <= 7:
+        return X_BUS0 + BUS_P * (k - 1)
+    return W - (X_BUS0 + BUS_P * (13 - k))
+
+
+def bus_up(k, x0, y0):
+    """In1 from the PPTC output via to J1 lane k: jog to the bus, up, 45-degree fan, up."""
+    xb = bus_x(k)
+    d = abs(XPIN[k] - xb)
+    track(comps["J1"]["pins"][str(k + 1)], I1, 0.25,
+          [(x0, y0), (xb, y0), (xb, Y_FAN), (XPIN[k], Y_FAN - d), (XPIN[k], Y_VIA_J1)])
+
+
+for k in range(1, 14):
+    kind, ly = NODE[k]
+    side = "L" if k <= 7 else "R"
+    xp = mirror(X_PTC, side)
+    f = "F_PTC%d" % (k + 1)
+    if k == 7:
+        yc = ROWY[6] - geom.W_H / 2 - 3.6
+        pp = place_rot(f, xp, yc, (N(7), +1))
+        p1 = [v for q, v in pp.items() if comps[f]["pins"][q] == N(7)][0]
+        p2 = [v for q, v in pp.items() if comps[f]["pins"][q] != N(7)][0]
+        track(N(7), F, 0.5, [p1, (xp, ROWY[6] - geom.W_H / 2 + 0.6)])
+        yo = yc - 4.0
+    elif kind == "in":
+        yc = ly + 3.2
+        pp = place_rot(f, xp, yc, (N(k), -1))
+        p1 = [v for q, v in pp.items() if comps[f]["pins"][q] == N(k)][0]
+        p2 = [v for q, v in pp.items() if comps[f]["pins"][q] != N(k)][0]
+        track(N(k), F, 0.4, [(mirror(X_IV, side), ly), p1])
+        yo = yc + 4.0
+    else:
+        yc = ly - 3.4
+        pp = place_rot(f, xp, yc, (N(k), +1))
+        p1 = [v for q, v in pp.items() if comps[f]["pins"][q] == N(k)][0]
+        p2 = [v for q, v in pp.items() if comps[f]["pins"][q] != N(k)][0]
+        via(N(k), xp, ly)
+        track(N(k), F, 0.4, [(xp, ly), p1])
+        track(N(k), I1, 0.25, [(mirror(X_OSV, side), ly), (xp, ly)])
+        yo = yc - 4.0
+    bms = comps[f]["pins"]["2"] if comps[f]["pins"]["1"] == N(k) else comps[f]["pins"]["1"]
+    track(bms, F, 0.4, [p2, (xp, yo)])
+    via(bms, xp, yo)
+    bus_up(k, xp, yo)
+
+# B- and cell 14 taps: PPTC in the corner copper (outer margin), In1 lane along y = row1 - 10.4
+Y_TAPLANE = round(ROWY[0] - LANE, 3)
+for k, side in ((0, "L"), (14, "R")):
+    f = "F_PTC%d" % (k + 1)
+    pp = place_rot(f, mirror(26.0, side), 22.0, (N(k), +1))           # tap pad down, output up
+    p2 = [v for q, v in pp.items() if comps[f]["pins"][q] != N(k)][0]
+    bms = comps["J1"]["pins"][str(k + 1)]
+    vx, vy = mirror(26.0, side), 17.6
+    track(bms, F, 0.4, [p2, (vx, vy)])
+    via(bms, vx, vy)
+    track(bms, I1, 0.25, [(vx, vy), (vx, Y_TAPLANE), (XPIN[k], Y_TAPLANE), (XPIN[k], Y_VIA_J1)])
+
+# J1 lanes: pin -> two staggered rows of SOD-323 TVS -> via
+for k in range(1, 15):
+    place("D_TVS%d" % k, XPIN[k - 1] + 1.25, 12.6 if k % 2 == 0 else 15.0, 0, show_ref=False)
+for k in range(15):
+    bms = comps["J1"]["pins"][str(k + 1)]
+    track(bms, F, 0.3, [pad("J1", str(k + 1)), (XPIN[k], Y_VIA_J1)])
+    via(bms, XPIN[k], Y_VIA_J1)
+
+# ================================================================== NTC: J2 right of J1, lines on In2
+XJ2 = 173.0
+place("J2", XJ2, 5.5, 0, show_ref=False)
+LG = 1.3
+for i, (sd, xc, gy) in enumerate(NTC_POS):
+    th = "TH%d" % (i + 1)
+    a, b = pad(th, "1"), pad(th, "2")
+    na, nb = comps[th]["pins"]["1"], comps[th]["pins"]["2"]
+    for pt, nt, dy, j in ((a, na, -LG, 0), (b, nb, LG, 1)):
+        if sd == "L":
+            w = 2 * i + j
+            xt, yt = 91.6 + 0.7 * w, 9.9 + 0.7 * w
+        else:
+            w = 2 * (i - 4) + j
+            xt, yt = 211.0 + 0.7 * w, 13.4 - 0.7 * w
+            w += 8
+        pj = pad("J2", str(w + 1))
+        track(nt, I2, 0.25, [pt, (pt[0], gy + dy), (xt, gy + dy), (xt, yt), (pj[0], yt), pj])
+
+# ================================================================== power path, top right
+place("J4", 67.0, 9.0, 0)                 # B- / PACK- lug
+place("J3", W - 67.0, 9.0, 0)             # PACK+ lug
+place("F1", 251.0, 9.5, 180)              # pad1 (cell 14) east, pad2 (PACK+) west
+pl = None
+for r in (0, 180):
+    fp = place("LED_FB1", 250.4, 2.4, r, show_ref=False)
+    pp = pads_of("LED_FB1")
+    if pp["1"][0] < 250.4:                # cathode (PACK+) west
+        pl = pp
+        break
+    board.Remove(fp)
+for r in (0, 180):
+    fp = place("R_FB1", 254.4, 2.4, r, show_ref=False)
+    pr = pads_of("R_FB1")
+    ptop = [v for q, v in pr.items() if comps["R_FB1"]["pins"][q] == design.TOP][0]
+    if ptop[0] > 254.4:
+        break
+    board.Remove(fp)
+pmid = [v for q, v in pr.items() if comps["R_FB1"]["pins"][q] != design.TOP][0]
+track(comps["LED_FB1"]["pins"]["2"], F, 0.3, [pl["2"], pmid])
+track(design.TOP, F, 0.4, [ptop, (256.0, ptop[1])])
+
+# HV-present indicator + pack TVS: top band, inside the PACK- copper, PACK+ through vias to B.Cu
+YH = 5.0
+place("D_HV1", 98.4, YH, 270, show_ref=False)          # K south, A north-east
+place("R_HV_BASE1", 102.5, 4.06, 0, show_ref=False)
+place("R_HV_PD1", 102.5, 7.2, 270, show_ref=False)
+place("Q_HV1", 107.0, YH, 0, show_ref=False)
+place("LED_HV1", 111.0, YH, 0, show_ref=False)
+place("R_HV_LED1", 115.3, YH, 180, show_ref=False)
+place("D_TVS_MAIN1", 122.6, YH, 0, show_ref=False)
+c = comps
+track(c["D_HV1"]["pins"]["1"], F, 0.3, [pad("D_HV1", "1"), pad("R_HV_BASE1", "1")])
+hb = c["Q_HV1"]["pins"]["1"]
+track(hb, F, 0.3, [pad("R_HV_BASE1", "2"), pad("Q_HV1", "1")])
+ppd = [v for q, v in pads_of("R_HV_PD1").items() if c["R_HV_PD1"]["pins"][q] == hb][0]
+track(hb, F, 0.3, [ppd, pad("R_HV_BASE1", "2")])
+track(c["Q_HV1"]["pins"]["3"], F, 0.3, [pad("Q_HV1", "3"), pad("LED_HV1", "1")])
+pla = [v for q, v in pads_of("R_HV_LED1").items() if c["R_HV_LED1"]["pins"][q] != design.PACK_POS][0]
+plp = [v for q, v in pads_of("R_HV_LED1").items() if c["R_HV_LED1"]["pins"][q] == design.PACK_POS][0]
+track(c["LED_HV1"]["pins"]["2"], F, 0.3, [pad("LED_HV1", "2"), pla])
+for pt in (pad("D_HV1", "3"), plp):
+    track(design.PACK_POS, F, 0.4, [pt, (pt[0], 8.0)])
+    via(design.PACK_POS, pt[0], 8.0)
+ptv = [v for q, v in pads_of("D_TVS_MAIN1").items() if c["D_TVS_MAIN1"]["pins"][q] == design.PACK_POS][0]
+for dx in (-0.9, 0.9):
+    track(design.PACK_POS, F, 0.6, [ptv, (ptv[0] + dx, 8.6)])
+    via(design.PACK_POS, ptv[0] + dx, 8.6, 0.8, 0.4)
 
 # ================================================================== mechanical
 for i, (x, y) in enumerate(HOLES):
     place("H%d" % (i + 1), x, y, 0, show_ref=False)
-for i, (x, y) in enumerate([(16.0, 3.4), (W - 14.0, 3.4), (16.0, H - 3.4)]):
+for i, (x, y) in enumerate([(14.0, 3.4), (W - 14.0, 3.4), (14.0, H - 3.4)]):
     place("FID%d" % (i + 1), x, y, 0, show_ref=False)
 
 # ================================================================== silkscreen
-text("J1  BALANCE  ->  BMS   (1 = B-  ...  15 = C14+)", XJ1 + 17.5, 11.2, 1.0)
-text("J2  NTC  ->  BMS   (1-2 = NTC1 ... 13-14 = NTC7)", XJ2 + 16.25, 11.2, 1.0)
-text("B-  /  PACK-", MX - 44.5, 19.6, 1.3, bold=True)
-text("to BMS B-", MX - 44.5, 21.8, 1.0)
-text("PACK+", MX + 44.5, 19.6, 1.3, bold=True)
-text("to load / charger +", MX + 44.5, 21.8, 1.0)
-text("F1 5x20 10A", 226.7, 17.4, 1.0)
-text("HV>44V", 199.0, 23.6, 0.8)
-text("FUSE BLOWN", 227.9, 7.6, 0.8)
-for i, (sd, x, y) in enumerate(NTC_POS):
-    text("NTC%d" % (i + 1), x + (6.5 if sd == "L" else -6.5), y, 0.9)
-YT = 58.0
-text("14S 18650 BATTERY PACK BREAKOUT", MX, YT, 1.5, bold=True)
-text("58.8V MAX  |  A4 297 x 210 mm  |  4-LAYER", MX, YT + 2.6, 1.0)
+text("J1  BMS BALANCE   1 = B-  ...  15 = C14+", geom.MX, 20.2, 0.9)
+text("J2  BMS NTC   1-2 = NTC1  ...  13-14 = NTC7", XJ2 + 16.25, 11.6, 0.9)
+text("B- / PACK-", 67.0, 15.0, 1.3, bold=True)
+text("to BMS B-", 67.0, 17.0, 0.9)
+text("PACK+", W - 67.0, 15.2, 1.3, bold=True)
+text("to load / charger +", W - 67.0, 17.2, 0.9)
+text("F1  5x20  10A", 251.0, 15.6, 0.9)
+text("FUSE BLOWN", 252.4, 0.9, 0.8)
+text("HV>44V", 111.0, 1.2, 0.8)
+text("14S 18650 BATTERY PACK BREAKOUT", 102.0, 12.6, 1.2, bold=True)
+text("58.8V MAX  |  A4  |  4-LAYER  |  EQUAL 0.26 mOhm CELL LINKS", 102.0, 14.9, 0.8)
+for i, (sd, xc, gy) in enumerate(NTC_POS):
+    a, b = design.NTC_CELLS[i]
+    text("NTC%d  C%d/C%d" % (i + 1, a, b), xc + (9.0 if sd == "L" else 9.0), gy, 0.8)
 guide = ["HOW TO CONNECT",
-         "1. J1 <- BMS balance lead (B- wire on pin 1)",
-         "2. J2 <- BMS NTC lead (or leave open)",
-         "3. B- lug -> BMS B-     PACK+ lug -> load/charger +",
-         "4. Load/charger - -> BMS P-",
-         "5. Insert cells LAST. A red LED = that cell is reversed.",
-         "Test loops: red = cell +, black = cell -"]
+         "1. J1 <- BMS balance lead (B- wire = pin 1)",
+         "2. J2 <- BMS NTC lead (optional)",
+         "3. B- lug -> BMS B-  |  PACK+ lug -> load +",
+         "4. Load / charger -  -> BMS P-",
+         "5. Insert cells LAST. Red LED = reversed cell"]
 for i, g in enumerate(guide):
-    text(g, MX, YT + 8.0 + 2.2 * i, 1.0, bold=(i == 0))
-text("CELL 7 (+)  -->  CELL 8 (-)   BUS", MX, 199.0, 1.2)
-text("WARNING: LIVE 58.8V DC. INSERT CELLS WITH CORRECT POLARITY - RED LED = REVERSED CELL.", MX, 208.0, 1.0)
+    text(g, geom.MX - 4.25 + 1.7 * i, 112.0, 0.9, bold=(i == 0), rot=90)
+text("CELL 7 (+)  ->  CELL 8 (-)", geom.MX, ROWY[6] + 4.0, 1.0)
+text("WARNING: LIVE 58.8V DC - INSERT CELLS WITH CORRECT POLARITY - RED LED = REVERSED CELL", geom.MX, 208.7, 0.8)
 
 pcbnew.ZONE_FILLER(board).Fill(board.Zones())
 # board.Save() rewrites the project files with API defaults - keep the user's settings

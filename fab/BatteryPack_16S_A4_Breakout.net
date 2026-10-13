@@ -2,7 +2,7 @@
 	(version "E")
 	(design
 		(source "/prj/BatteryPack_16S_A4_Breakout.kicad_sch")
-		(date "2026-10-13T01:13:18")
+		(date "2026-10-13T01:57:50")
 		(tool "Eeschema 10.0.6")
 		(sheet
 			(number "1")
@@ -6204,23 +6204,23 @@
 		)
 		(comp
 			(ref "D_TVS1")
-			(value "SMAJ5.0CA")
-			(footprint "Diode_SMD:D_SMA")
-			(description "400W 5V bidirectional TVS, per-cell sense clamp")
+			(value "LKS05D3-B")
+			(footprint "Diode_SMD:D_SOD-323")
+			(description "480W 5V bidirectional TVS (SOD-323), per-cell sense clamp at J1")
 			(fields
 				(field
-					(name "LCSC") "C5174731")
+					(name "LCSC") "C2984829")
 				(field
-					(name "MPN") "SMAJ5.0CA")
+					(name "MPN") "LKS05D3-B")
 				(field
-					(name "Manufacturer") "JSCJ")
+					(name "Manufacturer") "LANKE")
 				(field
-					(name "Footprint") "Diode_SMD:D_SMA")
+					(name "Footprint") "Diode_SMD:D_SOD-323")
 				(field
 					(name "Datasheet")
 				)
 				(field
-					(name "Description") "400W 5V bidirectional TVS, per-cell sense clamp")
+					(name "Description") "480W 5V bidirectional TVS (SOD-323), per-cell sense clamp at J1")
 			)
 			(libsource
 				(lib "Device")
@@ -6229,15 +6229,15 @@
 			)
 			(property
 				(name "LCSC")
-				(value "C5174731")
+				(value "C2984829")
 			)
 			(property
 				(name "MPN")
-				(value "SMAJ5.0CA")
+				(value "LKS05D3-B")
 			)
 			(property
 				(name "Manufacturer")
-				(value "JSCJ")
+				(value "LANKE")
 			)
 			(property
 				(name "Sheetname")
@@ -6276,23 +6276,23 @@
 		)
 		(comp
 			(ref "D_TVS2")
-			(value "SMAJ5.0CA")
-			(footprint "Diode_SMD:D_SMA")
-			(description "400W 5V bidirectional TVS, per-cell sense clamp")
+			(value "LKS05D3-B")
+			(footprint "Diode_SMD:D_SOD-323")
+			(description "480W 5V bidirectional TVS (SOD-323), per-cell sense clamp at J1")
 			(fields
 				(field
-					(name "LCSC") "C5174731")
+					(name "LCSC") "C2984829")
 				(field
-					(name "MPN") "SMAJ5.0CA")
+					(name "MPN") "LKS05D3-B")
 				(field
-					(name "Manufacturer") "JSCJ")
+					(name "Manufacturer") "LANKE")
 				(field
-					(name "Footprint") "Diode_SMD:D_SMA")
+					(name "Footprint") "Diode_SMD:D_SOD-323")
 				(field
 					(name "Datasheet")
 				)
 				(field
-					(name "Description") "400W 5V bidirectional TVS, per-cell sense clamp")
+					(name "Description") "480W 5V bidirectional TVS (SOD-323), per-cell sense clamp at J1")
 			)
 			(libsource
 				(lib "Device")
@@ -6301,15 +6301,15 @@
 			)
 			(property
 				(name "LCSC")
-				(value "C5174731")
+				(value "C2984829")
 			)
 			(property
 				(name "MPN")
-				(value "SMAJ5.0CA")
+				(value "LKS05D3-B")
 			)
 			(property
 				(name "Manufacturer")
-				(value "JSCJ")
+				(value "LANKE")
 			)
 			(property
 				(name "Sheetname")
@@ -6348,23 +6348,23 @@
 		)
 		(comp
 			(ref "D_TVS3")
-			(value "SMAJ5.0CA")
-			(footprint "Diode_SMD:D_SMA")
-			(description "400W 5V bidirectional TVS, per-cell sense clamp")
+			(value "LKS05D3-B")
+			(footprint "Diode_SMD:D_SOD-323")
+			(description "480W 5V bidirectional TVS (SOD-323), per-cell sense clamp at J1")
 			(fields
 				(field
-					(name "LCSC") "C5174731")
+					(name "LCSC") "C2984829")
 				(field
-					(name "MPN") "SMAJ5.0CA")
+					(name "MPN") "LKS05D3-B")
 				(field
-					(name "Manufacturer") "JSCJ")
+					(name "Manufacturer") "LANKE")
 				(field
-					(name "Footprint") "Diode_SMD:D_SMA")
+					(name "Footprint") "Diode_SMD:D_SOD-323")
 				(field
 					(name "Datasheet")
 				)
 				(field
-					(name "Description") "400W 5V bidirectional TVS, per-cell sense clamp")
+					(name "Description") "480W 5V bidirectional TVS (SOD-323), per-cell sense clamp at J1")
 			)
 			(libsource
 				(lib "Device")
@@ -6373,15 +6373,15 @@
 			)
 			(property
 				(name "LCSC")
-				(value "C5174731")
+				(value "C2984829")
 			)
 			(property
 				(name "MPN")
-				(value "SMAJ5.0CA")
+				(value "LKS05D3-B")
 			)
 			(property
 				(name "Manufacturer")
-				(value "JSCJ")
+				(value "LANKE")
 			)
 			(property
 				(name "Sheetname")
@@ -6420,23 +6420,23 @@
 		)
 		(comp
 			(ref "D_TVS4")
-			(value "SMAJ5.0CA")
-			(footprint "Diode_SMD:D_SMA")
-			(description "400W 5V bidirectional TVS, per-cell sense clamp")
+			(value "LKS05D3-B")
+			(footprint "Diode_SMD:D_SOD-323")
+			(description "480W 5V bidirectional TVS (SOD-323), per-cell sense clamp at J1")
 			(fields
 				(field
-					(name "LCSC") "C5174731")
+					(name "LCSC") "C2984829")
 				(field
-					(name "MPN") "SMAJ5.0CA")
+					(name "MPN") "LKS05D3-B")
 				(field
-					(name "Manufacturer") "JSCJ")
+					(name "Manufacturer") "LANKE")
 				(field
-					(name "Footprint") "Diode_SMD:D_SMA")
+					(name "Footprint") "Diode_SMD:D_SOD-323")
 				(field
 					(name "Datasheet")
 				)
 				(field
-					(name "Description") "400W 5V bidirectional TVS, per-cell sense clamp")
+					(name "Description") "480W 5V bidirectional TVS (SOD-323), per-cell sense clamp at J1")
 			)
 			(libsource
 				(lib "Device")
@@ -6445,15 +6445,15 @@
 			)
 			(property
 				(name "LCSC")
-				(value "C5174731")
+				(value "C2984829")
 			)
 			(property
 				(name "MPN")
-				(value "SMAJ5.0CA")
+				(value "LKS05D3-B")
 			)
 			(property
 				(name "Manufacturer")
-				(value "JSCJ")
+				(value "LANKE")
 			)
 			(property
 				(name "Sheetname")
@@ -6492,23 +6492,23 @@
 		)
 		(comp
 			(ref "D_TVS5")
-			(value "SMAJ5.0CA")
-			(footprint "Diode_SMD:D_SMA")
-			(description "400W 5V bidirectional TVS, per-cell sense clamp")
+			(value "LKS05D3-B")
+			(footprint "Diode_SMD:D_SOD-323")
+			(description "480W 5V bidirectional TVS (SOD-323), per-cell sense clamp at J1")
 			(fields
 				(field
-					(name "LCSC") "C5174731")
+					(name "LCSC") "C2984829")
 				(field
-					(name "MPN") "SMAJ5.0CA")
+					(name "MPN") "LKS05D3-B")
 				(field
-					(name "Manufacturer") "JSCJ")
+					(name "Manufacturer") "LANKE")
 				(field
-					(name "Footprint") "Diode_SMD:D_SMA")
+					(name "Footprint") "Diode_SMD:D_SOD-323")
 				(field
 					(name "Datasheet")
 				)
 				(field
-					(name "Description") "400W 5V bidirectional TVS, per-cell sense clamp")
+					(name "Description") "480W 5V bidirectional TVS (SOD-323), per-cell sense clamp at J1")
 			)
 			(libsource
 				(lib "Device")
@@ -6517,15 +6517,15 @@
 			)
 			(property
 				(name "LCSC")
-				(value "C5174731")
+				(value "C2984829")
 			)
 			(property
 				(name "MPN")
-				(value "SMAJ5.0CA")
+				(value "LKS05D3-B")
 			)
 			(property
 				(name "Manufacturer")
-				(value "JSCJ")
+				(value "LANKE")
 			)
 			(property
 				(name "Sheetname")
@@ -6564,23 +6564,23 @@
 		)
 		(comp
 			(ref "D_TVS6")
-			(value "SMAJ5.0CA")
-			(footprint "Diode_SMD:D_SMA")
-			(description "400W 5V bidirectional TVS, per-cell sense clamp")
+			(value "LKS05D3-B")
+			(footprint "Diode_SMD:D_SOD-323")
+			(description "480W 5V bidirectional TVS (SOD-323), per-cell sense clamp at J1")
 			(fields
 				(field
-					(name "LCSC") "C5174731")
+					(name "LCSC") "C2984829")
 				(field
-					(name "MPN") "SMAJ5.0CA")
+					(name "MPN") "LKS05D3-B")
 				(field
-					(name "Manufacturer") "JSCJ")
+					(name "Manufacturer") "LANKE")
 				(field
-					(name "Footprint") "Diode_SMD:D_SMA")
+					(name "Footprint") "Diode_SMD:D_SOD-323")
 				(field
 					(name "Datasheet")
 				)
 				(field
-					(name "Description") "400W 5V bidirectional TVS, per-cell sense clamp")
+					(name "Description") "480W 5V bidirectional TVS (SOD-323), per-cell sense clamp at J1")
 			)
 			(libsource
 				(lib "Device")
@@ -6589,15 +6589,15 @@
 			)
 			(property
 				(name "LCSC")
-				(value "C5174731")
+				(value "C2984829")
 			)
 			(property
 				(name "MPN")
-				(value "SMAJ5.0CA")
+				(value "LKS05D3-B")
 			)
 			(property
 				(name "Manufacturer")
-				(value "JSCJ")
+				(value "LANKE")
 			)
 			(property
 				(name "Sheetname")
@@ -6636,23 +6636,23 @@
 		)
 		(comp
 			(ref "D_TVS7")
-			(value "SMAJ5.0CA")
-			(footprint "Diode_SMD:D_SMA")
-			(description "400W 5V bidirectional TVS, per-cell sense clamp")
+			(value "LKS05D3-B")
+			(footprint "Diode_SMD:D_SOD-323")
+			(description "480W 5V bidirectional TVS (SOD-323), per-cell sense clamp at J1")
 			(fields
 				(field
-					(name "LCSC") "C5174731")
+					(name "LCSC") "C2984829")
 				(field
-					(name "MPN") "SMAJ5.0CA")
+					(name "MPN") "LKS05D3-B")
 				(field
-					(name "Manufacturer") "JSCJ")
+					(name "Manufacturer") "LANKE")
 				(field
-					(name "Footprint") "Diode_SMD:D_SMA")
+					(name "Footprint") "Diode_SMD:D_SOD-323")
 				(field
 					(name "Datasheet")
 				)
 				(field
-					(name "Description") "400W 5V bidirectional TVS, per-cell sense clamp")
+					(name "Description") "480W 5V bidirectional TVS (SOD-323), per-cell sense clamp at J1")
 			)
 			(libsource
 				(lib "Device")
@@ -6661,15 +6661,15 @@
 			)
 			(property
 				(name "LCSC")
-				(value "C5174731")
+				(value "C2984829")
 			)
 			(property
 				(name "MPN")
-				(value "SMAJ5.0CA")
+				(value "LKS05D3-B")
 			)
 			(property
 				(name "Manufacturer")
-				(value "JSCJ")
+				(value "LANKE")
 			)
 			(property
 				(name "Sheetname")
@@ -6708,23 +6708,23 @@
 		)
 		(comp
 			(ref "D_TVS8")
-			(value "SMAJ5.0CA")
-			(footprint "Diode_SMD:D_SMA")
-			(description "400W 5V bidirectional TVS, per-cell sense clamp")
+			(value "LKS05D3-B")
+			(footprint "Diode_SMD:D_SOD-323")
+			(description "480W 5V bidirectional TVS (SOD-323), per-cell sense clamp at J1")
 			(fields
 				(field
-					(name "LCSC") "C5174731")
+					(name "LCSC") "C2984829")
 				(field
-					(name "MPN") "SMAJ5.0CA")
+					(name "MPN") "LKS05D3-B")
 				(field
-					(name "Manufacturer") "JSCJ")
+					(name "Manufacturer") "LANKE")
 				(field
-					(name "Footprint") "Diode_SMD:D_SMA")
+					(name "Footprint") "Diode_SMD:D_SOD-323")
 				(field
 					(name "Datasheet")
 				)
 				(field
-					(name "Description") "400W 5V bidirectional TVS, per-cell sense clamp")
+					(name "Description") "480W 5V bidirectional TVS (SOD-323), per-cell sense clamp at J1")
 			)
 			(libsource
 				(lib "Device")
@@ -6733,15 +6733,15 @@
 			)
 			(property
 				(name "LCSC")
-				(value "C5174731")
+				(value "C2984829")
 			)
 			(property
 				(name "MPN")
-				(value "SMAJ5.0CA")
+				(value "LKS05D3-B")
 			)
 			(property
 				(name "Manufacturer")
-				(value "JSCJ")
+				(value "LANKE")
 			)
 			(property
 				(name "Sheetname")
@@ -6780,23 +6780,23 @@
 		)
 		(comp
 			(ref "D_TVS9")
-			(value "SMAJ5.0CA")
-			(footprint "Diode_SMD:D_SMA")
-			(description "400W 5V bidirectional TVS, per-cell sense clamp")
+			(value "LKS05D3-B")
+			(footprint "Diode_SMD:D_SOD-323")
+			(description "480W 5V bidirectional TVS (SOD-323), per-cell sense clamp at J1")
 			(fields
 				(field
-					(name "LCSC") "C5174731")
+					(name "LCSC") "C2984829")
 				(field
-					(name "MPN") "SMAJ5.0CA")
+					(name "MPN") "LKS05D3-B")
 				(field
-					(name "Manufacturer") "JSCJ")
+					(name "Manufacturer") "LANKE")
 				(field
-					(name "Footprint") "Diode_SMD:D_SMA")
+					(name "Footprint") "Diode_SMD:D_SOD-323")
 				(field
 					(name "Datasheet")
 				)
 				(field
-					(name "Description") "400W 5V bidirectional TVS, per-cell sense clamp")
+					(name "Description") "480W 5V bidirectional TVS (SOD-323), per-cell sense clamp at J1")
 			)
 			(libsource
 				(lib "Device")
@@ -6805,15 +6805,15 @@
 			)
 			(property
 				(name "LCSC")
-				(value "C5174731")
+				(value "C2984829")
 			)
 			(property
 				(name "MPN")
-				(value "SMAJ5.0CA")
+				(value "LKS05D3-B")
 			)
 			(property
 				(name "Manufacturer")
-				(value "JSCJ")
+				(value "LANKE")
 			)
 			(property
 				(name "Sheetname")
@@ -6852,23 +6852,23 @@
 		)
 		(comp
 			(ref "D_TVS10")
-			(value "SMAJ5.0CA")
-			(footprint "Diode_SMD:D_SMA")
-			(description "400W 5V bidirectional TVS, per-cell sense clamp")
+			(value "LKS05D3-B")
+			(footprint "Diode_SMD:D_SOD-323")
+			(description "480W 5V bidirectional TVS (SOD-323), per-cell sense clamp at J1")
 			(fields
 				(field
-					(name "LCSC") "C5174731")
+					(name "LCSC") "C2984829")
 				(field
-					(name "MPN") "SMAJ5.0CA")
+					(name "MPN") "LKS05D3-B")
 				(field
-					(name "Manufacturer") "JSCJ")
+					(name "Manufacturer") "LANKE")
 				(field
-					(name "Footprint") "Diode_SMD:D_SMA")
+					(name "Footprint") "Diode_SMD:D_SOD-323")
 				(field
 					(name "Datasheet")
 				)
 				(field
-					(name "Description") "400W 5V bidirectional TVS, per-cell sense clamp")
+					(name "Description") "480W 5V bidirectional TVS (SOD-323), per-cell sense clamp at J1")
 			)
 			(libsource
 				(lib "Device")
@@ -6877,15 +6877,15 @@
 			)
 			(property
 				(name "LCSC")
-				(value "C5174731")
+				(value "C2984829")
 			)
 			(property
 				(name "MPN")
-				(value "SMAJ5.0CA")
+				(value "LKS05D3-B")
 			)
 			(property
 				(name "Manufacturer")
-				(value "JSCJ")
+				(value "LANKE")
 			)
 			(property
 				(name "Sheetname")
@@ -6924,23 +6924,23 @@
 		)
 		(comp
 			(ref "D_TVS11")
-			(value "SMAJ5.0CA")
-			(footprint "Diode_SMD:D_SMA")
-			(description "400W 5V bidirectional TVS, per-cell sense clamp")
+			(value "LKS05D3-B")
+			(footprint "Diode_SMD:D_SOD-323")
+			(description "480W 5V bidirectional TVS (SOD-323), per-cell sense clamp at J1")
 			(fields
 				(field
-					(name "LCSC") "C5174731")
+					(name "LCSC") "C2984829")
 				(field
-					(name "MPN") "SMAJ5.0CA")
+					(name "MPN") "LKS05D3-B")
 				(field
-					(name "Manufacturer") "JSCJ")
+					(name "Manufacturer") "LANKE")
 				(field
-					(name "Footprint") "Diode_SMD:D_SMA")
+					(name "Footprint") "Diode_SMD:D_SOD-323")
 				(field
 					(name "Datasheet")
 				)
 				(field
-					(name "Description") "400W 5V bidirectional TVS, per-cell sense clamp")
+					(name "Description") "480W 5V bidirectional TVS (SOD-323), per-cell sense clamp at J1")
 			)
 			(libsource
 				(lib "Device")
@@ -6949,15 +6949,15 @@
 			)
 			(property
 				(name "LCSC")
-				(value "C5174731")
+				(value "C2984829")
 			)
 			(property
 				(name "MPN")
-				(value "SMAJ5.0CA")
+				(value "LKS05D3-B")
 			)
 			(property
 				(name "Manufacturer")
-				(value "JSCJ")
+				(value "LANKE")
 			)
 			(property
 				(name "Sheetname")
@@ -6996,23 +6996,23 @@
 		)
 		(comp
 			(ref "D_TVS12")
-			(value "SMAJ5.0CA")
-			(footprint "Diode_SMD:D_SMA")
-			(description "400W 5V bidirectional TVS, per-cell sense clamp")
+			(value "LKS05D3-B")
+			(footprint "Diode_SMD:D_SOD-323")
+			(description "480W 5V bidirectional TVS (SOD-323), per-cell sense clamp at J1")
 			(fields
 				(field
-					(name "LCSC") "C5174731")
+					(name "LCSC") "C2984829")
 				(field
-					(name "MPN") "SMAJ5.0CA")
+					(name "MPN") "LKS05D3-B")
 				(field
-					(name "Manufacturer") "JSCJ")
+					(name "Manufacturer") "LANKE")
 				(field
-					(name "Footprint") "Diode_SMD:D_SMA")
+					(name "Footprint") "Diode_SMD:D_SOD-323")
 				(field
 					(name "Datasheet")
 				)
 				(field
-					(name "Description") "400W 5V bidirectional TVS, per-cell sense clamp")
+					(name "Description") "480W 5V bidirectional TVS (SOD-323), per-cell sense clamp at J1")
 			)
 			(libsource
 				(lib "Device")
@@ -7021,15 +7021,15 @@
 			)
 			(property
 				(name "LCSC")
-				(value "C5174731")
+				(value "C2984829")
 			)
 			(property
 				(name "MPN")
-				(value "SMAJ5.0CA")
+				(value "LKS05D3-B")
 			)
 			(property
 				(name "Manufacturer")
-				(value "JSCJ")
+				(value "LANKE")
 			)
 			(property
 				(name "Sheetname")
@@ -7068,23 +7068,23 @@
 		)
 		(comp
 			(ref "D_TVS13")
-			(value "SMAJ5.0CA")
-			(footprint "Diode_SMD:D_SMA")
-			(description "400W 5V bidirectional TVS, per-cell sense clamp")
+			(value "LKS05D3-B")
+			(footprint "Diode_SMD:D_SOD-323")
+			(description "480W 5V bidirectional TVS (SOD-323), per-cell sense clamp at J1")
 			(fields
 				(field
-					(name "LCSC") "C5174731")
+					(name "LCSC") "C2984829")
 				(field
-					(name "MPN") "SMAJ5.0CA")
+					(name "MPN") "LKS05D3-B")
 				(field
-					(name "Manufacturer") "JSCJ")
+					(name "Manufacturer") "LANKE")
 				(field
-					(name "Footprint") "Diode_SMD:D_SMA")
+					(name "Footprint") "Diode_SMD:D_SOD-323")
 				(field
 					(name "Datasheet")
 				)
 				(field
-					(name "Description") "400W 5V bidirectional TVS, per-cell sense clamp")
+					(name "Description") "480W 5V bidirectional TVS (SOD-323), per-cell sense clamp at J1")
 			)
 			(libsource
 				(lib "Device")
@@ -7093,15 +7093,15 @@
 			)
 			(property
 				(name "LCSC")
-				(value "C5174731")
+				(value "C2984829")
 			)
 			(property
 				(name "MPN")
-				(value "SMAJ5.0CA")
+				(value "LKS05D3-B")
 			)
 			(property
 				(name "Manufacturer")
-				(value "JSCJ")
+				(value "LANKE")
 			)
 			(property
 				(name "Sheetname")
@@ -7140,23 +7140,23 @@
 		)
 		(comp
 			(ref "D_TVS14")
-			(value "SMAJ5.0CA")
-			(footprint "Diode_SMD:D_SMA")
-			(description "400W 5V bidirectional TVS, per-cell sense clamp")
+			(value "LKS05D3-B")
+			(footprint "Diode_SMD:D_SOD-323")
+			(description "480W 5V bidirectional TVS (SOD-323), per-cell sense clamp at J1")
 			(fields
 				(field
-					(name "LCSC") "C5174731")
+					(name "LCSC") "C2984829")
 				(field
-					(name "MPN") "SMAJ5.0CA")
+					(name "MPN") "LKS05D3-B")
 				(field
-					(name "Manufacturer") "JSCJ")
+					(name "Manufacturer") "LANKE")
 				(field
-					(name "Footprint") "Diode_SMD:D_SMA")
+					(name "Footprint") "Diode_SMD:D_SOD-323")
 				(field
 					(name "Datasheet")
 				)
 				(field
-					(name "Description") "400W 5V bidirectional TVS, per-cell sense clamp")
+					(name "Description") "480W 5V bidirectional TVS (SOD-323), per-cell sense clamp at J1")
 			)
 			(libsource
 				(lib "Device")
@@ -7165,15 +7165,15 @@
 			)
 			(property
 				(name "LCSC")
-				(value "C5174731")
+				(value "C2984829")
 			)
 			(property
 				(name "MPN")
-				(value "SMAJ5.0CA")
+				(value "LKS05D3-B")
 			)
 			(property
 				(name "Manufacturer")
-				(value "JSCJ")
+				(value "LANKE")
 			)
 			(property
 				(name "Sheetname")

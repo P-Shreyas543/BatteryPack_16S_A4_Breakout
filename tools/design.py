@@ -63,8 +63,8 @@ CAT = {
                "Miniature test loop, black (cell -)"),
     "pptc": ("Device:Polyfuse", "MF-MSMF010-2 60V/0.1A", FP["pptc1812"], "C12430",
              "MF-MSMF010-2", "BOURNS", "PPTC 60V 100mA hold (rated above 14S max 58.8V)"),
-    "tvs5": ("Device:D_TVS", "SMAJ5.0CA", FP["sma"], "C5174731", "SMAJ5.0CA", "JSCJ",
-             "400W 5V bidirectional TVS, per-cell sense clamp"),
+    "tvs5": ("Device:D_TVS", "LKS05D3-B", FP["sod323"], "C2984829", "LKS05D3-B", "LANKE",
+             "480W 5V bidirectional TVS (SOD-323), per-cell sense clamp at J1"),
     "ntc": ("Device:Thermistor_NTC", "10k B3950 1%", FP["ntc"], "C13879", "MF52A103F3950",
             "Nanjing Shiheng", "10k NTC bead, B=3950, saddle between two cells"),
     "xh15": ("Connector_Generic:Conn_01x15", "B15B-XH-A", FP["xh15"], "C158020",
@@ -97,9 +97,8 @@ SHEETS = [
     ("05_Mechanical_and_Hardware", "MECHANICAL: MOUNTING HOLES & FIDUCIALS"),
 ]
 
-# NTC i sits between cells NTC_CELLS[i]; numbered along the series path
-# (left column top->bottom, then right column bottom->top)
-NTC_CELLS = [(1, 2), (3, 4), (5, 6), (6, 7), (9, 10), (11, 12), (13, 14)]
+# NTC i sits between cells NTC_CELLS[i]; numbered top->bottom, left column then right column
+NTC_CELLS = [(1, 2), (3, 4), (5, 6), (6, 7), (13, 14), (11, 12), (9, 10)]
 
 
 def build():

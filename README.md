@@ -4,35 +4,36 @@ KiCad 10 project for a 14S (58.8 V max, 50.4 V nominal) 18650 battery pack on a 
 
 ![top](docs/board_top.png)
 
-## What's on the board
-| Block | Parts (all JLCPCB / LCSC) |
+## Layout architecture
+- **Cells:** two mirrored columns of 7. Cells 1–7 run down the left column and cells 8–14 up the right. Every row uses the same **27.6 mm pitch**, so every cell has a 4.8 mm air gap on each side.
+- **Equal cell-to-cell resistance (ACIR):** all 13 cell-to-cell links are the same copper strap on F.Cu and B.Cu. The 12 in-column straps are identical 10 mm bars at the holder ends. The cell 7→8 strap across the channel is widened to 16.15 mm so its resistance matches. Checked with a 2-D field solve (`tools/acir.py`, result in `docs/acir_check.txt`): **0.260 mΩ per link, 0.08 % spread**.
+- **Centre channel = sense spine.** Each cell node has its own 60 V PPTC right next to it. One routed bus on In1 carries all 15 taps up to J1. NTC pairs run on In2.
+- **Top edge = every connection.** Left to right: B− lug · HV indicator + pack TVS · **J1 balance** (centred) · **J2 NTC** · PACK+ lug · fuse.
+- **Outer margins = per-cell service area.** Red/black test loops, the reverse-cell LED, and a writable box for cell voltage / IR.
+
+## Parts (all JLCPCB / LCSC)
+| Block | Parts |
 |---|---|
-| 14 cells | BH-18650-B1BA002 SMT holders `C2988620`. Two mirrored columns of 7: cells 1–7 run down the left, a bottom bus links cell 7 to cell 8, and cells 8–14 run up the right. |
-| Per cell | Red (+) / black (−) Keystone 5000/5001 test loops (`C5199900` / `C238122`). Zero-drain reverse-insertion indicator: 1k `C17513`, red LED `C84256`, 1N4148WS `C2128`. |
-| BMS cell sense **J1** | JST XH **B15B-XH-A** `C158020`. Pin 1 = B−, pin 15 = C14+. Each tap has a 60 V PPTC MF-MSMF010-2 `C12430` and a SMAJ5.0CA TVS `C5174731` across every cell. |
-| Temperature **J2** | JST XH **B14B-XH-A** `C158022` with **7× 10k B3950 NTC** MF52A103F3950 `C13879`. Each NTC is a saddle between a pair of cells. Pins 2n−1/2n = NTCn. |
-| Power path | CELL_14 → F1 5×20 mm holder FH1-200CK-B `C268205` (fit a 10 A fuse) → PACK+ M4 lug (J3). Cell 1 negative → PACK− M4 lug (J4). Both lugs are T44009 `C481463`. SMCJ70CA `C840779` clamp. |
-| Indicators | HV-present LED (on above ~44 V: BZX84C43 + MMBTA42 + 22k/1206). Fuse-blown amber LED across F1. |
+| Cell holders | BH-18650-B1BA002 `C2988620` |
+| Per cell | Keystone 5000/5001 test loops (`C5199900` / `C238122`). Reverse-cell LED: 1k `C17513` + red LED `C84256` + 1N4148WS `C2128`. |
+| J1 BMS balance | JST XH **B15B-XH-A** `C158020`. Pin 1 = B−, pin 15 = C14+. |
+| Tap protection | MF-MSMF010-2 60 V PPTC `C12430` at every node. LKS05D3-B 5 V bidirectional TVS (SOD-323) `C2984829` across every cell, directly under J1. |
+| J2 BMS NTC | JST XH **B14B-XH-A** `C158022` with 7× 10k B3950 NTC `C13879` saddled between cells. Pins 2n−1/2n = NTCn. |
+| Power path | 5×20 fuse holder `C268205` (fit 10 A), M4 lugs T44009 `C481463`, SMCJ70CA `C840779` |
 
-NTC map, numbered along the series path: NTC1 = cells 1/2, NTC2 = 3/4, NTC3 = 5/6, NTC4 = 6/7, NTC5 = 9/10, NTC6 = 11/12, NTC7 = 13/14. The gap between cells 8 and 9 has the same spacing, but no NTC is fitted there.
+NTC map (numbered top to bottom, left column then right): NTC1 = C1/C2, NTC2 = C3/C4, NTC3 = C5/C6, NTC4 = C6/C7, NTC5 = C13/C14, NTC6 = C11/C12, NTC7 = C9/C10.
 
-## How to connect (everything is on the top edge)
-Left to right along the top edge: **J2 NTC** · **B− lug (J4)** · **J1 balance** · **PACK+ lug (J3)** · **F1 fuse**
-
-1. Plug the BMS balance lead into **J1**. The B− wire goes on pin 1 (left end) and C14+ on pin 15.
-2. Plug the BMS NTC lead into **J2** (pins 2n−1/2n = NTCn), or leave it unplugged.
+## How to connect
+1. Plug the BMS balance lead into **J1** (B− wire on pin 1).
+2. Plug the BMS NTC lead into **J2**, or leave it unplugged.
 3. Connect the **B− lug** to the BMS B− pad, and the **PACK+ lug** to the load or charger +.
 4. Connect the load or charger − to the BMS P−.
-5. Insert the cells last. A red LED next to a cell means that cell is in backwards. The red and black test loops beside each cell are its + and −.
-
-The same steps are printed on the board's silkscreen, in the centre channel.
+5. Insert the cells last. A red LED beside a cell means it is in backwards.
 
 ## Files
-- Connectors are top-entry JST XH. Side-entry S15B-XH-A (`C157935`) is out of stock at LCSC, so the top-entry headers sit right on the top edge and the cables leave over the edge.
-- `fab/BatteryPack_14S_A4_gerbers.zip`: Gerbers and drill files for JLCPCB (4 layers, 1.6 mm, 2 oz outer recommended).
-- `fab/JLCPCB_BOM.csv`, `fab/JLCPCB_CPL.csv`: assembly files. Check part rotations in JLC's preview.
+- `fab/BatteryPack_14S_A4_gerbers.zip`, `fab/JLCPCB_BOM.csv`, `fab/JLCPCB_CPL.csv`: fabrication and assembly files. Check part rotations in JLC's preview.
 - `fab/erc.rpt`, `fab/drc.rpt`: 0 ERC violations, 0 DRC violations, 0 unconnected items, 0 schematic-parity issues.
-- `docs/BatteryPack_14S_Schematic.pdf`: the full schematic.
-- `tools/`: the generators. `design.py` is the single source of truth for parts and nets. To rebuild everything, run `tools/build.sh` in the `kicad/kicad:10.0` docker image.
+- `docs/`: schematic PDF, renders, and the ACIR check.
+- `tools/`: generators. `design.py` holds the parts and nets, `geom.py` the board geometry, `gen_sch.py` / `gen_pcb.py` build the files, and `acir.py` runs the link-resistance check. To rebuild everything, run `tools/build.sh` in the `kicad/kicad:10.0` docker image.
 
-Re-check LCSC stock before ordering. The holder (`C2988620`) and the test loops have the lowest stock.
+Side-entry XH headers (S15B) are out of stock at LCSC, so the top-entry headers sit right on the top edge. Re-check LCSC stock before ordering. The holder, the test loops and the SOD-323 TVS have the lowest stock.
