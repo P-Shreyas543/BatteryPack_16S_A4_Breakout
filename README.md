@@ -11,6 +11,12 @@ KiCad 10 project for a 14S (58.8 V max, 50.4 V nominal) 18650 battery pack on a 
 - **Top edge = every connection.** Left to right: B− lug · HV indicator + pack TVS · **J1 balance** (centred) · **J2 NTC** · PACK+ lug · fuse.
 - **Outer margins = per-cell service area.** Red/black test loops, the reverse-cell LED, and a writable box for cell voltage / IR.
 
+## Symmetry
+The board is mirror-symmetric about its vertical centre line. `tools/symcheck.py` lists every footprint without a same-type twin at the mirrored position:
+- Mirrored or on the centre line: all 14 holders, the cell straps, the per-cell LED/test-loop groups (the series order of each LED string is chosen so twins use the same parts), the 6 side NTCs, the 12 side PPTCs, the TVS chain under J1, the lugs, holes and fiducials. PPTC 7, NTC4 and J1 sit on the centre line.
+- One-of-a-kind, by design: the J2 NTC header (mirrored by the HV indicator + pack TVS block) and the single PACK+ fuse with its blown LED.
+- Cell polarity alternates down each column. Because the pack is one series string, the right column's polarity is the reverse of the left's.
+
 ## Parts (all JLCPCB / LCSC)
 | Block | Parts |
 |---|---|
@@ -21,7 +27,7 @@ KiCad 10 project for a 14S (58.8 V max, 50.4 V nominal) 18650 battery pack on a 
 | J2 BMS NTC | JST XH **B14B-XH-A** `C158022` with 7× 10k B3950 NTC `C13879` saddled between cells. Pins 2n−1/2n = NTCn. |
 | Power path | 5×20 fuse holder `C268205` (fit 10 A), M4 lugs T44009 `C481463`, SMCJ70CA `C840779` |
 
-NTC map (numbered top to bottom, left column then right): NTC1 = C1/C2, NTC2 = C3/C4, NTC3 = C5/C6, NTC4 = C6/C7, NTC5 = C13/C14, NTC6 = C11/C12, NTC7 = C9/C10.
+NTC map: NTC1 = C1/C2, NTC2 = C3/C4, NTC3 = C5/C6 (left column), **NTC4 = board centre line on the cell 7→8 bus**, NTC5 = C13/C14, NTC6 = C11/C12, NTC7 = C9/C10 (right column).
 
 ## How to connect
 1. Plug the BMS balance lead into **J1** (B− wire on pin 1).
@@ -34,6 +40,6 @@ NTC map (numbered top to bottom, left column then right): NTC1 = C1/C2, NTC2 = C
 - `fab/BatteryPack_14S_A4_gerbers.zip`, `fab/JLCPCB_BOM.csv`, `fab/JLCPCB_CPL.csv`: fabrication and assembly files. Check part rotations in JLC's preview.
 - `fab/erc.rpt`, `fab/drc.rpt`: 0 ERC violations, 0 DRC violations, 0 unconnected items, 0 schematic-parity issues.
 - `docs/`: schematic PDF, renders, and the ACIR check.
-- `tools/`: generators. `design.py` holds the parts and nets, `geom.py` the board geometry, `gen_sch.py` / `gen_pcb.py` build the files, and `acir.py` runs the link-resistance check. To rebuild everything, run `tools/build.sh` in the `kicad/kicad:10.0` docker image.
+- `tools/`: generators. `symcheck.py` runs the symmetry audit. `design.py` holds the parts and nets, `geom.py` the board geometry, `gen_sch.py` / `gen_pcb.py` build the files, and `acir.py` runs the link-resistance check. To rebuild everything, run `tools/build.sh` in the `kicad/kicad:10.0` docker image.
 
 Side-entry XH headers (S15B) are out of stock at LCSC, so the top-entry headers sit right on the top edge. Re-check LCSC stock before ordering. The holder, the test loops and the SOD-323 TVS have the lowest stock.

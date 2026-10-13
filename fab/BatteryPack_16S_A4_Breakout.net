@@ -2,7 +2,7 @@
 	(version "E")
 	(design
 		(source "/prj/BatteryPack_16S_A4_Breakout.kicad_sch")
-		(date "2026-10-13T01:57:50")
+		(date "2026-10-13T02:15:25")
 		(tool "Eeschema 10.0.6")
 		(sheet
 			(number "1")
@@ -10042,6 +10042,56 @@
 			)
 		)
 		(comp
+			(ref "FID4")
+			(value "Fiducial")
+			(footprint "Fiducial:Fiducial_1mm_Mask2mm")
+			(description "Assembly fiducial")
+			(fields
+				(field
+					(name "Footprint") "Fiducial:Fiducial_1mm_Mask2mm")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Assembly fiducial")
+			)
+			(libsource
+				(lib "Mechanical")
+				(part "Fiducial")
+				(description "Fiducial Marker")
+			)
+			(property
+				(name "Sheetname")
+				(value "05_Mechanical_and_Hardware")
+			)
+			(property
+				(name "Sheetfile")
+				(value "05_Mechanical_and_Hardware.kicad_sch")
+			)
+			(property
+				(name "exclude_from_bom")
+			)
+			(property
+				(name "ki_keywords")
+				(value "fiducial marker")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "Fiducial*")
+			)
+			(sheetpath
+				(names "/05_Mechanical_and_Hardware/")
+				(tstamps "/00000000-0000-0000-0000-000000000006/")
+			)
+			(tstamps "8a172c80-f62a-5daf-80de-a4cb44677b65")
+			(units
+				(unit
+					(name "A")
+					(pins)
+				)
+			)
+		)
+		(comp
 			(ref "H1")
 			(value "M3 ISO7380")
 			(footprint "MountingHole:MountingHole_3.2mm_M3_ISO7380")
@@ -11739,13 +11789,12 @@
 				(pintype "passive")
 			)
 			(node
-				(ref "D_REV1")
+				(ref "F_PTC2")
 				(pin "1")
-				(pinfunction "K_1")
 				(pintype "passive")
 			)
 			(node
-				(ref "F_PTC2")
+				(ref "R_REV1")
 				(pin "1")
 				(pintype "passive")
 			)
@@ -11790,13 +11839,14 @@
 				(pintype "passive")
 			)
 			(node
-				(ref "F_PTC3")
-				(pin "1")
+				(ref "D_REV3")
+				(pin "2")
+				(pinfunction "A_2")
 				(pintype "passive")
 			)
 			(node
-				(ref "R_REV3")
-				(pin "2")
+				(ref "F_PTC3")
+				(pin "1")
 				(pintype "passive")
 			)
 			(node
@@ -11829,13 +11879,12 @@
 				(pintype "passive")
 			)
 			(node
-				(ref "D_REV3")
+				(ref "F_PTC4")
 				(pin "1")
-				(pinfunction "K_1")
 				(pintype "passive")
 			)
 			(node
-				(ref "F_PTC4")
+				(ref "R_REV3")
 				(pin "1")
 				(pintype "passive")
 			)
@@ -11880,13 +11929,14 @@
 				(pintype "passive")
 			)
 			(node
-				(ref "F_PTC5")
-				(pin "1")
+				(ref "D_REV5")
+				(pin "2")
+				(pinfunction "A_2")
 				(pintype "passive")
 			)
 			(node
-				(ref "R_REV5")
-				(pin "2")
+				(ref "F_PTC5")
+				(pin "1")
 				(pintype "passive")
 			)
 			(node
@@ -11919,13 +11969,12 @@
 				(pintype "passive")
 			)
 			(node
-				(ref "D_REV5")
+				(ref "F_PTC6")
 				(pin "1")
-				(pinfunction "K_1")
 				(pintype "passive")
 			)
 			(node
-				(ref "F_PTC6")
+				(ref "R_REV5")
 				(pin "1")
 				(pintype "passive")
 			)
@@ -11970,13 +12019,14 @@
 				(pintype "passive")
 			)
 			(node
-				(ref "F_PTC7")
-				(pin "1")
+				(ref "D_REV7")
+				(pin "2")
+				(pinfunction "A_2")
 				(pintype "passive")
 			)
 			(node
-				(ref "R_REV7")
-				(pin "2")
+				(ref "F_PTC7")
+				(pin "1")
 				(pintype "passive")
 			)
 			(node
@@ -12009,13 +12059,12 @@
 				(pintype "passive")
 			)
 			(node
-				(ref "D_REV7")
+				(ref "F_PTC8")
 				(pin "1")
-				(pinfunction "K_1")
 				(pintype "passive")
 			)
 			(node
-				(ref "F_PTC8")
+				(ref "R_REV7")
 				(pin "1")
 				(pintype "passive")
 			)
@@ -12060,13 +12109,14 @@
 				(pintype "passive")
 			)
 			(node
-				(ref "F_PTC9")
-				(pin "1")
+				(ref "D_REV9")
+				(pin "2")
+				(pinfunction "A_2")
 				(pintype "passive")
 			)
 			(node
-				(ref "R_REV9")
-				(pin "2")
+				(ref "F_PTC9")
+				(pin "1")
 				(pintype "passive")
 			)
 			(node
@@ -12099,12 +12149,6 @@
 				(pintype "passive")
 			)
 			(node
-				(ref "D_REV9")
-				(pin "1")
-				(pinfunction "K_1")
-				(pintype "passive")
-			)
-			(node
 				(ref "F_PTC10")
 				(pin "1")
 				(pintype "passive")
@@ -12112,6 +12156,11 @@
 			(node
 				(ref "R_REV10")
 				(pin "2")
+				(pintype "passive")
+			)
+			(node
+				(ref "R_REV9")
+				(pin "1")
 				(pintype "passive")
 			)
 			(node
@@ -12150,13 +12199,14 @@
 				(pintype "passive")
 			)
 			(node
-				(ref "F_PTC11")
-				(pin "1")
+				(ref "D_REV11")
+				(pin "2")
+				(pinfunction "A_2")
 				(pintype "passive")
 			)
 			(node
-				(ref "R_REV11")
-				(pin "2")
+				(ref "F_PTC11")
+				(pin "1")
 				(pintype "passive")
 			)
 			(node
@@ -12189,13 +12239,12 @@
 				(pintype "passive")
 			)
 			(node
-				(ref "D_REV11")
+				(ref "F_PTC12")
 				(pin "1")
-				(pinfunction "K_1")
 				(pintype "passive")
 			)
 			(node
-				(ref "F_PTC12")
+				(ref "R_REV11")
 				(pin "1")
 				(pintype "passive")
 			)
@@ -12240,13 +12289,14 @@
 				(pintype "passive")
 			)
 			(node
-				(ref "F_PTC13")
-				(pin "1")
+				(ref "D_REV13")
+				(pin "2")
+				(pinfunction "A_2")
 				(pintype "passive")
 			)
 			(node
-				(ref "R_REV13")
-				(pin "2")
+				(ref "F_PTC13")
+				(pin "1")
 				(pintype "passive")
 			)
 			(node
@@ -12279,13 +12329,12 @@
 				(pintype "passive")
 			)
 			(node
-				(ref "D_REV13")
+				(ref "F_PTC14")
 				(pin "1")
-				(pinfunction "K_1")
 				(pintype "passive")
 			)
 			(node
-				(ref "F_PTC14")
+				(ref "R_REV13")
 				(pin "1")
 				(pintype "passive")
 			)
@@ -12347,18 +12396,18 @@
 		)
 		(net
 			(code "46")
-			(name "Net-(D_REV1-A)")
+			(name "Net-(D_REV1-K)")
 			(class "Default")
 			(node
 				(ref "D_REV1")
-				(pin "2")
-				(pinfunction "A_2")
+				(pin "1")
+				(pinfunction "K_1")
 				(pintype "passive")
 			)
 			(node
 				(ref "LED_REV1")
-				(pin "1")
-				(pinfunction "K_1")
+				(pin "2")
+				(pinfunction "A_2")
 				(pintype "passive")
 			)
 		)
@@ -12381,18 +12430,18 @@
 		)
 		(net
 			(code "48")
-			(name "Net-(D_REV3-A)")
+			(name "Net-(D_REV3-K)")
 			(class "Default")
 			(node
 				(ref "D_REV3")
-				(pin "2")
-				(pinfunction "A_2")
+				(pin "1")
+				(pinfunction "K_1")
 				(pintype "passive")
 			)
 			(node
 				(ref "LED_REV3")
-				(pin "1")
-				(pinfunction "K_1")
+				(pin "2")
+				(pinfunction "A_2")
 				(pintype "passive")
 			)
 		)
@@ -12415,18 +12464,18 @@
 		)
 		(net
 			(code "50")
-			(name "Net-(D_REV5-A)")
+			(name "Net-(D_REV5-K)")
 			(class "Default")
 			(node
 				(ref "D_REV5")
-				(pin "2")
-				(pinfunction "A_2")
+				(pin "1")
+				(pinfunction "K_1")
 				(pintype "passive")
 			)
 			(node
 				(ref "LED_REV5")
-				(pin "1")
-				(pinfunction "K_1")
+				(pin "2")
+				(pinfunction "A_2")
 				(pintype "passive")
 			)
 		)
@@ -12449,18 +12498,18 @@
 		)
 		(net
 			(code "52")
-			(name "Net-(D_REV7-A)")
+			(name "Net-(D_REV7-K)")
 			(class "Default")
 			(node
 				(ref "D_REV7")
-				(pin "2")
-				(pinfunction "A_2")
+				(pin "1")
+				(pinfunction "K_1")
 				(pintype "passive")
 			)
 			(node
 				(ref "LED_REV7")
-				(pin "1")
-				(pinfunction "K_1")
+				(pin "2")
+				(pinfunction "A_2")
 				(pintype "passive")
 			)
 		)
@@ -12483,18 +12532,18 @@
 		)
 		(net
 			(code "54")
-			(name "Net-(D_REV9-A)")
+			(name "Net-(D_REV9-K)")
 			(class "Default")
 			(node
 				(ref "D_REV9")
-				(pin "2")
-				(pinfunction "A_2")
+				(pin "1")
+				(pinfunction "K_1")
 				(pintype "passive")
 			)
 			(node
 				(ref "LED_REV9")
-				(pin "1")
-				(pinfunction "K_1")
+				(pin "2")
+				(pinfunction "A_2")
 				(pintype "passive")
 			)
 		)
@@ -12517,18 +12566,18 @@
 		)
 		(net
 			(code "56")
-			(name "Net-(D_REV11-A)")
+			(name "Net-(D_REV11-K)")
 			(class "Default")
 			(node
 				(ref "D_REV11")
-				(pin "2")
-				(pinfunction "A_2")
+				(pin "1")
+				(pinfunction "K_1")
 				(pintype "passive")
 			)
 			(node
 				(ref "LED_REV11")
-				(pin "1")
-				(pinfunction "K_1")
+				(pin "2")
+				(pinfunction "A_2")
 				(pintype "passive")
 			)
 		)
@@ -12551,18 +12600,18 @@
 		)
 		(net
 			(code "58")
-			(name "Net-(D_REV13-A)")
+			(name "Net-(D_REV13-K)")
 			(class "Default")
 			(node
 				(ref "D_REV13")
-				(pin "2")
-				(pinfunction "A_2")
+				(pin "1")
+				(pinfunction "K_1")
 				(pintype "passive")
 			)
 			(node
 				(ref "LED_REV13")
-				(pin "1")
-				(pinfunction "K_1")
+				(pin "2")
+				(pinfunction "A_2")
 				(pintype "passive")
 			)
 		)
@@ -12634,17 +12683,17 @@
 		)
 		(net
 			(code "63")
-			(name "Net-(LED_REV1-A)")
+			(name "Net-(LED_REV1-K)")
 			(class "Default")
 			(node
 				(ref "LED_REV1")
-				(pin "2")
-				(pinfunction "A_2")
+				(pin "1")
+				(pinfunction "K_1")
 				(pintype "passive")
 			)
 			(node
 				(ref "R_REV1")
-				(pin "1")
+				(pin "2")
 				(pintype "passive")
 			)
 		)
@@ -12666,17 +12715,17 @@
 		)
 		(net
 			(code "65")
-			(name "Net-(LED_REV3-A)")
+			(name "Net-(LED_REV3-K)")
 			(class "Default")
 			(node
 				(ref "LED_REV3")
-				(pin "2")
-				(pinfunction "A_2")
+				(pin "1")
+				(pinfunction "K_1")
 				(pintype "passive")
 			)
 			(node
 				(ref "R_REV3")
-				(pin "1")
+				(pin "2")
 				(pintype "passive")
 			)
 		)
@@ -12698,17 +12747,17 @@
 		)
 		(net
 			(code "67")
-			(name "Net-(LED_REV5-A)")
+			(name "Net-(LED_REV5-K)")
 			(class "Default")
 			(node
 				(ref "LED_REV5")
-				(pin "2")
-				(pinfunction "A_2")
+				(pin "1")
+				(pinfunction "K_1")
 				(pintype "passive")
 			)
 			(node
 				(ref "R_REV5")
-				(pin "1")
+				(pin "2")
 				(pintype "passive")
 			)
 		)
@@ -12730,17 +12779,17 @@
 		)
 		(net
 			(code "69")
-			(name "Net-(LED_REV7-A)")
+			(name "Net-(LED_REV7-K)")
 			(class "Default")
 			(node
 				(ref "LED_REV7")
-				(pin "2")
-				(pinfunction "A_2")
+				(pin "1")
+				(pinfunction "K_1")
 				(pintype "passive")
 			)
 			(node
 				(ref "R_REV7")
-				(pin "1")
+				(pin "2")
 				(pintype "passive")
 			)
 		)
@@ -12762,17 +12811,17 @@
 		)
 		(net
 			(code "71")
-			(name "Net-(LED_REV9-A)")
+			(name "Net-(LED_REV9-K)")
 			(class "Default")
 			(node
 				(ref "LED_REV9")
-				(pin "2")
-				(pinfunction "A_2")
+				(pin "1")
+				(pinfunction "K_1")
 				(pintype "passive")
 			)
 			(node
 				(ref "R_REV9")
-				(pin "1")
+				(pin "2")
 				(pintype "passive")
 			)
 		)
@@ -12794,17 +12843,17 @@
 		)
 		(net
 			(code "73")
-			(name "Net-(LED_REV11-A)")
+			(name "Net-(LED_REV11-K)")
 			(class "Default")
 			(node
 				(ref "LED_REV11")
-				(pin "2")
-				(pinfunction "A_2")
+				(pin "1")
+				(pinfunction "K_1")
 				(pintype "passive")
 			)
 			(node
 				(ref "R_REV11")
-				(pin "1")
+				(pin "2")
 				(pintype "passive")
 			)
 		)
@@ -12826,17 +12875,17 @@
 		)
 		(net
 			(code "75")
-			(name "Net-(LED_REV13-A)")
+			(name "Net-(LED_REV13-K)")
 			(class "Default")
 			(node
 				(ref "LED_REV13")
-				(pin "2")
-				(pinfunction "A_2")
+				(pin "1")
+				(pinfunction "K_1")
 				(pintype "passive")
 			)
 			(node
 				(ref "R_REV13")
-				(pin "1")
+				(pin "2")
 				(pintype "passive")
 			)
 		)
@@ -12864,6 +12913,12 @@
 				(ref "BT1")
 				(pin "2")
 				(pinfunction "-_2")
+				(pintype "passive")
+			)
+			(node
+				(ref "D_REV1")
+				(pin "2")
+				(pinfunction "A_2")
 				(pintype "passive")
 			)
 			(node
@@ -12909,11 +12964,6 @@
 			)
 			(node
 				(ref "R_HV_PD1")
-				(pin "2")
-				(pintype "passive")
-			)
-			(node
-				(ref "R_REV1")
 				(pin "2")
 				(pintype "passive")
 			)

@@ -97,8 +97,9 @@ SHEETS = [
     ("05_Mechanical_and_Hardware", "MECHANICAL: MOUNTING HOLES & FIDUCIALS"),
 ]
 
-# NTC i sits between cells NTC_CELLS[i]; numbered top->bottom, left column then right column
-NTC_CELLS = [(1, 2), (3, 4), (5, 6), (6, 7), (13, 14), (11, 12), (9, 10)]
+# NTC i sits between cells NTC_CELLS[i]: NTC1-3 left column (top->bottom), NTC4 on the board
+# centre line at the cell 7 -> cell 8 bus, NTC5-7 right column (top->bottom)
+NTC_CELLS = [(1, 2), (3, 4), (5, 6), (7, 8), (13, 14), (11, 12), (9, 10)]
 
 
 def build():
@@ -116,9 +117,16 @@ def build():
         add("BT%d" % n, "holder", {"1": pos, "2": neg}, sh)
         add("TP_P%d" % n, "tp_red", {"1": pos}, sh)
         add("TP_N%d" % n, "tp_blk", {"1": neg}, sh)
-        add("R_REV%d" % n, "r_rev", {"1": "REV%d_R" % n, "2": neg}, sh)
-        add("LED_REV%d" % n, "led_red", {"2": "REV%d_R" % n, "1": "REV%d_D" % n}, sh)  # 1=K 2=A
-        add("D_REV%d" % n, "d_rev", {"2": "REV%d_D" % n, "1": pos}, sh)  # 1=K 2=A
+        # series order is free; it is chosen per cell so that mirrored cells (n, 15-n) have
+        # the same part at the same place (the resistor always sits on the channel-side node)
+        if n % 2:   # + ... R -> LED -> D ... -
+            add("R_REV%d" % n, "r_rev", {"1": pos, "2": "REV%d_R" % n}, sh)
+            add("LED_REV%d" % n, "led_red", {"1": "REV%d_R" % n, "2": "REV%d_D" % n}, sh)  # 1=K 2=A
+            add("D_REV%d" % n, "d_rev", {"1": "REV%d_D" % n, "2": neg}, sh)
+        else:       # + ... D -> LED -> R ... -
+            add("R_REV%d" % n, "r_rev", {"1": "REV%d_R" % n, "2": neg}, sh)
+            add("LED_REV%d" % n, "led_red", {"2": "REV%d_R" % n, "1": "REV%d_D" % n}, sh)
+            add("D_REV%d" % n, "d_rev", {"2": "REV%d_D" % n, "1": pos}, sh)
 
     # ---- BMS sense: node -> PPTC -> J1 pin, TVS across adjacent sense lines
     for k in range(0, NCELLS + 1):
@@ -155,7 +163,7 @@ def build():
     # ---- mechanical
     for i in range(1, 7):
         add("H%d" % i, "hole", {}, 4)
-    for i in range(1, 4):
+    for i in range(1, 5):
         add("FID%d" % i, "fid", {}, 4)
     return parts
 

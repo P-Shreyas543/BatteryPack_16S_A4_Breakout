@@ -7552,7 +7552,7 @@
 		)
 		(uuid "4978faf7-5385-5c6c-90ce-183fbb8a1d2a")
 	)
-	(text "NTC4: saddle between cell 6 and cell 7"
+	(text "NTC4: centre line, on the cell 7 -> cell 8 bus"
 		(exclude_from_sim no)
 		(at 264.16 93.345 0)
 		(effects
@@ -7561,7 +7561,7 @@
 			)
 			(justify left top)
 		)
-		(uuid "973b554f-610c-5f5c-b3f6-ca715798b09c")
+		(uuid "71148c3c-e0d7-5a15-afcf-5ae24428fe7d")
 	)
 	(symbol
 		(lib_id "Device:Thermistor_NTC")

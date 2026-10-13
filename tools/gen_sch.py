@@ -211,13 +211,23 @@ def cell_sheet(sh, cells):
         sh.place(P[bt], x0 + 5.08, y0 + 20.32, 0, ref_off=(2.54, -1.27), val_off=(2.54, 1.27))
         sh.label(bt, "1", pos, 5.08)
         sh.label(bt, "2", neg, 5.08)
-        sh.place(P[d], x0 + 25.4, y0 + 5.08, 270, ref_off=(2.54, -1.27), val_off=(2.54, 1.27))
+        top, bot = (r, d) if n % 2 else (d, r)     # series order from + (top) to - (bottom)
+        sh.place(P[top], x0 + 25.4, y0 + 5.08, 0 if top == r else 270, ref_off=(2.54, -1.27), val_off=(2.54, 1.27))
         sh.place(P[led], x0 + 25.4, y0 + 20.32, 270, ref_off=(2.54, -1.27), val_off=(2.54, 1.27))
-        sh.place(P[r], x0 + 25.4, y0 + 35.56, 0, ref_off=(2.54, -1.27), val_off=(2.54, 1.27))
-        sh.label(d, "1", pos, 5.08)
-        sh.connect(sh.pin(d, "2"), sh.pin(led, "1"))
-        sh.connect(sh.pin(led, "2"), sh.pin(r, "1"))
-        sh.label(r, "2", neg, 5.08)
+        sh.place(P[bot], x0 + 25.4, y0 + 35.56, 0 if bot == r else 270, ref_off=(2.54, -1.27), val_off=(2.54, 1.27))
+        chain = [top, led, bot]
+        # connect consecutive parts through their shared net, labels at the two ends
+        for ref in (top,):
+            q = [k for k, v in P[ref]["pins"].items() if v == pos][0]
+            sh.label(ref, q, pos, 5.08)
+        for u, v in zip(chain, chain[1:]):
+            shared = set(P[u]["pins"].values()) & set(P[v]["pins"].values())
+            netn = shared.pop()
+            pu = [k for k, x in P[u]["pins"].items() if x == netn][0]
+            pv = [k for k, x in P[v]["pins"].items() if x == netn][0]
+            sh.connect(sh.pin(u, pu), sh.pin(v, pv))
+        q = [k for k, v in P[bot]["pins"].items() if v == neg][0]
+        sh.label(bot, q, neg, 5.08)
         sh.place(P[tpp], x0 + 43.18, y0 + 2.54, 0, ref_off=(2.54, -3.81), val_off=(2.54, -1.27))
         sh.place(P[tpn], x0 + 43.18, y0 + 27.94, 0, ref_off=(2.54, -3.81), val_off=(2.54, -1.27))
         sh.label(tpp, "1", pos, 5.08)
@@ -258,7 +268,8 @@ for i in range(design.NNTC):
     s.label(th, "1", "NTC%d_A" % (i + 1), 5.08)
     s.label(th, "2", "NTC%d_B" % (i + 1), 5.08)
     a, b = design.NTC_CELLS[i]
-    s.text("NTC%d: saddle between cell %d and cell %d" % (i + 1, a, b), 264.16, y - 0.635, 1.27)
+    s.text(("NTC%d: centre line, on the cell %d -> cell %d bus" if i == 3 else
+            "NTC%d: saddle between cell %d and cell %d") % (i + 1, a, b), 264.16, y - 0.635, 1.27)
 s.place(P["J2"], 340.36, 109.22, 0, ref_off=(-2.54, -20.32), val_off=(-2.54, 20.32))
 for i in range(14):
     s.label("J2", str(i + 1), P["J2"]["pins"][str(i + 1)], 5.08)
@@ -309,10 +320,10 @@ s.connect(s.pin("R_HV_LED1", "2"), s.pin("LED_HV1", "2"))
 # ---- mechanical
 s = sheets[4]
 s.text("MECHANICAL: 6x M3 holes (use nylon standoffs/screws - copper keep-out around each),\n"
-       "3x fiducials for JLCPCB SMT assembly.", 25.4, 22.86, 1.524, True)
+       "4x fiducials (one per corner) for JLCPCB SMT assembly.", 25.4, 22.86, 1.524, True)
 for i in range(6):
     s.place(P["H%d" % (i + 1)], 50.8 + i * 25.4, 76.2, 0, ref_off=(-2.54, -5.08), val_off=(-2.54, 5.08))
-for i in range(3):
+for i in range(4):
     s.place(P["FID%d" % (i + 1)], 50.8 + i * 25.4, 114.3, 0, ref_off=(-2.54, -5.08), val_off=(-2.54, 5.08))
 
 # ------------------------------------------------------------------ write

@@ -285,17 +285,17 @@ for xx in (XL + geom.PAD_X + 6.5, XR - geom.PAD_X - 6.5):
         via(N(7), xx, ROWY[6] + dy, 0.8, 0.4)
 
 # pack terminals: B- (cell 1 -) top-left corner, cell 14 (+) top-right corner -> fuse -> PACK+
-B_NEG_F = [(21, 1), (127, 1), (127, 9.4), (76, 9.4), (76, 16), (56, 16), (56, 25.12), (69.5, 25.12),
+B_NEG_F = [(21, 1), (127, 1), (127, 9.4), (76, 9.4), (76, 14.5), (56, 14.5), (56, 25.12), (69.5, 25.12),
            (69.5, 33.72), (21, 33.72)]
-B_NEG_B = [(21, 1), (76, 1), (76, 16), (56, 16), (56, 25.12), (69.5, 25.12), (69.5, 33.72), (21, 33.72)]
+B_NEG_B = [(21, 1), (76, 1), (76, 14.5), (56, 14.5), (56, 25.12), (69.5, 25.12), (69.5, 33.72), (21, 33.72)]
 zone(design.PACK_NEG, B_NEG_F, layers=(F,))
 zone(design.PACK_NEG, B_NEG_B, layers=(B,))
 zone(design.TOP, [(276, 1), (255, 1), (255, 17.2), (241, 17.2), (241, 25.12), (227.5, 25.12),
                   (227.5, 33.72), (276, 33.72)])
-zone(design.PACK_POS, [(209, 1), (250, 1), (250, 14.5), (209, 14.5)], layers=(F,))
+zone(design.PACK_POS, [(170, 1), (250, 1), (250, 14.5), (221, 14.5), (221, 9.4), (170, 9.4)], layers=(F,))
 # PACK+ on B.Cu also runs west along the top band to feed the HV indicator / pack TVS
-zone(design.PACK_POS, [(97, 1), (127.6, 1), (127.6, 10.8), (209, 10.8), (209, 1), (250, 1),
-                       (250, 14.5), (97, 14.5)], layers=(B,))
+zone(design.PACK_POS, [(93.8, 1), (124.4, 1), (124.4, 10.8), (169.4, 10.8), (169.4, 1), (250, 1),
+                       (250, 14.5), (93.8, 14.5)], layers=(B,))
 
 HOLES = [(5, 5), (W - 5, 5), (5, H - 5), (W - 5, H - 5), (12.0, 98.42), (W - 12.0, 98.42)]
 for x, y in HOLES:
@@ -306,11 +306,12 @@ for n in range(1, design.NCELLS + 1):
     x, y = geom.cell_xy(n)
     place("BT%d" % n, x, y, geom.cell_rot(n), show_ref=False)
 
-NTC_AT = [("L", 1), ("L", 3), ("L", 5), ("L", 6), ("R", 1), ("R", 3), ("R", 5)]   # gap below row r
+NTC_AT = [("L", 1), ("L", 3), ("L", 5), ("C", 7), ("R", 1), ("R", 3), ("R", 5)]   # gap below row r
+Y_NTC_C = 205.6                                     # centre NTC, just below the cell 7 -> 8 strap
 NTC_POS = []
 for i, (sd, r) in enumerate(NTC_AT):
-    xc = XL if sd == "L" else XR
-    gy = round((ROWY[r - 1] + ROWY[r]) / 2, 3)
+    xc = {"L": XL, "R": XR, "C": geom.MX}[sd]
+    gy = Y_NTC_C if sd == "C" else round((ROWY[r - 1] + ROWY[r]) / 2, 3)
     place("TH%d" % (i + 1), xc - 1.27, gy, 0, show_ref=False)
     NTC_POS.append((sd, xc, gy))
 
@@ -339,9 +340,13 @@ for n in range(1, design.NCELLS + 1):
     ly = NODE[inner_node][1]
     s = 1 if ly > y else -1
     xt = sx(X_TRIAD)
-    chain = ["D_REV%d" % n, "LED_REV%d" % n, "R_REV%d" % n]      # + ... -
-    if not pos_inner:
-        chain.reverse()
+    # walk the R / LED / D string outwards from the channel-side node
+    chain, cur, left_parts = [], N(inner_node), ["R_REV%d" % n, "LED_REV%d" % n, "D_REV%d" % n]
+    while left_parts:
+        ref = [r for r in left_parts if cur in comps[r]["pins"].values()][0]
+        left_parts.remove(ref)
+        chain.append(ref)
+        cur = [v for v in comps[ref]["pins"].values() if v != cur][0]
     up_net = N(inner_node)
     prev = None
     for ref, yy in zip(chain, (y + 6.5 * s, y + 1.5 * s, y - 3.5 * s)):
@@ -394,9 +399,7 @@ place("J1", XPIN[0], 5.5, 0, show_ref=False)
 
 
 def bus_x(k):
-    if k <= 7:
-        return X_BUS0 + BUS_P * (k - 1)
-    return W - (X_BUS0 + BUS_P * (13 - k))
+    return geom.MX + BUS_P * (k - 7)          # symmetric about the centre line, tap 7 on it
 
 
 def bus_up(k, x0, y0):
@@ -410,7 +413,7 @@ def bus_up(k, x0, y0):
 for k in range(1, 14):
     kind, ly = NODE[k]
     side = "L" if k <= 7 else "R"
-    xp = mirror(X_PTC, side)
+    xp = geom.MX if k == 7 else mirror(X_PTC, side)
     f = "F_PTC%d" % (k + 1)
     if k == 7:
         yc = ROWY[6] - geom.W_H / 2 - 3.6
@@ -453,8 +456,19 @@ for k, side in ((0, "L"), (14, "R")):
     track(bms, I1, 0.25, [(vx, vy), (vx, Y_TAPLANE), (XPIN[k], Y_TAPLANE), (XPIN[k], Y_VIA_J1)])
 
 # J1 lanes: pin -> two staggered rows of SOD-323 TVS -> via
+Y_TVS_A, Y_TVS_B = 12.6, 15.0
 for k in range(1, 15):
-    place("D_TVS%d" % k, XPIN[k - 1] + 1.25, 12.6 if k % 2 == 0 else 15.0, 0, show_ref=False)
+    t = "D_TVS%d" % k
+    m = min(k, 15 - k)                       # k and 15-k are mirror partners
+    if m == 7:                               # centre pair: vertical, pad on lane 7 at the top
+        xc = XPIN[7] + (-1.1 if k == 7 else 1.1)
+        yc = (Y_TVS_A + Y_TVS_B) / 2
+        pp = place_rot(t, xc, yc, (comps["J1"]["pins"]["8"], -1))
+        for q, v in pp.items():
+            lane = [j for j in range(15) if comps["J1"]["pins"][str(j + 1)] == comps[t]["pins"][q]][0]
+            track(comps[t]["pins"][q], F, 0.3, [v, (XPIN[lane], v[1])])
+    else:
+        place(t, XPIN[k - 1] + 1.25, Y_TVS_B if (7 - m) % 2 == 1 else Y_TVS_A, 0, show_ref=False)
 for k in range(15):
     bms = comps["J1"]["pins"][str(k + 1)]
     track(bms, F, 0.3, [pad("J1", str(k + 1)), (XPIN[k], Y_VIA_J1)])
@@ -468,6 +482,12 @@ for i, (sd, xc, gy) in enumerate(NTC_POS):
     th = "TH%d" % (i + 1)
     a, b = pad(th, "1"), pad(th, "2")
     na, nb = comps[th]["pins"]["1"], comps[th]["pins"]["2"]
+    if sd == "C":
+        # centre NTC: straight up the middle of the channel, then to J2 pins 7/8
+        for pt, nt, xl, yl, pn in ((a, na, geom.MX - 0.65, 14.3, "7"), (b, nb, geom.MX + 0.65, 15.0, "8")):
+            pj = pad("J2", pn)
+            track(nt, I2, 0.25, [pt, (pt[0], gy - 1.4), (xl, gy - 2.0), (xl, yl), (pj[0], yl), pj])
+        continue
     for pt, nt, dy, j in ((a, na, -LG, 0), (b, nb, LG, 1)):
         if sd == "L":
             w = 2 * i + j
@@ -504,13 +524,13 @@ track(design.TOP, F, 0.4, [ptop, (256.0, ptop[1])])
 
 # HV-present indicator + pack TVS: top band, inside the PACK- copper, PACK+ through vias to B.Cu
 YH = 5.0
-place("D_HV1", 98.4, YH, 270, show_ref=False)          # K south, A north-east
-place("R_HV_BASE1", 102.5, 4.06, 0, show_ref=False)
-place("R_HV_PD1", 102.5, 7.2, 270, show_ref=False)
-place("Q_HV1", 107.0, YH, 0, show_ref=False)
-place("LED_HV1", 111.0, YH, 0, show_ref=False)
-place("R_HV_LED1", 115.3, YH, 180, show_ref=False)
-place("D_TVS_MAIN1", 122.6, YH, 0, show_ref=False)
+place("D_HV1", 95.2, YH, 270, show_ref=False)          # K south, A north-east
+place("R_HV_BASE1", 99.3, 4.06, 0, show_ref=False)
+place("R_HV_PD1", 99.3, 7.2, 270, show_ref=False)
+place("Q_HV1", 103.8, YH, 0, show_ref=False)
+place("LED_HV1", 107.8, YH, 0, show_ref=False)
+place("R_HV_LED1", 112.1, YH, 180, show_ref=False)
+place("D_TVS_MAIN1", 119.4, YH, 0, show_ref=False)
 c = comps
 track(c["D_HV1"]["pins"]["1"], F, 0.3, [pad("D_HV1", "1"), pad("R_HV_BASE1", "1")])
 hb = c["Q_HV1"]["pins"]["1"]
@@ -532,24 +552,28 @@ for dx in (-0.9, 0.9):
 # ================================================================== mechanical
 for i, (x, y) in enumerate(HOLES):
     place("H%d" % (i + 1), x, y, 0, show_ref=False)
-for i, (x, y) in enumerate([(14.0, 3.4), (W - 14.0, 3.4), (14.0, H - 3.4)]):
+for i, (x, y) in enumerate([(14.0, 3.4), (W - 14.0, 3.4), (14.0, H - 3.4), (W - 14.0, H - 3.4)]):
     place("FID%d" % (i + 1), x, y, 0, show_ref=False)
 
 # ================================================================== silkscreen
 text("J1  BMS BALANCE   1 = B-  ...  15 = C14+", geom.MX, 20.2, 0.9)
-text("J2  BMS NTC   1-2 = NTC1  ...  13-14 = NTC7", XJ2 + 16.25, 11.6, 0.9)
+text("J2  BMS NTC  (7 sensors)", W - 102.0, 12.6, 1.2, bold=True)
+text("pins 2n-1 / 2n = NTCn   |   NTC4 = centre bus", W - 102.0, 14.9, 0.8)
 text("B- / PACK-", 67.0, 15.0, 1.3, bold=True)
 text("to BMS B-", 67.0, 17.0, 0.9)
 text("PACK+", W - 67.0, 15.2, 1.3, bold=True)
 text("to load / charger +", W - 67.0, 17.2, 0.9)
 text("F1  5x20  10A", 251.0, 15.6, 0.9)
 text("FUSE BLOWN", 252.4, 0.9, 0.8)
-text("HV>44V", 111.0, 1.2, 0.8)
+text("HV>44V", 107.8, 1.2, 0.8)
 text("14S 18650 BATTERY PACK BREAKOUT", 102.0, 12.6, 1.2, bold=True)
 text("58.8V MAX  |  A4  |  4-LAYER  |  EQUAL 0.26 mOhm CELL LINKS", 102.0, 14.9, 0.8)
 for i, (sd, xc, gy) in enumerate(NTC_POS):
     a, b = design.NTC_CELLS[i]
-    text("NTC%d  C%d/C%d" % (i + 1, a, b), xc + (9.0 if sd == "L" else 9.0), gy, 0.8)
+    if sd == "C":
+        text("NTC%d BUS" % (i + 1), xc + 5.5, gy, 0.8, just=-1)
+    else:
+        text("NTC%d  C%d/C%d" % (i + 1, a, b), xc + 9.0, gy, 0.8)
 guide = ["HOW TO CONNECT",
          "1. J1 <- BMS balance lead (B- wire = pin 1)",
          "2. J2 <- BMS NTC lead (optional)",
